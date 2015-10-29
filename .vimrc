@@ -68,6 +68,8 @@ Plug 'skalnik/vim-vroom' "Run your Ruby tests! Supports RSpec, Test::Unit/MiniTe
 Plug 'cmather/vim-meteor-snippets'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'bonsaiben/bootstrap-snippets'
+Plug 'rust-lang/rust.vim'
+Plug 'rhysd/vim-crystal'
 
 " Group dependencies, vim-snippets depends on ultisnips
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
