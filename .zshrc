@@ -5,7 +5,8 @@ export ZSH=/Users/renews/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="agnoster"
+DEFAULT_USER="renews"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -14,7 +15,7 @@ ZSH_THEME="robbyrussell"
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+export UPDATE_ZSH_DAYS=1
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -36,7 +37,7 @@ ZSH_THEME="robbyrussell"
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="dd.mm.yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -55,7 +56,7 @@ export PATH="/Users/renews/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # keybinding
 #bindkey -v
@@ -79,9 +80,35 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="udo vim ~/.oh-my-zsh"
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+alias cd.='cd ..'
+alias cd..='cd ..'
+alias k9='kill -9 %%'
+alias egrep='grep -E'
+alias fgrep='grep -F'
+alias ls='ls -FG'
+alias m='less'
+alias md='mkdir'
+alias p='pstree -p'
+alias sl='ls'
+alias tmp='cd /tmp'
+alias l='ls -la'
+alias dh='df -h'
+alias ds="du -hs * | sort -h"
+alias rh= 'heroku restart -a'
+alias rs='rails s'
+alias rc='rails c'
+alias v='vim'
+alias vi='vim'
+alias testnet='wget http://cachefly.cachefly.net/400mb.test > /dev/null'
+alias filetree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/ /' -e 's/-/|/'"
+alias gcempty="git commit --allow-empty -m 'empty -- forcing deploy'"
+alias lusers="dscl . list /Users | grep -v '^_'"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
