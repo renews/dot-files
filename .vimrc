@@ -428,6 +428,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+" ignore errors for ionic tags
+let g:syntastic_html_tidy_ignore_errors = [ "<ion-", "discarding unexpected </ion-", " proprietary attribute \"ng-" ]
 
 " NERdTree - Open it automatically if no files specified.
 au StdinReadPre * let s:std_in=1
