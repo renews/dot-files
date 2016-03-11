@@ -27,17 +27,31 @@ if [ "$(uname -s)" == "Darwin" ]; then
   [ -z "$(which brew)" ] &&
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   
+  brew doctor
+  brew tap homebrew/dupes
   brew update
   brew install \
-    ag aget ant cmus coreutils cscope ctags \
-    cmake fish git gnuplot graphviz imagemagick \
-    maven memcached redis curl \
-    sl tmux reattach-to-user-namespace tree unrar vim wget zsh jq macvim
+    ag aget ant cmus binutils  coreutils cscope ctags \
+    cmake diffutils fish git gzip gnuplot graphviz imagemagick \
+    maven memcached redis curl watch htop gpg nmap wget watch \
+    sl tmux reattach-to-user-namespace tree unrar vim wget zsh jq macvim \
+    findutils --default-names \
+    gnu-sed --default-names \ 
+    gnu-tar --default-names \
+    gnu-which --default-names
   brew update
-  nrew upgrade
+  brew upgrade
   echo "Finished HOMEBREW process"
   echo "=========================================="
   
+  
+  echo "=========================================="
+  echo "Started Oh-MY-ZSH process "
+  #set default terminal to zsh
+  chsh -s $(which zsh)
+  curl -L http://install.ohmyz.sh | sh
+  echo "Finished Oh-MY-ZSH process"
+  echo "=========================================="
 
   read -r -p "Do you wanna install RBENV? [y/N] " resp_rbenv
   if [[ $resp_rbenv =~ ^([yY]|[sS])$ ]]
