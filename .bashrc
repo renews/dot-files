@@ -1,45 +1,46 @@
 export PATH=/usr/local/bin:$PATH
+#METEOR
 export PACKAGE_DIRS="$HOME/.meteor/packages"
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
-export PATH="$HOME/.rbenv/bin:$PATH"
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+export PATH="$HOME/.rbenv/bin:$PATH"
 # alias to love
 alias love="/Applications/love.app/Contents/MacOS/love"
 
 export PATH=${PATH}:/Users/renews/Desktop/AndroidSDK/sdk/tools
 
 
-DULL=0
-BRIGHT=1
+# DULL=0
+# BRIGHT=1
 
-FG_BLACK=30
-FG_RED=31
-FG_GREEN=32
-FG_YELLOW=33
-FG_BLUE=34
-FG_VIOLET=35
-FG_CYAN=36
-FG_WHITE=37
+# FG_BLACK=30
+# FG_RED=31
+# FG_GREEN=32
+# FG_YELLOW=33
+# FG_BLUE=34
+# FG_VIOLET=35
+# FG_CYAN=36
+# FG_WHITE=37
 
-FG_NULL=00
+# FG_NULL=00
 
-BG_BLACK=40
-BG_RED=41
-BG_GREEN=42
-BG_YELLOW=43
-BG_BLUE=44
-BG_VIOLET=45
-BG_CYAN=46
-BG_WHITE=47
+# BG_BLACK=40
+# BG_RED=41
+# BG_GREEN=42
+# BG_YELLOW=43
+# BG_BLUE=44
+# BG_VIOLET=45
+# BG_CYAN=46
+# BG_WHITE=47
 
-BG_NULL=00
+# BG_NULL=00
 
 ##
 # ANSI Escape Commands
 ##
-ESC="\033"
+# ESC="\033"
 # NORMAL="\[$ESC[m\]"
 # RESET="\[$ESC[${DULL};${FG_WHITE};${BG_NULL}m\]"
 
@@ -71,16 +72,7 @@ ESC="\033"
 # REV_CYAN="\[$ESC[${DULL};${BG_WHITE};${BG_CYAN}m\]"
 # REV_RED="\[$ESC[${DULL};${FG_YELLOW}; ${BG_RED}m\]"
 
-PROMPT_COMMAND='export ERR=$?'
-
-### Colored ls
-if [ -x /usr/bin/dircolors ]; then
-  eval "`dircolors -b`"
-  alias ls='ls --color=auto'
-  alias grep='grep --color=auto'
-elif [ "$PLATFORM" = Darwin ]; then
-  alias ls='ls -G'
-fi
+# PROMPT_COMMAND='export ERR=$?'
 
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -100,14 +92,16 @@ alias sl='ls'
 alias tmp='cd /tmp'
 alias l='ls -la'
 alias dh='df -h'
+alias ds="du -hs * | sort -h"
 alias rh= 'heroku restart -a'
 alias rs='rails s'
 alias rc='rails c'
 alias v='vim'
 alias vi='vim'
-
-export EDITOR=vim
-export LANG=en_US.UTF-8
+alias testnet='wget http://cachefly.cachefly.net/400mb.test > /dev/null'
+alias filetree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/ /' -e 's/-/|/'"
+alias gcempty="git commit --allow-empty -m 'empty -- forcing deploy'"
+alias lusers="dscl . list /Users | grep -v '^_'"
 
 export FZF_DEFAULT_OPTS="--extended --cycle"
 export PATH="$PATH:/path/to/elixir/bin"
