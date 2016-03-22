@@ -37,7 +37,7 @@ Plug 'junegunn/tmux-complete.vim' " Vim plugin for insert mode completion of wor
 Plug 'junegunn/vim-github-dashboard', { 'on': ['GHDashboard', 'GHActivity'] } "Browse GitHub events (user dashboard, user/repo activity) in Vim.
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' } "fzf is a general-purpose command-line fuzzy finder.
 Plug 'junegunn/fzf.vim'
-"Plug 'wakatime/vim-wakatime' "Vim plugin to quantify your coding with  automatic time tracking and metrics about your programming.
+Plug 'wakatime/vim-wakatime' "Vim plugin to quantify your coding with  automatic time tracking and metrics about your programming.
 Plug 'mattn/webapi-vim' " An Interface to WEB APIs.
 Plug 'mattn/gist-vim'
 Plug 'Raimondi/delimitMate' "This plug-in provides automatic closing of quotes, parenthesis, brackets, etc.
@@ -321,7 +321,7 @@ nnoremap <leader>yl "+yy<cr>
 " yank full file to clipboard
 nnoremap <leader>yf :%y+<cr>
 " paste from clipboard
-nnoremap <leader>p "+p<cr>
+nnoremap <leader>p "+p<cr><cr>
 
 " <ctrl-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <c-l> :nohl<cr><c-l>
@@ -440,8 +440,8 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_html_tidy_ignore_errors = [ "<ion-", "discarding unexpected </ion-", " proprietary attribute \"ng-" ]
 
 " NERdTree - Open it automatically if no files specified.
-au StdinReadPre * let s:std_in=1
-au VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" au StdinReadPre * let s:std_in=1
+" au VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let g:NERDTreeWinSize=31
 
 " Calendar
