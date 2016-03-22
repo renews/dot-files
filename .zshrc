@@ -7,7 +7,6 @@ export ZSH=/Users/renews/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="agnoster"
 DEFAULT_USER="renews"
-
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -46,7 +45,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git bower aws brew bundler common-aliases encode64 gem meteor node npm pip rails redis-cli ruby tmux temuxnator web-search)
 
 # User configuration
 
@@ -109,7 +108,9 @@ alias filetree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 
 alias gcempty="git commit --allow-empty -m 'empty -- forcing deploy' && ggpush"
 alias lusers="dscl . list /Users | grep -v '^_'"
 alias ion="ionic serve"
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+export NVM_DIR="/Users/renews/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
