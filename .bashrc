@@ -100,8 +100,9 @@ alias v='vim'
 alias vi='vim'
 alias testnet='wget http://cachefly.cachefly.net/400mb.test > /dev/null'
 alias filetree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/ /' -e 's/-/|/'"
-alias gcempty="git commit --allow-empty -m 'empty -- forcing deploy'"
+alias gcempty="git commit --allow-empty -m 'empty -- forcing deploy' && ggpush"
 alias lusers="dscl . list /Users | grep -v '^_'"
+alias ion="ionic serve"
 
 export FZF_DEFAULT_OPTS="--extended --cycle"
 export PATH="$PATH:/path/to/elixir/bin"
