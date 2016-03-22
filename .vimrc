@@ -143,6 +143,9 @@ set autoindent
 " coming from other editors would expect.
 " set nostartofline
 
+" improve performance on large files
+set re=1
+
 set showmode
 set showcmd " Show partial commands in the last line of the screen
 set hidden " window and switch from an unsaved buffer without saving it first
