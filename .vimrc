@@ -9,29 +9,29 @@ call plug#begin('~/.vim/plugged')
 " Essentials
 Plug 'junegunn/vim-easy-align' " A simple, easy-to-use Vim alignment plugin.
 Plug 'scrooloose/nerdtree' " NERD tree will be  loaded on the first invocation of NERDTreeToggle command
-Plug 'airblade/vim-gitgutter' " A Vim plugin which shows a git diff in the 'gutter' (sign column) 
+Plug 'airblade/vim-gitgutter' " A Vim plugin which shows a git diff in the 'gutter' (sign column)
 Plug 'scrooloose/syntastic' " Check for code error, amazing!
 Plug 'Xuyuanp/nerdtree-git-plugin' " A plugin of NERDTree showing git status flags
 Plug 'sjl/gundo.vim' " Gundo.vim is Vim plugin to visualize your Vim undo tree.
 Plug 'tpope/vim-fugitive' " GIT
-Plug 'jreybert/vimagit' " Another git plugin 
+Plug 'jreybert/vimagit' " Another git plugin
 Plug 'majutsushi/tagbar' "browse the tags of the current file and get an overview of its structure.
 Plug 'tpope/vim-sensible' " a universal set of defaults that (hopefully)  everyone can agree on.
 Plug 'ervandew/supertab' " Supertab is a vim plugin which allows you to use  <Tab> for all your insert completion needs (:help ins-completion).
-Plug 'bling/vim-airline' "Lean & mean status/tabline for vim that's light as air.
+Plug 'bling/vim-airline' "Lean & mean status/tabline for vim thats light as air.
 Plug 'bling/vim-bufferline' "Super simple vim plugin to show the list of buffers in the command bar.
-Plug 'terryma/vim-multiple-cursors' " Sublime Text's awesome multiple selection feature into Vim
-Plug 'tpope/vim-projectionist' " Projectionist provides granular project configuration using 'projections' 
+Plug 'terryma/vim-multiple-cursors' " Sublime Texts awesome multiple selection feature into Vim
+Plug 'tpope/vim-projectionist' " Projectionist provides granular project configuration using 'projections'
 Plug 'tpope/vim-surround'  "  Surround.vim is all about 'surroundings': parentheses, brackets, quotes, XML tags, and more.
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer'} "YouCompleteMe is a fast, as-you-type, fuzzy-search code completion engine for Vim. 
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer'} "YouCompleteMe is a fast, as-you-type, fuzzy-search code completion engine for Vim.
 Plug 'dkprice/vim-easygrep' "Fast and Easy Find and Replace Across Multiple Files
 Plug 'ctrlpvim/ctrlp.vim' "Amazing search plugin
 " Plug 'Yggdroot/indentLine' " display the indention levels with thin vertical lines
 
 " Utilities
-Plug 'tpope/vim-commentary' "Comment stuff out. 
+Plug 'tpope/vim-commentary' "Comment stuff out.
 Plug 'samsonw/vim-task' " Task manager
-Plug 'rizzatti/dash.vim' "If you're a Mac user, you might know Dash.app, a really well made documentation App. You can use this plugin to search in Dash via :Dash <keyword>, or just type :Dash to search for the word under your cursor.
+Plug 'rizzatti/dash.vim' "If youre a Mac user, you might know Dash.app, a really well made documentation App. You can use this plugin to search in Dash via :Dash <keyword>, or just type :Dash to search for the word under your cursor.
 Plug 'junegunn/vim-xmark', { 'do': 'make' } " Markdown preview on OS X
 Plug 'junegunn/tmux-complete.vim' " Vim plugin for insert mode completion of words in adjacent tmux panes
 Plug 'junegunn/vim-github-dashboard', { 'on': ['GHDashboard', 'GHActivity'] } "Browse GitHub events (user dashboard, user/repo activity) in Vim.
@@ -42,7 +42,7 @@ Plug 'mattn/webapi-vim' " An Interface to WEB APIs.
 Plug 'mattn/gist-vim'
 Plug 'Raimondi/delimitMate' "This plug-in provides automatic closing of quotes, parenthesis, brackets, etc.
 Plug 'itchyny/calendar.vim' "Calendar on vim?!
-" Leverage the power of Vim's compiler plugins without being bound by  synchronicity. Kick off builds and test suites using one of several
+" Leverage the power of Vims compiler plugins without being bound by  synchronicity. Kick off builds and test suites using one of several
 " asynchronous adapters (including tmux, screen, iTerm, Windows, and a headless  mode), and when the job completes, errors will be loaded and parsed
 " automatically.
 Plug 'tpope/vim-dispatch'
@@ -53,7 +53,7 @@ Plug 'habamax/vim-skipit' " While INSERT mode on press <CTRL-L>l to skip everyth
 Plug 'justinmk/vim-sneak' "Sneak is a minimalist, versatile Vim motion plugin that jumps to any location specified by two character
 
  " Asthetics
-Plug 'junegunn/rainbow_parentheses.vim' " color parentheses according to  depth
+Plug 'junegunn/rainbow_parentheses.vim' "color parentheses according to  depth
 Plug 'nathanaelkane/vim-indent-guides' "Indent Guides is a plugin for visually displaying indent levels in Vim.
 Plug 'ryanoasis/vim-devicons'
 
@@ -66,11 +66,11 @@ Plug 'burnettk/vim-angular'
 Plug 'matthewsimo/angular-vim-snippets'
 Plug 'pangloss/vim-javascript'
 Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'tpope/vim-endwise' 
+Plug 'tpope/vim-endwise'
 Plug 'slim-template/vim-slim'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'} " Sparkup lets you write HTML code faster
 Plug 'tpope/vim-bundler' " This is a lightweight bag of Vim goodies for Bundler
-Plug 'tpope/vim-rake' 
+Plug 'tpope/vim-rake'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rbenv'
 Plug 'tpope/vim-markdown' " sintax highlight for markdown
@@ -102,12 +102,12 @@ call plug#end()
 " Set 'nocompatible' to ward off unexpected things that your distro might
 " have made, as well as sanely reset options when re-sourcing .vimrc
 set nocompatible
-  
+
 " Attempt to determine the type of a file based on its name and possibly its
 " contents. Use this to allow intelligent auto-indenting for each filetype,
 " and for plugins that are filetype specific.
 filetype indent plugin on
-   
+
 " Enable syntax highlighting
 syntax on
 
@@ -133,15 +133,17 @@ set guifont=Menlo:h18
 set encoding=utf-8
 set scrolloff=3
 set undofile
-set sm   
+set undodir=~/.vim/undodir
+set sm
 " When opening a new line and no filetype-specific indenting is enabled, keep
-" the same indent as the line you're currently on. Useful for READMEs, etc.
+" the same indent as the line youre currently on. Useful for READMEs, etc.
 set autoindent
 
 " Stop certain movements from always going to the first character of a line.
 " While this behaviour deviates from that of Vi, it does what most users
 " coming from other editors would expect.
 " set nostartofline
+
 
 " improve performance on large files
 set re=1
@@ -201,7 +203,7 @@ set splitbelow
 set splitright
 
 au FocusLost * :wa "save on focus lost
-au VimEnter * call AirlineInit()
+" au VimEnter * call AirlineInit()
 
 " If on GUI and not on terminal
 if !has("gui_running") && $DISPLAY == '' || !has("gui")
@@ -243,6 +245,8 @@ endif
 " ===========
 " KEYBINDINGS
 " ===========
+imap <C-J> <Plug>snipMateNextOrTrigger
+smap <C-J> <Plug>snipMateNextOrTrigger
 
 " F1 ~ f12
 " map <F3> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR> "search word under cursor
@@ -250,7 +254,7 @@ endif
 nnoremap <F5> :GundoToggle<CR>
 nnoremap <F12> :Calendar<CR>
 
-" special char's 
+" special char's
 map ,v :sp ~/.vimrc<cr> " edit my .vimrc file in a split
 map ,e :e ~/.vimrc<cr>      " edit my .vimrc file
 map ,u :source ~/.vimrc<cr> " update the system settings from my vimrc file
@@ -265,7 +269,7 @@ cmap W w
 cmap Wq wq
 nnoremap Q <nop>
 vnoremap <c-r> :redo<CR>
-nnoremap <leader>s :set spell!
+" nnoremap <leader>s :set spell!
 " Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy,  which is the default
 map Y y$
 map <C-e> :NERDTreeToggle<CR>
@@ -286,45 +290,47 @@ vnoremap <silent> <C-Down> <c-w>j
 " leader shortcuts
 nnoremap <leader>, :bprevious<cr>
 nnoremap <leader>. :bnext<cr>
-nnoremap <leader>u :gundotoggle<cr>
-nnoremap <leader>w :%s/\s\+$//<cr>:let @/=''<cr>
-nnoremap <leader>a :ag
+nnoremap <leader>u :GundoToggle<cr>
+nnoremap <leader>x :%s/\s\+$//<cr>:let @/=''<cr>
+nnoremap <leader>a :Ag
 nnoremap <leader>ft vatzf
-nnoremap <leader>s ?{<cr>jv/^\s*\}?$<cr>k:sort<cr>:noh<cr>
+nnoremap <leader>b ?{<cr>jv/^\s*\}?$<cr>k:sort<cr>:noh<cr>
 nnoremap <leader>q gqip
-nnoremap <leader>a v`]y 
-nnoremap <leader>ev <c-w><c-v><c-l>:e $myvimrc<cr>
 
 " split window
-nnoremap <leader>d <c-w>v
-nnoremap <leader>d <c-w>s
+nnoremap <leader>v <c-w>v
+nnoremap <leader>s <c-w>s
 nnoremap <leader>w <c-w><c-w>
 
-nnoremap <leader>j vipj
 nnoremap <leader>q gqip
 nnoremap <leader>f 1z=
-nnoremap <leader>s ]s
-"nnoremap <leader>u :!git pull website master && git commit -am 'standard commit.' && git push website master<cr><cr>
-"nnoremap <leader>p :!git commit -am 'standard commit.' && git push origin "master<cr><cr>
-nnoremap <leader>p :!git commit -am 'updatefile.' && git push origin_hub master<cr><cr>
+
+" nnoremap <leader>s ]s
+
+" insert date
 nnoremap <leader>d :read !date<cr>
+
+" repeat last shell command 
 nnoremap <leader>r :!!<cr>
-nnoremap <leader>m :normal @a
-nnoremap <leader>l :ctrlpmixed<cr>
-nnoremap <leader>ca :%y+<cr>
+
+" select paragraph in visual mode
+nnoremap <leader>j vipj
+
+" yank line to clipboard
+nnoremap <leader>yl "+yy<cr>
+" yank full file to clipboard
+nnoremap <leader>yf :%y+<cr>
+" paste from clipboard
+nnoremap <leader>p "+p<cr>
 
 " <ctrl-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <c-l> :nohl<cr><c-l>
 
-nnoremap <leader>e :explore<cr><cr>
-nnoremap <leader>nt :NERDTree<CR>
+nnoremap <leader>e :Explore<cr><cr>
 nnoremap <leader>n :set nonumber!<CR>
 nnoremap <leader>rn :set norelativenumber!<CR>
 nnoremap <leader>pa :set nopaste!<CR>
 nnoremap <leader>rc :so $MYVIMRC<CR>
-"nnoremap <leader>b :BlogSave publish<CR>
-"nnoremap <leader>r :! /Users/daniel/Documents/whup.sh<CR><CR>
-nnoremap <leader>h :set ft=HTML<CR><CR>
 " Map :w
 
 set wm=10 " This sets the minimum window height to N
@@ -375,7 +381,7 @@ set background=dark
 let g:seoul256_background = 233
 " colo seoul256
 " colo solarized
-" colo molokai 
+" colo molokai
 colo railscasts
 
 
@@ -431,13 +437,12 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-" ignore errors for ionic tags
 let g:syntastic_html_tidy_ignore_errors = [ "<ion-", "discarding unexpected </ion-", " proprietary attribute \"ng-" ]
 
 " NERdTree - Open it automatically if no files specified.
 au StdinReadPre * let s:std_in=1
 au VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-let g:NERDTreeWinSize=31 
+let g:NERDTreeWinSize=31
 
 " Calendar
 let g:calendar_google_calendar = 1
@@ -467,7 +472,7 @@ let g:NERDTreeIndicatorMapCustom = {
 " ruby << EOF
 "   require 'json'
 "   require 'open-uri'
-  
+
 "   query = VIM::evaluate('prefix').gsub('/', '%20')
 "   items = 1.upto(max_pages = 3).map do |page|
 "   Thread.new do
@@ -492,7 +497,7 @@ let g:NERDTreeIndicatorMapCustom = {
 "       au CursorMovedI,InsertLeave * iunmap <buffer> <c-v>
 "               \| au! _VimAwesomeComplete
 "     augroup END
-    
+
 "     call complete(col('.') - strchars(prefix), cands)
 "   endif
 "   return ''
@@ -533,11 +538,11 @@ if has("au")
   au FileType helpfile set nonumber      " no line numbers when viewing help
   au FileType helpfile nnoremap <buffer><cr> <c-]> " Enter selects subject
   au FileType helpfile nnoremap <buffer><bs> <c-T> " Backspace to go back
-  
+
   " Set filetypes
   au BufNewFile,BufReadPost *.md set filetype=markdown
   au BufNewFile,BufReadPost *.rb set filetype=ruby
-  
+
   au FileType sh,zsh,csh,tcsh        inoremap <silent> <buffer> <C-X>! #!/bin/<C-R>=&ft<CR>
   au FileType sh,zsh,csh,tcsh        let &l:path = substitute($PATH, ':', ',', 'g')
   au FileType perl,python,ruby       inoremap <silent> <buffer> <C-X>! #!/usr/bin/env<Space><C-R>=&ft<CR>
@@ -571,6 +576,7 @@ if has("au")
  "         \ endif
 endif
 
+
 augroup seeingIsBelievingSettings
   autocmd!
 
@@ -585,7 +591,9 @@ augroup seeingIsBelievingSettings
   autocmd FileType ruby imap <buffer> <F5> <Plug>(seeing-is-believing-run)
 augroup END
 
+
 " fix spelling
 iab widht width
 iab heigth heigth
-iab avassalador dig dim dig dim 
+iab avassalador dig dim dig dim
+iab cl console.log('');
