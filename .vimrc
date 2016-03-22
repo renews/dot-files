@@ -37,7 +37,7 @@ Plug 'junegunn/tmux-complete.vim' " Vim plugin for insert mode completion of wor
 Plug 'junegunn/vim-github-dashboard', { 'on': ['GHDashboard', 'GHActivity'] } "Browse GitHub events (user dashboard, user/repo activity) in Vim.
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' } "fzf is a general-purpose command-line fuzzy finder.
 Plug 'junegunn/fzf.vim'
-Plug 'wakatime/vim-wakatime' "Vim plugin to quantify your coding with  automatic time tracking and metrics about your programming.
+"Plug 'wakatime/vim-wakatime' "Vim plugin to quantify your coding with  automatic time tracking and metrics about your programming.
 Plug 'mattn/webapi-vim' " An Interface to WEB APIs.
 Plug 'mattn/gist-vim'
 Plug 'Raimondi/delimitMate' "This plug-in provides automatic closing of quotes, parenthesis, brackets, etc.
