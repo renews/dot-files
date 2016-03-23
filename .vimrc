@@ -335,6 +335,7 @@ nnoremap <leader>n :set nonumber!<CR>
 nnoremap <leader>rn :set norelativenumber!<CR>
 nnoremap <leader>pa :set nopaste!<CR>
 nnoremap <leader>rc :so $MYVIMRC<CR>
+nnoremap <leader>clear :%s/\s\+$//<CR><CR>
 " Map :w
 
 set wm=10 " This sets the minimum window height to N
@@ -603,4 +604,5 @@ augroup END
 " fix spelling
 iab widht width
 iab heigth heigth
+iab avassalador dig dim dig dim
 iab cl console.log('');
