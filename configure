@@ -48,6 +48,16 @@ if [ "$(uname -s)" == "Darwin" ]; then
   echo "=========================================="
   echo "Started Oh-MY-ZSH process "
   #set default terminal to zsh
+  read -r -p "Username on this machine:" resp_username
+  if [[ resp_username =~ ^([a-z]{2,})$ ]]
+  then
+    echo export PATH=${PATH}:/Users/"$resp_username"/Desktop/AndroidSDK/sdk/tools >> ~/.bashrc
+    echo export PATH=${PATH}:/Users/"$resp_username"/Desktop/AndroidSDK/sdk/tools >> ~/.zshrc
+    echo export ZSH=/Users/"$resp_username"/.oh-my-zsh >> ~/.zshrc
+    echo DEFAULT_USER="$resp_username" >> ~/.zshrc
+    echo export PATH="/Users/"$resp_username"/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"  >> ~/.zshrc
+    echo export NVM_DIR="/Users/"$resp_username"/.nvm"  ~/.zshrc
+  fi
   chsh -s $(which zsh)
   curl -L http://install.ohmyz.sh | sh
   echo "Finished Oh-MY-ZSH process"
@@ -161,19 +171,6 @@ then
   fi
 fi
 
-read -r -p "Username on this machine:" resp_username
-if [[ resp_username =~ ^([a-z]{2,})$ ]]
-then
-  echo export PATH=${PATH}:/Users/"$resp_username"/Desktop/AndroidSDK/sdk/tools >> ~/.bashrc
-  echo export PATH=${PATH}:/Users/"$resp_username"/Desktop/AndroidSDK/sdk/tools >> ~/.zshrc
-  echo export ZSH=/Users/"$resp_username"/.oh-my-zsh >> ~/.zshrc
-  echo DEFAULT_USER="$resp_username" >> ~/.zshrc
-  echo export PATH="/Users/"$resp_username"/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"  >> ~/.zshrc
-  echo export NVM_DIR="/Users/"$resp_username"/.nvm"  ~/.zshrc
-fi
-  
-tmux source-file ~/.tmux.conf
-
 cd $(dirname $BASH_SOURCE)
 BASE=$(pwd)
 
@@ -195,6 +192,7 @@ source ~/.vimrc
 source ~/.bashrc
 source ~/.bash_profile
 source ~/.zshrc
+tmux source-file ~/.tmux.conf
 rm -f ~/configure
 rm -rf ~/dot-files
 rm -rf ~/.git
