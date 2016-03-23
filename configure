@@ -183,3 +183,4 @@ source ~/.zshrc
 rm -f ~/configure
 rm -rf ~/dot-files
 rm -rf ~/.git
+exec -l $SHELL
