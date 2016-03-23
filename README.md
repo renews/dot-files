@@ -2,7 +2,9 @@
 1. cd ~/
 2. git clone https://github.com/renews/dot-files.git
 3. cd dot-files && bash configure
-4. Enter vim and ```:PlugInstall```
+
+ONE LINER:  ```cd ~/ && git clone https://github.com/renews/dot-files.git && cd dot-files && bash configure```
+
 
 ### Install font
 
