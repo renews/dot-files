@@ -4,6 +4,18 @@
 3. cd dot-files && bash configure
 4. Enter vim and ```:PlugInstall```
 
+### Install font
+
+[Meslo](https://github.com/powerline/fonts/raw/master/Meslo/Meslo%20LG%20M%20DZ%20Regular%20for%20Powerline.otf)
+Open the downloaded font and press "Install Font".
+
+Set this font in iTerm2 (14px is my personal preference) (iTerm -> preferences -> profiles -> text).
+
+Regular Font -> "Change Font"
+Non-ASCII Font -> "Change Font"
+Restart iTerm2 for all changes to take effect.
+
+
 ### References
 - https://danielmiessler.com/study/vim/
 - http://stevelosh.com/blog/2010/09/coming-home-to-vim/#why-i-came-back-to-vim
