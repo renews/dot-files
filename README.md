@@ -11,6 +11,23 @@
 - http://vim.wikia.com/wiki/Editing_remote_files_via_scp_in_vim
 - http://tnerual.eriogerg.free.fr/vimqrc.html - Shortcuts
 - http://naildrivin5.com/blog/2013/04/24/how-to-switch-to-vim.html
+- https://pt.wikibooks.org/wiki/Vim
+- http://vim.wikia.com/wiki/Example_vimrc
+- http://dougblack.io/words/a-good-vimrc.html
+- http://vimcasts.org/
+- http://vimawesome.com/
+- http://www.bestofvim.com/
+- http://www.vimninjas.com/
+- http://aurelio.net/vim/
+- http://vim.spf13.com/#vimrc
+- http://vim-bootstrap.com
+- https://code.google.com/p/vimbook/
+- https://cassiobotaro.gitbooks.io/vimbook/ (Edição em Gitbook do livro acima)
+- http://aurelio.net/vim/vi-vim-venci.html
+- http://oli.me.uk/2013/06/29/equipping-vim-for-javascript/
+- http://tableless.com.br/manipulando-janelas-e-arquivos-no-vim/
+- https://blog.butecopensource.org/vim-tips-trabalhando-com-abas/
+- http://www.tocadoelfo.com.br/2009/06/99-comandos-do-vim-que-todo-programador_15.html
 
 ### Cheatsheet
 - http://fprintf.net/vimCheatSheet.html
@@ -21,23 +38,6 @@
 
 ## Plugins
 Most of them you can get on http://www.vimawesome.com/
-
-### Mandatory
-- https://github.com/tpope/vim-pathogen - makes it super easy to install plugins and runtime files in their own private directories.
-- https://github.com/scrooloose/nerdcommenter - comment uncomment made easy.
-- http://github.com/scrooloose/nerdtree - file navigation
-- https://github.com/mileszs/ack.vim - Run your favorite search tool from Vim, with an enhanced results list.
-- https://github.com/tpope/vim-fugitive - Git wrapper
-- https://github.com/tpope/vim-surround - Surround.vim is all about "surroundings": parentheses, brackets, quotes, XML tags, and more. The plugin provides mappings to easily delete, change and add such surroundings in pairs.
-- https://github.com/tpope/vim-sensible - Think of sensible.vim as one step above 'nocompatible' mode: a universal set of defaults that (hopefully) everyone can agree on.
-- https://github.com/tpope/vim-markdown
-- https://github.com/tpope/vim-projectionist - Projectionist provides granular project configuration using "projections"
-- https://github.com/rstacruz/sparkup - Sparkup lets you write HTML code faster
-- https://github.com/msanders/snipmate.vim - Snippets!
-- https://github.com/ervandew/supertab.git - Supertab is a vim plugin which allows you to use for all your insert completion needs (:helpins-completion).
-- https://github.com/wincent/Command-T - Kind like command+t/p on sublime
-- https://github.com/scrooloose/syntastic - verifying sintax
-- http://www.vim.org/scripts/script.php?script_id=1928 - File renamer/ A command and function that basically does a ":saveas " then removes the old filename onthe disk.
 
 ### Others
 - https://github.com/pangloss/vim-javascript - JavaScript bundle for vim, this bundle provides syntax and indent plugins.
