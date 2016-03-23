@@ -31,7 +31,7 @@ if [ "$(uname -s)" == "Darwin" ]; then
   brew tap homebrew/dupes
   brew update
   brew install \
-    ag aget ant cmus binutils  coreutils cscope ctags \
+    ag aget ant cmus binutils  coreutils cscope ctags crystal-lang \
     cmake diffutils fish git gzip gnuplot graphviz imagemagick \
     maven memcached redis curl watch htop gpg nmap wget watch \
     sl tmux reattach-to-user-namespace tree unrar vim wget zsh jq macvim \
