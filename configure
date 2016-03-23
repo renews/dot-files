@@ -36,9 +36,7 @@ if [ "$(uname -s)" == "Darwin" ]; then
     cmake diffutils fish git gzip gnuplot graphviz imagemagick \
     maven memcached redis curl watch htop gpg nmap wget watch \
     sl tmux reattach-to-user-namespace tree unrar vim wget zsh jq macvim \
-    findutils --default-names \
-    gnu-sed --default-names \ 
-    gnu-which --default-names
+    findutils --default-names 
   exec -l $SHELL
   echo "Finished HOMEBREW process"
   echo "=========================================="
