@@ -184,7 +184,7 @@ mkdir -p ~/.vim/tmp/backups
 curl --insecure -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim
 curl --insecure -fLo ~/.vim/plugin/Rename.vim  http://www.vim.org/scripts/download_script.php?src_id=16331 # vim plugin renamer :saveas
 
-vim +PlugInstall +qall
+vim +:PlugInstall +qall
 
 mv -f ~/dot-files/.vimrc ~/.vimrc 
 mv -f ~/dot-files/.bash_profile ~/.bash_profile 
