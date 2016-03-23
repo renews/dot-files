@@ -9,9 +9,6 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 # alias to love
 alias love="/Applications/love.app/Contents/MacOS/love"
 
-export PATH=${PATH}:/Users/renews/Desktop/AndroidSDK/sdk/tools
-
-
 # DULL=0
 # BRIGHT=1
 
