@@ -62,11 +62,11 @@ if [ "$(uname -s)" == "Darwin" ]; then
   read -r -p "Do you wanna install Ruby, Rails and Sinatra? [y/N] " resp_ror
   if [[ $resp_ror =~ ^([yY]|[sS])$ ]]
   then
-    rbenv install 2.2.3
-    rbenv global 2.2.3
+    rbenv install $(rbenv install -l | grep -v - | tail -1)
+    rbenv global $(rbenv install -l | grep -v - | tail -1)
     gem install bundle
     gem install sinatra
-    gem install rails -v 4.2.4
+    gem install rails 
     rbenv rehash
   fi
 
@@ -100,7 +100,7 @@ if [ "$(uname -s)" == "Darwin" ]; then
       ln -sfv /usr/local/opt/postgresql/*plist ~/Library/LaunchAgents
     fi
     
-    read -r -p "Make MySQL start right NOW? [y/N] " resp_postg_n
+    read -r -p "Make PostgreSQL start right NOW? [y/N] " resp_postg_n
     if [[ $resp_postg_n =~ ^([yY]|[sS])$ ]]
     then
       launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
@@ -133,31 +133,46 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
    echo 'not configured yet :('
 fi
-  read -r -p "Wanna setup GIT?" resp_git
-  if [[ $resp_git =~ ^([yY]|[sS])$ ]]
-  then
-    git config --global color.ui true
-    read -r -p "Name to be used on GIT:" resp_git_n
-    if [[ $resp_git_n =~ ^([a-z]{2,})$ ]]
-    then
-      git config --global user.name "$resp_git_n"
-    fi
-    
-    read -r -p "E-mail to be used on GIT:" resp_git_e
-    if [[ $resp_git_e =~ ^([a-z]{2,})$ ]]
-    then
-    echo "Email: $resp_git_e"
-      git config --global user.email "$resp_git_e"
-    fi
-    
-    read -r -p "Generate SSH key?:" resp_git_ssh
-    if [[ $resp_git_ssh =~ ^((i)(y|e|s|yes))$ ]]
-    then
-      ssh-keygen -t rsa -C "$resp_git_e"
-    fi
-  fi
 
-  tmux source-file ~/.tmux.conf
+read -r -p "Wanna setup GIT?" resp_git
+if [[ $resp_git =~ ^([yY]|[sS])$ ]]
+then
+  git config --global color.ui true
+  read -r -p "Name to be used on GIT:" resp_git_n
+  if [[ $resp_git_n =~ ^([a-z]{2,})$ ]]
+  then
+    git config --global user.name "$resp_git_n"
+  fi
+  
+  read -r -p "E-mail to be used on GIT:" resp_git_e
+  if [[ $resp_git_e =~ ^([a-z]{2,})$ ]]
+  then
+  echo "Email: $resp_git_e"
+    git config --global user.email "$resp_git_e"
+  fi
+  
+  read -r -p "Generate SSH key?:" resp_git_ssh
+  if [[ $resp_git_ssh =~ ^([yY]|[sS])$ ]]
+  then
+    ssh-keygen -t rsa -C "$resp_git_e"
+    echo "=================================="
+    echo "Copy this to your github account:"
+    cat ~/.ssh/id_rsa.pub
+  fi
+fi
+
+read -r -p "Username on this machine:" resp_username
+if [[ resp_username =~ ^([a-z]{2,})$ ]]
+then
+  echo export PATH=${PATH}:/Users/"$resp_username"/Desktop/AndroidSDK/sdk/tools >> ~/.bashrc
+  echo export PATH=${PATH}:/Users/"$resp_username"/Desktop/AndroidSDK/sdk/tools >> ~/.zshrc
+  echo export ZSH=/Users/"$resp_username"/.oh-my-zsh >> ~/.zshrc
+  echo DEFAULT_USER="$resp_username" >> ~/.zshrc
+  echo export PATH="/Users/"$resp_username"/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"  >> ~/.zshrc
+  echo export NVM_DIR="/Users/"$resp_username"/.nvm"  ~/.zshrc
+fi
+  
+tmux source-file ~/.tmux.conf
 
 cd $(dirname $BASH_SOURCE)
 BASE=$(pwd)
