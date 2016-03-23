@@ -37,7 +37,7 @@ Plug 'junegunn/tmux-complete.vim' " Vim plugin for insert mode completion of wor
 Plug 'junegunn/vim-github-dashboard', { 'on': ['GHDashboard', 'GHActivity'] } "Browse GitHub events (user dashboard, user/repo activity) in Vim.
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' } "fzf is a general-purpose command-line fuzzy finder.
 Plug 'junegunn/fzf.vim'
-"Plug 'wakatime/vim-wakatime' "Vim plugin to quantify your coding with  automatic time tracking and metrics about your programming.
+Plug 'wakatime/vim-wakatime' "Vim plugin to quantify your coding with  automatic time tracking and metrics about your programming.
 Plug 'mattn/webapi-vim' " An Interface to WEB APIs.
 Plug 'mattn/gist-vim'
 Plug 'Raimondi/delimitMate' "This plug-in provides automatic closing of quotes, parenthesis, brackets, etc.
@@ -95,6 +95,10 @@ Plug 'chriskempson/base16-vim'
 Plug 'tomasr/molokai'
 Plug 'jpo/vim-railscasts-theme'
 Plug 'KabbAmine/yowish.vim'
+Plug 'marcopaganini/termschool-vim-theme'
+Plug 'joshdick/onedark.vim'
+Plug 'morhetz/gruvbox'
+
 " End plugin management
 " ===============================
 call plug#end()
@@ -383,6 +387,10 @@ let g:seoul256_background = 233
 " colo solarized
 " colo molokai
 colo railscasts
+" colo onedark
+" colo gruvbox
+" colo yowish
+" colo termschool
 
 
 " Indentation styles
@@ -595,5 +603,4 @@ augroup END
 " fix spelling
 iab widht width
 iab heigth heigth
-iab avassalador dig dim dig dim
 iab cl console.log('');
