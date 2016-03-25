@@ -12,198 +12,195 @@ done
 echo "** Finished backuping your files **"
 echo "==================================="
 
-# Setup for MACOS
-if [ "$(uname -s)" == "Darwin" ]; then
-  xcode-select --install
-  
-  export ZSH=~/.oh-my-zsh
-  export NVM_DIR=~/.nvm
-  echo 'export ZSH=~/.oh-my-zsh' >> ~/.zshrc
-  echo 'export PATH=~/.dev_utilities/AndroidSDK/sdk/tools:$PATH' >> ~/.bashrc
-  echo 'export PATH=~/.dev_utilities/AndroidSDK/sdk/tools:$PATH' >> ~/.zshrc
-  
-  read -r -p "Username on this machine:" resp_username
-  if [[ resp_username =~ ^([a-Z][0-9]{2,})$ ]]
-  then
-    export DEFAULT_USER=$resp_username
-    echo 'DEFAULT_USER="$resp_username"' >> ~/.zshrc
-    echo 'DEFAULT_USER="$resp_username"' >> ~/.bashrc
-  fi
-  
-  echo "==============================="
-  echo "** Started HOMEBREW process **"
-  # Homebrew
-  [ -z "$(which brew)" ] &&
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  
-  brew doctor
-  brew tap homebrew/dupes
-  brew cleanup
-  brew update
-  brew upgrade
-  brew install \
-    ab ag aget ant cmus binutils  coreutils cscope ctags crystal-lang \
-    cmake diffutils fish git gzip gnuplot graphviz imagemagick mongodb \
-    maven memcached redis curl watch htop gpg nmap wget watch scala sbt \
-    sl tmux reattach-to-user-namespace tree node unrar vim wget jq macvim  elasticsearch \
-    rhino phantomjs \
-    caskroom/cask/brew-cask java 
-    findutils --default-names 
-  brew tap caskroom/cask   
-  brew doctor
-  brew tap --repair
-  exec -l $SHELL
-  # update sbtopts for scala
-  echo '-J-XX:+CMSClassUnloadingEnabled\n-J-Xmx2G\n' >> /usr/local/etc/sbtopts
-  echo "installing quicklook plugins"
-  brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package
-  echo "installing basic apps"
-  brew cask install java iterm2 flycut dropbox evernote balsamiq-mockups xmind google-chrome skype google-drive go2shell sequel-pro 
-  brew cask install psequel limechat sublime-text skype virtualbox vagrant vagrant-manager dockertoolbox vlc spectacle flux appcleaner android-studio valentina-studio mongodb octave mongohub rdm
-  # HEROKU
-  brew install heroku-toolbelt
-  heroku update
-  heroku login
-  
-  # git-prompt
-  if [ ! -e ~/.git-prompt.sh ]; then
-    wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O ~/.git-prompt.sh
-  fi
+xcode-select --install
 
-  echo 'export PATH=$PATH:/usr/local/bin' >> ~/.bashrc
-  # Elasticsearch config
-  mv /usr/local/bin/plugin /usr/local/bin/elasticsearch-plugin
-  elasticsearch-plugin --install mobz/elasticsearch-head
-  
-  # set subl commando so we can run subl file.ext
-  ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
-  
-  #NODE
-  npm install -g coffee-script yo gulp grunt-cli jshint browserify generator-webapp generator-gulp-webapp less sass typescript
-  echo "** Finished HOMEBREW process **"
-  echo "==============================="
-  
-  # https://github.com/rupa/z
-  # make it easier to navigate on shell
-  mkdir -p ~/.dev_utilities/z
-  curl https://raw.github.com/rupa/z/master/z.sh > ~/.my_utilities/z/z.sh
-  chmod +x ~/.dev_utilities/z/z.sh
-  
-  echo 'export PATH=~/.dev_utilities/z:$PATH'  >> ~/.bashrc
-  echo 'export PATH=~/.dev_utilities/z:$PATH'  >> ~/.zshrc
-  
-  echo 'export HOME=~/.dev_utilities/z:$HOME' >> ~/.bashrc
-  echo 'export HOME=~/.dev_utilities/z:$HOME' >> ~/.zshrc
-  
-  echo "================================"
-  echo "** Started Oh-MY-ZSH process **"
-  #set default terminal to zsh
-  
-  brew install zsh zsh-completions
-  curl -L http://install.ohmyz.sh | sh
-  chsh -s $(which zsh)
-  sourcezsh
-  echo "** Finished Oh-MY-ZSH process **"
-  echo "================================"
+export ZSH=~/.oh-my-zsh
+export NVM_DIR=~/.nvm
+echo 'export ZSH=~/.oh-my-zsh' >> ~/.zshrc
+echo 'export PATH=~/.dev_utilities/AndroidSDK/sdk/tools:$PATH' >> ~/.bashrc
+echo 'export PATH=~/.dev_utilities/AndroidSDK/sdk/tools:$PATH' >> ~/.zshrc
 
-  read -r -p "Do you wanna install RBENV? [y/N] " resp_rbenv
-  if [[ $resp_rbenv =~ ^([yY]|[sS])$ ]]
-  then
-    brew install rbenv ruby-build rbenv-gem-rehash
-    export PATH=~/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
-    echo 'export PATH=~/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH'  >> ~/.zshrc
-  fi
-    
-  read -r -p "Do you wanna install Ruby, Rails and Sinatra? [y/N] " resp_ror
-  if [[ $resp_ror =~ ^([yY]|[sS])$ ]]
-  then
-    rbenv install $(rbenv install -l | grep -v - | tail -1)
-    rbenv global $(rbenv install -l | grep -v - | tail -1)
-    gem update --system
-    gem install bundle bundler sinatra jekyll rails 
-    rbenv rehash
-  fi
+read -r -p "Username on this machine:" resp_username
+if [[ resp_username =~ ^([a-Z][0-9]{2,})$ ]]
+then
+  export DEFAULT_USER=$resp_username
+  echo 'DEFAULT_USER="$resp_username"' >> ~/.zshrc
+  echo 'DEFAULT_USER="$resp_username"' >> ~/.bashrc
+fi
+  
+echo "==============================="
+echo "** Started HOMEBREW process **"
+# Homebrew
+[ -z "$(which brew)" ] &&
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-  read -r -p "Do you wanna install MySQL? [y/N]" resp_mysql
-  if [[ $resp_mysql =~ ^([yY]|[sS])$ ]]
-  then
-    brew install mysql
-    # Fix MySQL installatyion for OS X El Capitan
-    ln -s /usr/local/mysql/lib/libmysqlclient.18.dylib /usr/local/lib/libmysqlclient.18.dylib   
-    
-    read -r -p "Make MySQL start with system? [y/N] " resp_mysql_s
-    if [[ $resp_mysql_s =~ ^([yY]|[sS])$ ]]
-    then
-      ln -sfv /usr/local/opt/mysql/*plist ~/Library/LaunchAgents
-    fi
-    
-    read -r -p "Make MySQL start right NOW? [y/N] " resp_mysql_n
-    if [[ $resp_mysql_n =~ ^([yY]|[sS])$ ]]
-    then
-      launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
-    fi
-  fi
-  read -r -p "Do you wanna install PostgreSQL? [y/N] " resp_postg
-  if [[ $resp_psotg =~ ^([yY]|[sS])$ ]]
-  then
-    brew install postgresql
-    brew cask install postgres
-    read -r -p "Make PostgreSQL start with system? [y/N] " resp_postg_s
-    if [[ $resp_postg_s =~ ^([yY]|[sS])$ ]]
-    then
-      ln -sfv /usr/local/opt/postgresql/*plist ~/Library/LaunchAgents
-    fi
-    
-    read -r -p "Make PostgreSQL start right NOW? [y/N] " resp_postg_n
-    if [[ $resp_postg_n =~ ^([yY]|[sS])$ ]]
-    then
-      launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
-    fi
-  fi
+brew doctor
+brew tap homebrew/dupes
+brew cleanup
+brew update
+brew upgrade
+brew install \
+  ab ag aget ant cmus binutils  coreutils cscope ctags crystal-lang \
+  cmake diffutils fish git gzip gnuplot graphviz imagemagick mongodb \
+  maven memcached redis curl watch htop gpg nmap wget watch scala sbt \
+  sl tmux reattach-to-user-namespace tree node unrar vim wget jq macvim  elasticsearch \
+  rhino phantomjs \
+  caskroom/cask/brew-cask java 
+  findutils --default-names 
+brew tap caskroom/cask   
+brew doctor
+brew tap --repair
+exec -l $SHELL
+# update sbtopts for scala
+echo '-J-XX:+CMSClassUnloadingEnabled\n-J-Xmx2G\n' >> /usr/local/etc/sbtopts
+echo "installing quicklook plugins"
+brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package
+echo "installing basic apps"
+brew cask install java iterm2 flycut dropbox evernote balsamiq-mockups xmind google-chrome skype google-drive go2shell sequel-pro 
+brew cask install psequel limechat sublime-text skype virtualbox vagrant vagrant-manager dockertoolbox vlc spectacle flux appcleaner android-studio valentina-studio mongodb octave mongohub rdm
+# HEROKU
+brew install heroku-toolbelt
+heroku update
+heroku login
   
-  read -r -p "Wanna install the latest Meteor version?" resp_meteor
-  if [[ $resp_meteor =~ ^([yY]|[sS])$ ]]
-  then
-    curl https://install.meteor.com/ | sh
-  fi
-  
-  read -r -p "Wanna install Elixir?" resp_elixir
-  if [[ $resp_elixr =~ ^([yY]|[sS])$ ]]
-  then
-    brew install elixir
-  fi
- 
-  read -r -p "Wanna install Python?" resp_python
-  if [[ $resp_python =~ ^([yY]|[sS])$ ]]
-  then
-    brew install python
-    pip install --upgrade setuptools
-    pip install --upgrade pip
-    pip install virtualenv
-    brew tap samueljohn/python
-    brew install gcc
-    pip install nose pyparsing python-dateutil pep8
-    brew install numpy scipy matplotlib zeromq pyqt
-    pip install pyzmq pygments jinja2 tornado ipython
-  fi
-  
-  read -r -p "Wanna install FZF (imagine spotlight search on command line)?" resp_fzf
-  if [[ $resp_fzf =~ ^([yY]|[sS])$ ]]
-  then
-    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-    ~/.fzf/install
-  fi
-# Setup for LINUX
-elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-  echo "setup rbenv"
-  git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
-  git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
-  
-# Setup for WINDOWS
-elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
-   echo 'not configured yet'
+# git-prompt
+if [ ! -e ~/.git-prompt.sh ]; then
+  wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O ~/.git-prompt.sh
 fi
 
+echo 'export PATH=$PATH:/usr/local/bin' >> ~/.bashrc
+# Elasticsearch config
+mv /usr/local/bin/plugin /usr/local/bin/elasticsearch-plugin
+elasticsearch-plugin --install mobz/elasticsearch-head
+
+# set subl commando so we can run subl file.ext
+ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
+
+#NODE
+npm install -g coffee-script yo gulp grunt-cli jshint browserify generator-webapp generator-gulp-webapp less sass typescript
+echo "** Finished HOMEBREW process **"
+echo "==============================="
+
+# https://github.com/rupa/z
+# make it easier to navigate on shell
+mkdir -p ~/.dev_utilities/z
+curl https://raw.github.com/rupa/z/master/z.sh > ~/.my_utilities/z/z.sh
+chmod +x ~/.dev_utilities/z/z.sh
+
+echo 'export PATH=~/.dev_utilities/z:$PATH'  >> ~/.bashrc
+echo 'export PATH=~/.dev_utilities/z:$PATH'  >> ~/.zshrc
+
+echo 'export HOME=~/.dev_utilities/z:$HOME' >> ~/.bashrc
+echo 'export HOME=~/.dev_utilities/z:$HOME' >> ~/.zshrc
+
+echo "================================"
+echo "** Started Oh-MY-ZSH process **"
+#set default terminal to zsh
+brew install zsh zsh-completions
+curl -L http://install.ohmyz.sh | sh
+chsh -s $(which zsh)
+sourcezsh
+echo "** Finished Oh-MY-ZSH process **"
+echo "================================"
+
+# RBENV
+read -r -p "Do you wanna install RBENV? [y/N] " resp_rbenv
+if [[ $resp_rbenv =~ ^([yY]|[sS])$ ]]
+then
+  brew install rbenv ruby-build rbenv-gem-rehash
+  export PATH=~/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
+  echo 'export PATH=~/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH'  >> ~/.zshrc
+fi
+  
+# RAILS
+read -r -p "Do you wanna install Ruby, Rails and Sinatra? [y/N] " resp_ror
+if [[ $resp_ror =~ ^([yY]|[sS])$ ]]
+then
+  rbenv install $(rbenv install -l | grep -v - | tail -1)
+  rbenv global $(rbenv install -l | grep -v - | tail -1)
+  gem update --system
+  gem install bundle bundler sinatra jekyll rails 
+  rbenv rehash
+fi
+
+#MYSQL
+read -r -p "Do you wanna install MySQL? [y/N]" resp_mysql
+if [[ $resp_mysql =~ ^([yY]|[sS])$ ]]
+then
+  brew install mysql
+  # Fix MySQL installatyion for OS X El Capitan
+  ln -s /usr/local/mysql/lib/libmysqlclient.18.dylib /usr/local/lib/libmysqlclient.18.dylib   
+  
+  read -r -p "Make MySQL start with system? [y/N] " resp_mysql_s
+  if [[ $resp_mysql_s =~ ^([yY]|[sS])$ ]]
+  then
+    ln -sfv /usr/local/opt/mysql/*plist ~/Library/LaunchAgents
+  fi
+  
+  read -r -p "Make MySQL start right NOW? [y/N] " resp_mysql_n
+  if [[ $resp_mysql_n =~ ^([yY]|[sS])$ ]]
+  then
+    launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+  fi
+fi
+
+#POSTGRESQL
+read -r -p "Do you wanna install PostgreSQL? [y/N] " resp_postg
+if [[ $resp_psotg =~ ^([yY]|[sS])$ ]]
+then
+  brew install postgresql
+  brew cask install postgres
+  read -r -p "Make PostgreSQL start with system? [y/N] " resp_postg_s
+  if [[ $resp_postg_s =~ ^([yY]|[sS])$ ]]
+  then
+    ln -sfv /usr/local/opt/postgresql/*plist ~/Library/LaunchAgents
+  fi
+  
+  read -r -p "Make PostgreSQL start right NOW? [y/N] " resp_postg_n
+  if [[ $resp_postg_n =~ ^([yY]|[sS])$ ]]
+  then
+    launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+  fi
+fi
+
+#METEOR
+read -r -p "Wanna install the latest Meteor version?" resp_meteor
+if [[ $resp_meteor =~ ^([yY]|[sS])$ ]]
+then
+  curl https://install.meteor.com/ | sh
+fi
+
+#ELIXIR
+read -r -p "Wanna install Elixir?" resp_elixir
+if [[ $resp_elixr =~ ^([yY]|[sS])$ ]]
+then
+  brew install elixir
+fi
+
+#PYTHON
+read -r -p "Wanna install Python?" resp_python
+if [[ $resp_python =~ ^([yY]|[sS])$ ]]
+then
+  brew install python
+  pip install --upgrade setuptools
+  pip install --upgrade pip
+  pip install virtualenv
+  brew tap samueljohn/python
+  brew install gcc
+  pip install nose pyparsing python-dateutil pep8
+  brew install numpy scipy matplotlib zeromq pyqt
+  pip install pyzmq pygments jinja2 tornado ipython
+fi
+
+#FZF
+read -r -p "Wanna install FZF (imagine spotlight search on command line)?" resp_fzf
+if [[ $resp_fzf =~ ^([yY]|[sS])$ ]]
+then
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  ~/.fzf/install
+fi
+
+#GIT
 read -r -p "Wanna setup GIT?" resp_git
 if [[ $resp_git =~ ^([yY]|[sS])$ ]]
 then
@@ -230,12 +227,15 @@ then
     cat ~/.ssh/id_rsa.pub
   fi
   git config --global credential.helper osxkeychain
+  export GIT_SSL_NO_VERIFY=true
+  echo 'export GIT_SSL_NO_VERIFY=true' >> ~/.zshrc
+  echo 'export GIT_SSL_NO_VERIFY=true' >> ~/.bashrc
 fi
 
 cd $(dirname $BASH_SOURCE)
 BASE=$(pwd)
 
-export GIT_SSL_NO_VERIFY=true
+
 mkdir -p ~/.vim/autoload
 mkdir -p ~/.vim/plugin
 mkdir -p ~/.vim/tmp/backups
