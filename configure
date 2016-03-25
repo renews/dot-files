@@ -45,7 +45,7 @@ brew install \
   maven memcached redis curl watch htop gpg nmap wget watch scala sbt \
   sl tmux reattach-to-user-namespace tree node unrar vim wget jq macvim  elasticsearch \
   rhino phantomjs \
-  caskroom/cask/brew-cask java \
+  caskroom/cask/brew-cask Caskroom/cask/java \
   findutils --default-names 
 brew doctor
 brew tap --repair
