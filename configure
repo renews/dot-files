@@ -40,17 +40,16 @@ brew cleanup
 brew update
 brew upgrade
 brew install \
-  ab ag aget ant cmus binutils  coreutils cscope ctags crystal-lang \
+  ag aget ant cmus binutils  coreutils cscope ctags crystal-lang \
   cmake diffutils fish git gzip gnuplot graphviz imagemagick mongodb \
   maven memcached redis curl watch htop gpg nmap wget watch scala sbt \
   sl tmux reattach-to-user-namespace tree node unrar vim wget jq macvim  elasticsearch \
   rhino phantomjs \
-  caskroom/cask/brew-cask java 
+  caskroom/cask/brew-cask java \
   findutils --default-names 
-brew tap caskroom/cask   
 brew doctor
 brew tap --repair
-exec -l $SHELL
+
 # update sbtopts for scala
 echo '-J-XX:+CMSClassUnloadingEnabled\n-J-Xmx2G\n' >> /usr/local/etc/sbtopts
 echo "installing quicklook plugins"
