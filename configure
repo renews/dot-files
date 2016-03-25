@@ -23,7 +23,7 @@ if [ "(uname -s)" == "Darwin" ]; then
   
   export ZSH=~/.oh-my-zsh
   export NVM_DIR=~/.nvm
-  echo 'export ZSH=~/.oh-my-zsh >> ~/.zshrc
+  echo 'export ZSH=~/.oh-my-zsh' >> ~/.zshrc
   echo 'export PATH=~/.dev_utilities/AndroidSDK/sdk/tools:$PATH' >> ~/.bashrc
   echo 'export PATH=~/.dev_utilities/AndroidSDK/sdk/tools:$PATH' >> ~/.zshrc
   
@@ -201,7 +201,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   
 # Setup for WINDOWS
 elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
-   echo 'not configured yet :('
+   echo 'not configured yet'
 fi
 
 read -r -p "Wanna setup GIT?" resp_git
