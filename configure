@@ -12,13 +12,28 @@ done
 echo "** Finished backing up your files **"
 echo "===================================="
 
+
+echo "===================================="
+echo "====== movendo arquivos ============"
+echo "===================================="
+mkdir -p ~/.vim/autoload
+mkdir -p ~/.vim/plugin
+mkdir -p ~/.vim/tmp/backups
+curl --insecure -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim
+curl --insecure -fLo ~/.vim/plugin/Rename.vim  http://www.vim.org/scripts/download_script.php?src_id=16331 # vim plugin renamer :saveas
+mv -f ~/dot-files/.vimrc ~/.vimrc 
+mv -f ~/dot-files/.bash_profile ~/.bash_profile 
+mv -f ~/dot-files/.bashrc ~/.bashrc 
+mv -f ~/dot-files/.gemrc ~/.gemrc 
+mv -f ~/dot-files/.zshrc ~/.zshrc 
+
 xcode-select --install
 
-export ZSH=~/.oh-my-zsh
-export NVM_DIR=~/.nvm
-echo 'export ZSH=~/.oh-my-zsh' >> ~/.zshrc
-echo 'export PATH=~/.dev_utilities/AndroidSDK/sdk/tools:$PATH' >> ~/.bashrc
-echo 'export PATH=~/.dev_utilities/AndroidSDK/sdk/tools:$PATH' >> ~/.zshrc
+export ZSH="~/.oh-my-zsh"
+export NVM_DIR="~/.nvm"
+echo 'export ZSH="~/.oh-my-zsh"' >> ~/.zshrc
+echo 'export PATH="~/.dev_utilities/AndroidSDK/sdk/tools:$PATH"' >> ~/.bashrc
+echo 'export PATH="~/.dev_utilities/AndroidSDK/sdk/tools:$PATH"' >> ~/.zshrc
 
 read -r -p "Username on this machine:" resp_username
 if [[ resp_username =~ ^([a-Z][0-9]{2,})$ ]]
@@ -30,44 +45,183 @@ fi
   
 echo "==============================="
 echo "** Started HOMEBREW process **"
-# Homebrew
+
 [ -z "$(which brew)" ] &&
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-brew doctor
-brew tap homebrew/dupes
+
 brew cleanup
 brew update
-brew upgrade
+# Upgrade any already-installed formulae.
+brew upgrade --all
 brew prune
-brew install \
-  ag aget ant cmus binutils  coreutils cscope ctags crystal-lang \
-  cmake diffutils fish git gzip gnuplot graphviz imagemagick mongodb \
-  maven memcached redis curl watch htop gpg nmap wget watch scala sbt \
-  sl tmux reattach-to-user-namespace tree node unrar vim wget jq macvim  elasticsearch \
-  rhino phantomjs \
-  caskroom/cask/brew-cask Caskroom/cask/java \
-  findutils --default-names 
-brew doctor
+
+# Install Cask
+brew install caskroom/cask/brew-cask
+
+# Install GNU core utilities (those that come with OS X are outdated).
+# Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
+sudo ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
+
+echo "*********************** TAPS"
+brew tap bramstein/webfonttools
+brew tap caskroom/versions
+brew tap caskroom/fonts 
+brew tap homebrew/dupes
+
 brew tap --repair
 
-echo "installing quicklook plugins"
-brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package
-echo "installing basic apps"
-brew cask install java iterm2 flycut dropbox evernote balsamiq-mockups xmind google-chrome skype google-drive go2shell sequel-pro 
-brew cask install psequel limechat sublime-text skype virtualbox vagrant vagrant-manager dockertoolbox vlc spectacle flux appcleaner android-studio valentina-studio mongodb octave mongohub rdm
+echo "*********************** A"
+brew install ag
+brew install aget 
+brew install android-sdk
+brew install ant 
+echo "*********************** B"
+brew install binutils
+echo "*********************** C"
+brew install coreutils
+brew install cmake
+brew install cmus
+brew install crystal-lang
+brew install cscope
+brew install ctags
+brew install curl
+echo "*********************** D"
+brew install dark-mode
+brew install diffutils
+brew install docker
+brew install boot2docker
+echo "*********************** E"
+brew install elasticsearch
+echo "*********************** F"
+brew install fish
+brew install findutils
+echo "*********************** G"
+brew install git 
+brew install git-lfs
+brew install git-flow
+brew install git-extras
+brew install gnuplot
+brew install gnu-sed --with-default-names
+brew install gpg
+brew install graphviz
+brew install gzip
+echo "*********************** H"
+brew install htop
+brew install hub
+echo "*********************** I"
+brew install imagemagick
+echo "*********************** J"
+brew install jq
+echo "*********************** K"
+echo "*********************** L"
+brew install lua
+echo "*********************** M"
+brew install maven 
+brew install memcached 
+brew install moreutils
+echo "*********************** N"
+brew install nmap
+brew install node
+echo "*********************** O"
+echo "*********************** P"
+brew install phantomjs
+brew install pigz
+brew install pv
+echo "*********************** Q"
+echo "*********************** R"
+brew install redis
+brew install reattach-to-user-namespace
+brew install rename
+brew install rhino
+echo "*********************** S"
+brew install sbt
+brew install scala
+brew install sfnt2woff
+brew install sfnt2woff-zopfli
+brew install speedtest_cli
+brew install ssh-copy-id
+brew install sl
+echo "*********************** T"
+brew install tmux
+brew install tree
+echo "*********************** U"
+brew install unrar
+echo "*********************** V"
+brew install vim
+echo "*********************** W"
+brew install watch
+brew install webkit2png 
+brew install wget
+brew install woff2
+echo "*********************** X"
+echo "*********************** Y"
+echo "*********************** Z"
+
+echo "***********************"
+echo "***********************"
+echo "*********************** clean"
+brew doctor
+brew cleanup
+
+
+echo "*********************** installing quicklook plugins"
+brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook
+
+echo "***********************installing basic apps"
+brew cask install appcleaner 
+brew cask install android-studio 
+brew cask install backblaze
+brew cask install balsamiq-mockups
+brew cask install bartender
+brew cask install cloud
+brew cask install dash
+brew cask install dashlane 
+brew cask install dropbox
+brew cask install dockertoolbox 
+brew cask install evernote
+brew cask install flux 
+brew cask install flycut 
+brew cask install franz
+brew cask install google-chrome
+brew cask install google-drive 
+brew cask install go2shell 
+brew cask install iterm2-beta
+brew cask install itscal
+brew cask install java
+brew cask install limechat 
+brew cask install mongodb 
+brew cask install mongohub 
+brew cask install octave
+brew cask install polymail 
+brew cask install psequel 
+brew cask install rdm
+brew cask install sequel-pro 
+brew cask install skype 
+brew cask install spectacle
+brew cask install sublime-text3
+brew cask install vagrant
+brew cask install vagrant-manager
+brew cask install valentina-studio 
+brew cask install virtualbox
+brew cask install vlc 
+brew cask install xmind 
+
+
+echo "***********************installing HEROKU"
 # HEROKU
 brew install heroku-toolbelt
 heroku update
 heroku login
-  
-# git-prompt
+
+echo "***********************installing GIT PROMPT"  
 if [ ! -e ~/.git-prompt.sh ]; then
   wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O ~/.git-prompt.sh
 fi
 
-echo 'export PATH=$PATH:/usr/local/bin' >> ~/.bashrc
-echo 'export PATH=$PATH:/usr/local/bin' >> ~/.zshrc
+echo 'export PATH="$PATH:/usr/local/bin"' >> ~/.bashrc
+echo 'export PATH="$PATH:/usr/local/bin"' >> ~/.zshrc
+
 # Elasticsearch config
 mv /usr/local/bin/plugin /usr/local/bin/elasticsearch-plugin
 elasticsearch-plugin --install mobz/elasticsearch-head
@@ -84,8 +238,9 @@ echo "==============================="
 
 # https://github.com/rupa/z
 # make it easier to navigate on shell
+echo "***********************installing Z"
 mkdir -p ~/.dev_utilities/z
-curl https://raw.github.com/rupa/z/master/z.sh > ~/.my_utilities/z/z.sh
+curl https://raw.github.com/rupa/z/master/z.sh >> ~/.my_utilities/z/z.sh
 chmod +x ~/.dev_utilities/z/z.sh
 
 echo 'export PATH=~/.dev_utilities/z:$PATH'  >> ~/.bashrc
@@ -100,7 +255,6 @@ echo "** Started Oh-MY-ZSH process **"
 brew install zsh zsh-completions
 curl -L http://install.ohmyz.sh | sh
 chsh -s $(which zsh)
-sourcezsh
 echo "** Finished Oh-MY-ZSH process **"
 echo "================================"
 
@@ -108,9 +262,11 @@ echo "================================"
 read -r -p "Do you wanna install RBENV? [y/N] " resp_rbenv
 if [[ $resp_rbenv =~ ^([yY]|[sS])$ ]]
 then
-  brew install rbenv ruby-build rbenv-gem-rehash
+  brew install rbenv
+  brew install ruby-build 
+  gem update --system
   export PATH=~/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
-  echo 'export PATH=~/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH'  >> ~/.zshrc
+  echo 'export PATH="~/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"'  >> ~/.zshrc
 fi
   
 # RAILS
@@ -118,8 +274,7 @@ read -r -p "Do you wanna install Ruby, Rails and Sinatra? [y/N] " resp_ror
 if [[ $resp_ror =~ ^([yY]|[sS])$ ]]
 then
   rbenv install $(rbenv install -l | grep -v - | tail -1)
-  rbenv global $(rbenv install -l | grep -v - | tail -1)
-  gem update --system
+  rbenv global $(rbenv install -l | grep -v - | tail -1)  
   gem install bundle bundler sinatra jekyll rails 
   rbenv rehash
 fi
@@ -233,25 +388,8 @@ then
   echo 'export GIT_SSL_NO_VERIFY=true' >> ~/.bashrc
 fi
 
-cd $(dirname $BASH_SOURCE)
-BASE=$(pwd)
-
-
-mkdir -p ~/.vim/autoload
-mkdir -p ~/.vim/plugin
-mkdir -p ~/.vim/tmp/backups
-curl --insecure -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim
-curl --insecure -fLo ~/.vim/plugin/Rename.vim  http://www.vim.org/scripts/download_script.php?src_id=16331 # vim plugin renamer :saveas
-
-exec -l $SHELL
 vim +:PlugInstall +qall
-exec -l $SHELL
 
-mv -f ~/dot-files/.vimrc ~/.vimrc 
-mv -f ~/dot-files/.bash_profile ~/.bash_profile 
-mv -f ~/dot-files/.bashrc ~/.bashrc 
-mv -f ~/dot-files/.gemrc ~/.gemrc 
-mv -f ~/dot-files/.zshrc ~/.zshrc 
 source ~/.vimrc
 source ~/.bashrc
 source ~/.bash_profile
