@@ -19,6 +19,7 @@ echo "===================================="
 mkdir -p ~/.vim/autoload
 mkdir -p ~/.vim/plugin
 mkdir -p ~/.vim/tmp/backups
+mkdir -p ~/.dev_utilities/z
 curl --insecure -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim
 curl --insecure -fLo ~/.vim/plugin/Rename.vim  http://www.vim.org/scripts/download_script.php?src_id=16331 # vim plugin renamer :saveas
 mv -f ~/dot-files/.vimrc ~/.vimrc 
@@ -238,9 +239,8 @@ echo "==============================="
 
 # https://github.com/rupa/z
 # make it easier to navigate on shell
-echo "***********************installing Z"
-mkdir -p ~/.dev_utilities/z
-curl https://raw.github.com/rupa/z/master/z.sh >> ~/.my_utilities/z/z.sh
+echo "******************** installing UTIL Z"
+curl -O https://raw.github.com/rupa/z/master/z.sh >> ~/.my_utilities/z/z.sh
 chmod +x ~/.dev_utilities/z/z.sh
 
 echo 'export PATH=~/.dev_utilities/z:$PATH'  >> ~/.bashrc
@@ -254,7 +254,14 @@ echo "** Started Oh-MY-ZSH process **"
 #set default terminal to zsh
 brew install zsh zsh-completions
 curl -L http://install.ohmyz.sh | sh
+echo "fpath=(/usr/local/share/zsh-completions $fpath)" >> ~/.zshrc
 chsh -s $(which zsh)
+chmod go-w '/usr/local/share'
+rm -f ~/.zcompdump; compinit
+echo "unalias run-help" >> ~/.zshrc
+echo "autoload run-help" >> ~/.zshrc
+echo "HELPDIR=/usr/local/share/zsh/help" >> ~/.zshrc
+
 echo "** Finished Oh-MY-ZSH process **"
 echo "================================"
 
