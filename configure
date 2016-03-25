@@ -12,11 +12,6 @@ done
 echo "** Finished backuping your files **"
 echo "==================================="
 
-# git-prompt
-if [ ! -e ~/.git-prompt.sh ]; then
-  wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O ~/.git-prompt.sh
-fi
-
 # Setup for MACOS
 if [ "(uname -s)" == "Darwin" ]; then
   xcode-select --install
@@ -70,6 +65,11 @@ if [ "(uname -s)" == "Darwin" ]; then
   heroku update
   heroku login
   
+  # git-prompt
+  if [ ! -e ~/.git-prompt.sh ]; then
+    wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O ~/.git-prompt.sh
+  fi
+
   echo 'export PATH=$PATH:/usr/local/bin' >> ~/.bashrc
   # Elasticsearch config
   mv /usr/local/bin/plugin /usr/local/bin/elasticsearch-plugin
