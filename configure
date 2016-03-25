@@ -57,8 +57,6 @@ brew update
 brew upgrade --all
 brew prune
 
-# Install Cask
-brew install caskroom/cask/brew-cask
 
 # Install GNU core utilities (those that come with OS X are outdated).
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
@@ -69,6 +67,7 @@ brew tap bramstein/webfonttools
 brew tap caskroom/versions
 brew tap caskroom/fonts 
 brew tap homebrew/dupes
+brew tap caskroom/cask
 
 brew tap --repair
 
@@ -79,7 +78,9 @@ brew install android-sdk
 brew install ant 
 echo "*********************** B"
 brew install binutils
+brew install brew-cask
 echo "*********************** C"
+brew install caskroom/cask/brew-cask
 brew install coreutils
 brew install cmake
 brew install cmus
