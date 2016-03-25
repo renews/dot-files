@@ -45,9 +45,11 @@ if [ "$(uname -s)" == "Darwin" ]; then
   echo "installing quicklook plugins"
   brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package
   echo "installing basic apps"
-  brew cask install iterm2 flycut dropbox evernote balsamiq-mockups xmind google-chrome skype google-drive go2shell sequel-pro psequel limechat sublime-text skype vagrant vlc spectacle flux appcleaner
+  brew cask install iterm2 flycut dropbox evernote balsamiq-mockups xmind google-chrome skype google-drive go2shell sequel-pro psequel limechat sublime-text skype vagrant vlc spectacle flux appcleaner android-studio
   brew install heroku-toolbelt
   echo 'export PATH="/usr/local/bin:$PATH"' >> ~/.bashrc
+  # set subl commando so we can run subl file.ext
+  ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
   echo "Finished HOMEBREW process"
   echo "=========================================="
   
@@ -128,17 +130,40 @@ if [ "$(uname -s)" == "Darwin" ]; then
       launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
     fi
   fi
+  
   read -r -p "Wanna install the latest Meteor version?" resp_meteor
   if [[ $resp_meteor =~ ^([yY]|[sS])$ ]]
   then
     curl https://install.meteor.com/ | sh
   fi
+  
   read -r -p "Wanna install Elixir?" resp_elixir
   if [[ $resp_elixr =~ ^([yY]|[sS])$ ]]
   then
     brew install elixir
   fi
  
+  read -r -p "Wanna install Python?" resp_python
+  if [[ $resp_python =~ ^([yY]|[sS])$ ]]
+  then
+    brew install python
+    pip install --upgrade setuptools
+    pip install --upgrade pip
+    pip install virtualenv
+    brew tap samueljohn/python
+    brew install gcc
+    pip install nose
+    pip install pyparsing
+    pip install python-dateutil
+    pip install pep8
+    brew install numpy scipy matplotlib zeromq pyqt
+    pip install pyzmq
+    pip install pygments
+    pip install jinja2
+    pip install tornado
+    pip install ipython
+  fi
+  
   read -r -p "Wanna install FZF (imagine spotlight search on command line)?" resp_fzf
   if [[ $resp_fzf =~ ^([yY]|[sS])$ ]]
   then
