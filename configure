@@ -25,20 +25,29 @@ if [ "$(uname -s)" == "Darwin" ]; then
   echo "Started HOMEBREW process "
   # Homebrew
   [ -z "$(which brew)" ] &&
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   
   brew doctor
   brew tap homebrew/dupes
+  brew cleanup
   brew update
   brew upgrade
   brew install \
-    ag aget ant cmus binutils  coreutils cscope ctags crystal-lang \
+    ab ag aget ant cmus binutils  coreutils cscope ctags crystal-lang \
     cmake diffutils fish git gzip gnuplot graphviz imagemagick \
     maven memcached redis curl watch htop gpg nmap wget watch \
-    sl tmux reattach-to-user-namespace tree unrar vim wget zsh jq macvim \
-    Caskroom cask java
+    sl tmux reattach-to-user-namespace tree node unrar vim wget jq macvim  \
+    caskroom/cask/brew-cask java 
     findutils --default-names 
+  brew tap caskroom/cask   
+  brew doctor
   exec -l $SHELL
+  echo "installing quicklook plugins"
+  brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package
+  echo "installing basic apps"
+  brew cask install iterm2 flycut dropbox evernote balsamiq-mockups xmind google-chrome skype google-drive go2shell sequel-pro psequel limechat sublime-text skype vagrant vlc spectacle flux appcleaner
+  brew install heroku-toolbelt
+  echo 'export PATH="/usr/local/bin:$PATH"' >> ~/.bashrc
   echo "Finished HOMEBREW process"
   echo "=========================================="
   
@@ -59,15 +68,16 @@ if [ "$(uname -s)" == "Darwin" ]; then
     echo DEFAULT_USER="$resp_username" >> ~/.zshrc
     echo export NVM_DIR="/Users/"$resp_username"/.nvm"  >> ~/.zshrc
   fi
-  chsh -s $(which zsh)
+  brew install zsh zsh-completions
   curl -L http://install.ohmyz.sh | sh
+  chsh -s $(which zsh)
   echo "Finished Oh-MY-ZSH process"
   echo "=========================================="
 
   read -r -p "Do you wanna install RBENV? [y/N] " resp_rbenv
   if [[ $resp_rbenv =~ ^([yY]|[sS])$ ]]
   then
-    brew install rbenv ruby-build
+    brew install rbenv ruby-build rbenv-gem-rehash
     export PATH=${PATH}:/Users/"$resp_username"/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
     echo export PATH=${PATH}:/Users/"$resp_username"/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin  >> ~/.zshrc
   fi
@@ -77,9 +87,8 @@ if [ "$(uname -s)" == "Darwin" ]; then
   then
     rbenv install $(rbenv install -l | grep -v - | tail -1)
     rbenv global $(rbenv install -l | grep -v - | tail -1)
-    gem install bundle
-    gem install sinatra
-    gem install rails 
+    gem update --system
+    gem install bundle bundler sinatra jekyll rails 
     rbenv rehash
   fi
 
@@ -106,7 +115,7 @@ if [ "$(uname -s)" == "Darwin" ]; then
   if [[ $resp_psotg =~ ^([yY]|[sS])$ ]]
   then
     brew install postgresql
-    
+    brew cask install postgres
     read -r -p "Make PostgreSQL start with system? [y/N] " resp_postg_s
     if [[ $resp_postg_s =~ ^([yY]|[sS])$ ]]
     then
@@ -172,6 +181,7 @@ then
     echo "Copy this to your github account:"
     cat ~/.ssh/id_rsa.pub
   fi
+  git config --global credential.helper osxkeychain
 fi
 
 cd $(dirname $BASH_SOURCE)
