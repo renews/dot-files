@@ -100,6 +100,7 @@ alias filetree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 
 alias gcempty="git commit --allow-empty -m 'empty -- forcing deploy' && ggpush"
 alias lusers="dscl . list /Users | grep -v '^_'"
 alias ion="ionic serve"
+alias cppcompile='c++ -std=c++11 -stdlib=libc++'
 
 export FZF_DEFAULT_OPTS="--extended --cycle"
 export PATH="$PATH:/path/to/elixir/bin"
