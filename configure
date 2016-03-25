@@ -51,8 +51,6 @@ brew install \
 brew doctor
 brew tap --repair
 
-# update sbtopts for scala
-echo '-J-XX:+CMSClassUnloadingEnabled\n-J-Xmx2G\n' >> /usr/local/etc/sbtopts
 echo "installing quicklook plugins"
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package
 echo "installing basic apps"
@@ -69,6 +67,7 @@ if [ ! -e ~/.git-prompt.sh ]; then
 fi
 
 echo 'export PATH=$PATH:/usr/local/bin' >> ~/.bashrc
+echo 'export PATH=$PATH:/usr/local/bin' >> ~/.zshrc
 # Elasticsearch config
 mv /usr/local/bin/plugin /usr/local/bin/elasticsearch-plugin
 elasticsearch-plugin --install mobz/elasticsearch-head
@@ -76,6 +75,8 @@ elasticsearch-plugin --install mobz/elasticsearch-head
 # set subl commando so we can run subl file.ext
 ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
 
+# update sbtopts for scala
+echo '-J-XX:+CMSClassUnloadingEnabled\n-J-Xmx2G\n' >> /usr/local/etc/sbtopts
 #NODE
 npm install -g coffee-script yo gulp grunt-cli jshint browserify generator-webapp generator-gulp-webapp less sass typescript
 echo "** Finished HOMEBREW process **"
