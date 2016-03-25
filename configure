@@ -18,7 +18,7 @@ if [ ! -e ~/.git-prompt.sh ]; then
 fi
 
 # Setup for MACOS
-if [ "$(uname -s)" == "Darwin" ]; then
+if [ "(uname -s)" == "Darwin" ]; then
   xcode-select --install
   
   export ZSH=~/.oh-my-zsh
