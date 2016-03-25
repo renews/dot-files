@@ -34,22 +34,36 @@ if [ "$(uname -s)" == "Darwin" ]; then
   brew upgrade
   brew install \
     ab ag aget ant cmus binutils  coreutils cscope ctags crystal-lang \
-    cmake diffutils fish git gzip gnuplot graphviz imagemagick \
-    maven memcached redis curl watch htop gpg nmap wget watch \
+    cmake diffutils fish git gzip gnuplot graphviz imagemagick mongodb \
+    maven memcached redis curl watch htop gpg nmap wget watch scala sbt \
     sl tmux reattach-to-user-namespace tree node unrar vim wget jq macvim  \
     caskroom/cask/brew-cask java 
     findutils --default-names 
   brew tap caskroom/cask   
   brew doctor
+  brew tap --repair
   exec -l $SHELL
+  # update sbtopts for scala
+  echo '-J-XX:+CMSClassUnloadingEnabled\n-J-Xmx2G\n' >> /usr/local/etc/sbtopts
   echo "installing quicklook plugins"
   brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package
   echo "installing basic apps"
-  brew cask install java iterm2 flycut dropbox evernote balsamiq-mockups xmind google-chrome skype google-drive go2shell sequel-pro psequel limechat sublime-text skype vagrant vlc spectacle flux appcleaner android-studio
+  brew cask install java iterm2 flycut dropbox evernote balsamiq-mockups xmind google-chrome skype google-drive go2shell sequel-pro 
+  brew cask install psequel limechat sublime-text skype virtualbox vagrant vagrant-manager dockertoolbox vlc spectacle flux appcleaner android-studio valentina-studio mongodb octave mongohub rdm
+  # HEROKU
   brew install heroku-toolbelt
+  heroku update
+  heroku login
+  
   echo 'export PATH="/usr/local/bin:$PATH"' >> ~/.bashrc
+  
   # set subl commando so we can run subl file.ext
   ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
+  
+  #NODE
+  npm install -g coffee-script
+  npm install -g grunt-cli
+  npm install -g gulp
   echo "Finished HOMEBREW process"
   echo "=========================================="
   
@@ -73,6 +87,7 @@ if [ "$(uname -s)" == "Darwin" ]; then
   brew install zsh zsh-completions
   curl -L http://install.ohmyz.sh | sh
   chsh -s $(which zsh)
+  sourcezsh
   echo "Finished Oh-MY-ZSH process"
   echo "=========================================="
 
