@@ -13,7 +13,7 @@ echo "** Finished backuping your files **"
 echo "==================================="
 
 # Setup for MACOS
-if [ "(uname -s)" == "Darwin" ]; then
+if [ "$(uname -s)" == "Darwin" ]; then
   xcode-select --install
   
   export ZSH=~/.oh-my-zsh
