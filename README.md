@@ -22,6 +22,11 @@ Restart iTerm2 for all changes to take effect.
 [vim](http://vimcolors.com)  
 [vim option 2](http://cocopon.me/app/vim-color-gallery/)  
 
+
+### Brew and Cask Packages
+[brew](http://brewformulas.org)  
+[cask](https://github.com/caskroom/homebrew-cask/find/master)  
+
 ### References
 - https://danielmiessler.com/study/vim/
 - http://stevelosh.com/blog/2010/09/coming-home-to-vim/#why-i-came-back-to-vim
