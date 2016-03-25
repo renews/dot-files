@@ -18,10 +18,9 @@ Non-ASCII Font -> "Change Font"
 Restart iTerm2 for all changes to take effect.
 
 ### Themes
-[zsh](https://github.com/robbyrussell/oh-my-zsh/wiki/themes)
-[vim](http://vimcolors.com)
-[vim option 2](http://cocopon.me/app/vim-color-gallery/)
-
+[zsh](https://github.com/robbyrussell/oh-my-zsh/wiki/themes)  
+[vim](http://vimcolors.com)  
+[vim option 2](http://cocopon.me/app/vim-color-gallery/)  
 
 ### References
 - https://danielmiessler.com/study/vim/
