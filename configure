@@ -45,7 +45,7 @@ if [ "$(uname -s)" == "Darwin" ]; then
   echo "installing quicklook plugins"
   brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package
   echo "installing basic apps"
-  brew cask install iterm2 flycut dropbox evernote balsamiq-mockups xmind google-chrome skype google-drive go2shell sequel-pro psequel limechat sublime-text skype vagrant vlc spectacle flux appcleaner android-studio
+  brew cask install java iterm2 flycut dropbox evernote balsamiq-mockups xmind google-chrome skype google-drive go2shell sequel-pro psequel limechat sublime-text skype vagrant vlc spectacle flux appcleaner android-studio
   brew install heroku-toolbelt
   echo 'export PATH="/usr/local/bin:$PATH"' >> ~/.bashrc
   # set subl commando so we can run subl file.ext
