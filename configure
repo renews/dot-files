@@ -4,13 +4,13 @@
 cd $(dirname $BASH_SOURCE)
 BASE=$(pwd)
 
-echo "=================================="
-echo "** Making backup of your files! **"
+echo "===================================="
+echo "**  Making backup of your files!  **"
 for rc in *rc *profile tmux.conf agignore vim; do
   mv ~/.$rc ~/."$rc.backup"
 done
-echo "** Finished backuping your files **"
-echo "==================================="
+echo "** Finished backing up your files **"
+echo "===================================="
 
 xcode-select --install
 
