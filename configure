@@ -80,7 +80,6 @@ echo "*********************** B"
 brew install binutils
 brew install brew-cask
 echo "*********************** C"
-brew install caskroom/cask/brew-cask
 brew install coreutils
 brew install cmake
 brew install cmus
@@ -189,7 +188,7 @@ brew cask install google-chrome
 brew cask install google-drive 
 brew cask install go2shell 
 brew cask install iterm2-beta
-brew cask install itscal
+brew cask install itsycal
 brew cask install java
 brew cask install limechat 
 brew cask install mongodb 
@@ -244,11 +243,38 @@ echo "******************** installing UTIL Z"
 curl -O https://raw.github.com/rupa/z/master/z.sh >> ~/.my_utilities/z/z.sh
 chmod +x ~/.dev_utilities/z/z.sh
 
-echo 'export PATH=~/.dev_utilities/z:$PATH'  >> ~/.bashrc
-echo 'export PATH=~/.dev_utilities/z:$PATH'  >> ~/.zshrc
 
-echo 'export HOME=~/.dev_utilities/z:$HOME' >> ~/.bashrc
-echo 'export HOME=~/.dev_utilities/z:$HOME' >> ~/.zshrc
+echo "******************** EXPORTS"
+echo 'export ANDROID_HOME=/usr/local/opt/android-sdk' >> ~/.bashrc
+echo 'export ANDROID_HOME=/usr/local/opt/android-sdk' >> ~/.zshrc
+
+echo 'PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"' >> ~/.zshrc
+echo 'PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"' >> ~/.bashrc
+
+echo 'PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"' >> ~/.zshrc
+echo 'PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"' >> ~/.bashrc
+
+echo 'export PATH="~/.dev_utilities/z:$PATH"'  >> ~/.bashrc
+echo 'export PATH="~/.dev_utilities/z:$PATH"'  >> ~/.zshrc
+
+echo 'export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"'  >> ~/.bashrc
+echo 'export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"'  >> ~/.zshrc
+
+echo 'export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"'  >> ~/.bashrc
+echo 'export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"'  >> ~/.zshrc
+
+echo 'export HOME="~/.dev_utilities/z:$HOME"' >> ~/.bashrc
+echo 'export HOME="~/.dev_utilities/z:$HOME"' >> ~/.zshrc
+
+echo "******************** START WITH THE SYSTEM"
+# ln -sfv /usr/local/opt/elasticsearch/*.plist ~/Library/LaunchAgents
+# ln -sfv /usr/local/opt/memcached/*.plist ~/Library/LaunchAgents
+# ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
+
+echo "******************** STARTs NOW"
+# launchctl load ~/Library/LaunchAgents/homebrew.mxcl.elasticsearch.plist
+# launchctl load ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist
+# launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
 
 echo "================================"
 echo "** Started Oh-MY-ZSH process **"
