@@ -224,13 +224,13 @@ echo "******************** STARTs NOW"
 echo "================================"
 echo "** Started Oh-MY-ZSH process **"
 #set default terminal to zsh
-brew install zsh zsh-completions
-curl -L http://install.ohmyz.sh | sh
+brew install zsh 
+brew install zsh-completions
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # echo "fpath=(/usr/local/share/zsh-completions $fpath)" >> ~/.zshrc
 
 chsh -s $(which zsh)
-chmod go-w '/usr/local/share'
 rm -f ~/.zcompdump; compinit
 mv -f ~/dot-files/.vimrc ~/.vimrc 
 mv -f ~/dot-files/.bash_profile ~/.bash_profile 
