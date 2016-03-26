@@ -7,7 +7,7 @@ BASE=$(pwd)
 echo "===================================="
 echo "**  Making backup of your files!  **"
 for rc in .vimrc .bashrc .bash_profile .tmux.conf .agignore .vim .gemrc; do
-  mv ~/$rc ~/"$rc.backup"
+  mv ~/$rc ~/.backup/$rc
 done
 echo "** Finished backing up your files **"
 echo "===================================="
