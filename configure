@@ -14,7 +14,7 @@ echo "===================================="
 
 
 echo "===================================="
-echo "======== moving files =============="
+echo "========== moving files ============"
 echo "===================================="
 mkdir -p ~/.vim/autoload
 mkdir -p ~/.vim/plugin
@@ -227,7 +227,7 @@ elasticsearch-plugin --install mobz/elasticsearch-head
 # update sbtopts for scala
 echo '-J-XX:+CMSClassUnloadingEnabled\n-J-Xmx2G\n' >> /usr/local/etc/sbtopts
 #NODE
-npm install -g coffee-script yo gulp grunt-cli jshint browserify generator-webapp generator-gulp-webapp less sass typescript
+npm install -g coffee-script yo gulp grunt-cli jshint browserify generator-webapp less sass typescript
 echo "** Finished HOMEBREW process **"
 echo "==============================="
 
