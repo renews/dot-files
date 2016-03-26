@@ -4,6 +4,7 @@ export PATH=/usr/local/bin:$PATH
 export PACKAGE_DIRS="$HOME/.meteor/packages"
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+export ZSH=/Users/"$(whoami)"/.oh-my-zsh
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export PATH="$HOME/.rbenv/bin:$PATH"
