@@ -90,7 +90,6 @@ alias tmp='cd /tmp'
 alias l='ls -la'
 alias dh='df -h'
 alias ds="du -hs * | sort -h"
-alias rh='heroku restart -a'
 alias rs='rails s'
 alias rc='rails c'
 alias v='vim'
