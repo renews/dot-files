@@ -1,4 +1,12 @@
 # Path to your oh-my-zsh installation.
+export PATH=/usr/local/bin:$PATH
+#METEOR
+export PACKAGE_DIRS="$HOME/.meteor/packages"
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+export PATH="$HOME/.rbenv/bin:$PATH"
 
 
 # Set name of the theme to load.
@@ -9,12 +17,11 @@ ZSH_THEME="agnoster"
 
 DEFAULT_USER="$(whoami)"
 
-PATH="$PATH:/usr/local/bin"
-ANDROID_HOME="/usr/local/opt/android-sdk"
-PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
-MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
+export ANDROID_HOME=/usr/local/opt/android-sdk
+export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
+export PATH=/usr/local/opt/findutils/libexec/gnubin:$PATH
+export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
+export MANPATH=/usr/local/opt/findutils/libexec/gnuman:$MANPATH
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -56,9 +63,8 @@ HIST_STAMPS="dd.mm.yyyy"
 plugins=(git bower aws brew bundler common-aliases encode64 gem jump meteor node npm pip rails redis-cli ruby tmux temuxnator web-search)
 
 # User configuration
-
-# export PATH="/Users/renews/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-MANPATH="/usr/local/man:$MANPATH"
+export PATH="$HOME:/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/.oh-my-zsh.sh
 
@@ -118,6 +124,7 @@ alias ion="ionic serve"
 alias cppcompile='c++ -std=c++11 -stdlib=libc++'
 alias zshrc="vim ~/.zshrc"
 alias bashrc="vim ~/.bashrc"
+alias love="/Applications/love.app/Contents/MacOS/love"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
