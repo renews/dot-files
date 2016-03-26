@@ -53,7 +53,7 @@ plugins=(git bower aws brew bundler common-aliases encode64 gem jump meteor node
 # export PATH="/Users/renews/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
-source $ZSH/oh-my-zsh.sh
+source $ZSH/.oh-my-zsh.sh
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
@@ -99,7 +99,7 @@ alias tmp='cd /tmp'
 alias l='ls -la'
 alias dh='df -h'
 alias ds="du -hs * | sort -h"
-alias rh= 'heroku restart -a'
+alias rh= heroku restart -a'
 alias rs='rails s'
 alias rc='rails c'
 alias v='vim'
