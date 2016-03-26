@@ -179,6 +179,7 @@ brew cask install mongodb
 brew cask install mongohub 
 brew cask install octave
 brew cask install polymail 
+brew cask install postgres
 brew cask install psequel 
 brew cask install rdm
 brew cask install sequel-pro 
@@ -326,8 +327,7 @@ fi
 read -r -p "Do you wanna install PostgreSQL? [y/N] " resp_postg
 if [[ $resp_psotg =~ ^([yY]|[sS])$ ]]
 then
-  brew install postgresql
-  brew cask install postgres
+  brew install postgresql  
   read -r -p "Make PostgreSQL start with system? [y/N] " resp_postg_s
   if [[ $resp_postg_s =~ ^([yY]|[sS])$ ]]
   then
