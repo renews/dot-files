@@ -22,28 +22,13 @@ mkdir -p ~/.vim/tmp/backups
 mkdir -p ~/.dev_utilities/z
 curl --insecure -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim
 curl --insecure -fLo ~/.vim/plugin/Rename.vim  http://www.vim.org/scripts/download_script.php?src_id=16331 # vim plugin renamer :saveas
-mv -f ~/dot-files/.vimrc ~/.vimrc 
-mv -f ~/dot-files/.bash_profile ~/.bash_profile 
-mv -f ~/dot-files/.bashrc ~/.bashrc 
-mv -f ~/dot-files/.gemrc ~/.gemrc 
-mv -f ~/dot-files/.zshrc ~/.zshrc 
+
 
 xcode-select --install
 
 export ZSH="~/.oh-my-zsh"
 export NVM_DIR="~/.nvm"
-echo 'export ZSH="~/.oh-my-zsh"' >> ~/.zshrc
-echo 'export PATH="~/.dev_utilities/AndroidSDK/sdk/tools:$PATH"' >> ~/.bashrc
-echo 'export PATH="~/.dev_utilities/AndroidSDK/sdk/tools:$PATH"' >> ~/.zshrc
 
-read -r -p "Username on this machine:" resp_username
-if [[ resp_username =~ ^([a-Z][0-9]{2,})$ ]]
-then
-  export DEFAULT_USER=$resp_username
-  echo 'DEFAULT_USER="$resp_username"' >> ~/.zshrc
-  echo 'DEFAULT_USER="$resp_username"' >> ~/.bashrc
-fi
-  
 echo "==============================="
 echo "** Started HOMEBREW process **"
 
@@ -237,6 +222,32 @@ echo "******************** installing UTIL Z"
 curl -O https://raw.github.com/rupa/z/master/z.sh >> ~/.my_utilities/z/z.sh
 chmod +x ~/.dev_utilities/z/z.sh
 
+echo "******************** START WITH THE SYSTEM"
+# ln -sfv /usr/local/opt/elasticsearch/*.plist ~/Library/LaunchAgents
+# ln -sfv /usr/local/opt/memcached/*.plist ~/Library/LaunchAgents
+# ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
+
+echo "******************** STARTs NOW"
+# launchctl load ~/Library/LaunchAgents/homebrew.mxcl.elasticsearch.plist
+# launchctl load ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist
+# launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
+
+echo "================================"
+echo "** Started Oh-MY-ZSH process **"
+#set default terminal to zsh
+brew install zsh zsh-completions
+curl -L http://install.ohmyz.sh | sh
+
+# echo "fpath=(/usr/local/share/zsh-completions $fpath)" >> ~/.zshrc
+
+chsh -s $(which zsh)
+chmod go-w '/usr/local/share'
+rm -f ~/.zcompdump; compinit
+mv -f ~/dot-files/.vimrc ~/.vimrc 
+mv -f ~/dot-files/.bash_profile ~/.bash_profile 
+mv -f ~/dot-files/.bashrc ~/.bashrc 
+mv -f ~/dot-files/.gemrc ~/.gemrc 
+mv -f ~/dot-files/.zshrc ~/.zshrc 
 
 echo "******************** EXPORTS"
 echo 'export PATH="$PATH:/usr/local/bin"' >> ~/.bashrc
@@ -263,28 +274,22 @@ echo 'export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"'  >> ~/.
 echo 'export HOME="~/.dev_utilities/z:$HOME"' >> ~/.bashrc
 echo 'export HOME="~/.dev_utilities/z:$HOME"' >> ~/.zshrc
 
-echo "******************** START WITH THE SYSTEM"
-# ln -sfv /usr/local/opt/elasticsearch/*.plist ~/Library/LaunchAgents
-# ln -sfv /usr/local/opt/memcached/*.plist ~/Library/LaunchAgents
-# ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
 
-echo "******************** STARTs NOW"
-# launchctl load ~/Library/LaunchAgents/homebrew.mxcl.elasticsearch.plist
-# launchctl load ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist
-# launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
+echo 'export ZSH="~/.oh-my-zsh"' >> ~/.zshrc
 
-echo "================================"
-echo "** Started Oh-MY-ZSH process **"
-#set default terminal to zsh
-brew install zsh zsh-completions
-curl -L http://install.ohmyz.sh | sh
-echo "fpath=(/usr/local/share/zsh-completions $fpath)" >> ~/.zshrc
-chsh -s $(which zsh)
-chmod go-w '/usr/local/share'
-rm -f ~/.zcompdump; compinit
+read -r -p "Username on this machine:" resp_username
+if [[ resp_username =~ ^([a-Z][0-9]{2,})$ ]]
+then
+  export DEFAULT_USER=$resp_username
+  echo 'DEFAULT_USER="$resp_username"' >> ~/.zshrc
+  echo 'DEFAULT_USER="$resp_username"' >> ~/.bashrc
+fi
+
+
 echo "unalias run-help" >> ~/.zshrc
 echo "autoload run-help" >> ~/.zshrc
 echo "HELPDIR=/usr/local/share/zsh/help" >> ~/.zshrc
+
 
 echo "** Finished Oh-MY-ZSH process **"
 echo "================================"
@@ -421,8 +426,8 @@ fi
 
 vim +:PlugInstall +qall
 
+echo 'reloading terminal and removing leftovers'
 source ~/.vimrc
-source ~/.bashrc
 source ~/.bash_profile
 source ~/.zshrc
 tmux source-file ~/.tmux.conf
