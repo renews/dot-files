@@ -125,6 +125,8 @@ alias cppcompile='c++ -std=c++11 -stdlib=libc++'
 alias zshrc="vim ~/.zshrc"
 alias bashrc="vim ~/.bashrc"
 alias love="/Applications/love.app/Contents/MacOS/love"
+alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
+alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
