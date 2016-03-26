@@ -18,10 +18,10 @@ ZSH_THEME="agnoster"
 DEFAULT_USER="$(whoami)"
 
 export ANDROID_HOME=/usr/local/opt/android-sdk
-export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
-export PATH=/usr/local/opt/findutils/libexec/gnubin:$PATH
-export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
-export MANPATH=/usr/local/opt/findutils/libexec/gnuman:$MANPATH
+# export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
+# export PATH=/usr/local/opt/findutils/libexec/gnubin:$PATH
+# export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
+# export MANPATH=/usr/local/opt/findutils/libexec/gnuman:$MANPATH
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -87,7 +87,7 @@ export LANG=en_US.UTF-8
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-export SSH_KEY_PATH="~/.ssh/dsa_id"
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -132,9 +132,9 @@ alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall F
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # update sbtopts for scala
-echo '-J-XX:+CMSClassUnloadingEnabled\n-J-Xmx2G\n' >> /usr/local/etc/sbtopts
+# echo '-J-XX:+CMSClassUnloadingEnabled\n-J-Xmx2G\n' >> /usr/local/etc/sbtopts
 
 GIT_SSL_NO_VERIFY=true
