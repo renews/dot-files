@@ -25,22 +25,17 @@ curl --insecure -fLo ~/.vim/plugin/Rename.vim  http://www.vim.org/scripts/downlo
 
 xcode-select --install
 
-export ZSH="~/.oh-my-zsh"
-export NVM_DIR="~/.nvm"
-
 echo "==============================="
 echo "** Started HOMEBREW process **"
 
 [ -z "$(which brew)" ] &&
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-
 brew cleanup
 brew update
 # Upgrade any already-installed formulae.
 brew upgrade --all
 brew prune
-
 
 # Install GNU core utilities (those that come with OS X are outdated).
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
@@ -262,16 +257,9 @@ echo 'export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"'  >> ~/.
 echo 'export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"'  >> ~/.bashrc
 echo 'export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"'  >> ~/.zshrc
 
-echo 'export ZSH="~/.oh-my-zsh"' >> ~/.zshrc
-
-read -r -p "Username on this machine:" resp_username
-if [[ resp_username =~ ^([a-Z][0-9]{2,})$ ]]
-then
-  export DEFAULT_USER=$resp_username
-  echo 'DEFAULT_USER="$resp_username"' >> ~/.zshrc
-  echo 'DEFAULT_USER="$resp_username"' >> ~/.bashrc
-fi
-
+echo 'export ZSH="$HOME:.oh-my-zsh"' >> ~/.zshrc
+echo 'DEFAULT_USER="$(whoami)"' >> ~/.zshrc
+echo 'DEFAULT_USER="$(whoami)"' >> ~/.bashrc
 
 echo "unalias run-help" >> ~/.zshrc
 echo "autoload run-help" >> ~/.zshrc
@@ -288,8 +276,7 @@ then
   brew install rbenv
   brew install ruby-build 
   gem update --system
-  export PATH=~/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
-  echo 'export PATH="~/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"'  >> ~/.zshrc
+  echo 'export PATH="$HOME:.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"'  >> ~/.zshrc
 fi
   
 # RAILS
