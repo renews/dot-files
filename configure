@@ -366,7 +366,11 @@ then
   brew tap samueljohn/python
   brew install gcc
   pip install nose pyparsing python-dateutil pep8
-  brew install numpy scipy matplotlib zeromq pyqt
+  brew install samueljohn/python/numpy
+  brew install scipy 
+  brew install matplotlib 
+  brew install zeromq 
+  brew install pyqt
   pip install pyzmq pygments jinja2 tornado ipython
 fi
 
