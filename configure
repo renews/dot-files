@@ -239,7 +239,7 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 # echo "fpath=(/usr/local/share/zsh-completions $fpath)" >> ~/.zshrc
 
 chsh -s $(which zsh)
-rm -f ~/.zcompdump; compinit
+rm -f ~/.zcompdump
 mv -f ~/dot-files/.vimrc ~/.vimrc 
 mv -f ~/dot-files/.bash_profile ~/.bash_profile 
 mv -f ~/dot-files/.bashrc ~/.bashrc 
@@ -289,7 +289,7 @@ fi
 
 #POSTGRESQL
 read -r -p "Do you wanna install PostgreSQL? [y/N] " resp_postg
-if [[ $resp_psotg =~ ^([yY]|[sS])$ ]]
+if [[ $resp_postg =~ ^([yY]|[sS])$ ]]
 then
   brew install postgresql  
   read -r -p "Make PostgreSQL start with system? [y/N] " resp_postg_s
@@ -373,18 +373,16 @@ then
     cat ~/.ssh/id_rsa.pub
   fi
   git config --global credential.helper osxkeychain
-  export GIT_SSL_NO_VERIFY=true
-  echo 'export GIT_SSL_NO_VERIFY=true' >> ~/.zshrc
-  echo 'export GIT_SSL_NO_VERIFY=true' >> ~/.bashrc
 fi
 
 vim +:PlugInstall +qall
 
+echo "+++++++++++++++++++++++++++++++++++++++++++++"
 echo 'reloading terminal and removing leftovers'
 source ~/.vimrc
 source ~/.bash_profile
 source ~/.zshrc
-tmux source-file ~/.tmux.conf
+
 rm -f ~/configure
 rm -rf ~/dot-files
 rm -rf ~/.git
