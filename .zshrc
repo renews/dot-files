@@ -46,7 +46,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git bower aws brew bundler common-aliases encode64 gem meteor node npm pip rails redis-cli ruby tmux temuxnator web-search)
+plugins=(git bower aws brew bundler common-aliases encode64 gem jump meteor node npm pip rails redis-cli ruby tmux temuxnator web-search)
 
 # User configuration
 
