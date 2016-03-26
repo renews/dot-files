@@ -88,7 +88,7 @@ export LANG=en_US.UTF-8
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+export SSH_KEY_PATH="$HOME:/.ssh/id_rsa"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -112,12 +112,13 @@ alias sl='ls'
 alias tmp='cd /tmp'
 alias l='ls -la'
 alias dh='df -h'
-alias ds="du -hs * | sort -h"
+alias ds="du -hs * | sort s"
 alias rs='rails s'
 alias rc='rails c'
 alias v='vim'
 alias vi='vim'
-alias testnet='wget http://cachefly.cachefly.net/400mb.test > /dev/null'
+alias speed400='wget http://cachefly.cachefly.net/400mb.test > /dev/null'
+alias speedtest='speedtest-cli'
 alias filetree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/ /' -e 's/-/|/'"
 alias gcempty="git commit --allow-empty -m 'empty -- forcing deploy' && ggpush"
 alias lusers="dscl . list /Users | grep -v '^_'"
@@ -136,6 +137,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # update sbtopts for scala
-# echo '-J-XX:+CMSClassUnloadingEnabled\n-J-Xmx2G\n' >> /usr/local/etc/sbtopts
+echo '-J-XX:+CMSClassUnloadingEnabled\n-J-Xmx2G\n' >> /usr/local/etc/sbtopts
 
 GIT_SSL_NO_VERIFY=true
