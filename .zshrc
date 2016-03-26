@@ -7,7 +7,14 @@
 # time that oh-my-zsh is loaded.
 ZSH_THEME="agnoster"
 
-# DEFAULT_USER="renews"
+DEFAULT_USER="$(whoami)"
+
+PATH="$PATH:/usr/local/bin"
+ANDROID_HOME="/usr/local/opt/android-sdk"
+PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
+MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -51,7 +58,7 @@ plugins=(git bower aws brew bundler common-aliases encode64 gem jump meteor node
 # User configuration
 
 # export PATH="/Users/renews/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-# export MANPATH="/usr/local/man:$MANPATH"
+MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/.oh-my-zsh.sh
 
@@ -74,7 +81,7 @@ export LANG=en_US.UTF-8
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -99,7 +106,6 @@ alias tmp='cd /tmp'
 alias l='ls -la'
 alias dh='df -h'
 alias ds="du -hs * | sort -h"
-alias rh= heroku restart -a'
 alias rs='rails s'
 alias rc='rails c'
 alias v='vim'
@@ -110,9 +116,16 @@ alias gcempty="git commit --allow-empty -m 'empty -- forcing deploy' && ggpush"
 alias lusers="dscl . list /Users | grep -v '^_'"
 alias ion="ionic serve"
 alias cppcompile='c++ -std=c++11 -stdlib=libc++'
+alias zshrc="vim ~/.zshrc"
+alias bashrc="vim ~/.bashrc"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# update sbtopts for scala
+echo '-J-XX:+CMSClassUnloadingEnabled\n-J-Xmx2G\n' >> /usr/local/etc/sbtopts
+
+GIT_SSL_NO_VERIFY=true
