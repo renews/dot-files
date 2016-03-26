@@ -14,7 +14,7 @@ echo "===================================="
 
 
 echo "===================================="
-echo "====== movendo arquivos ============"
+echo "======== moving files =============="
 echo "===================================="
 mkdir -p ~/.vim/autoload
 mkdir -p ~/.vim/plugin
@@ -220,15 +220,9 @@ if [ ! -e ~/.git-prompt.sh ]; then
   wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O ~/.git-prompt.sh
 fi
 
-echo 'export PATH="$PATH:/usr/local/bin"' >> ~/.bashrc
-echo 'export PATH="$PATH:/usr/local/bin"' >> ~/.zshrc
-
 # Elasticsearch config
 mv /usr/local/bin/plugin /usr/local/bin/elasticsearch-plugin
 elasticsearch-plugin --install mobz/elasticsearch-head
-
-# set subl commando so we can run subl file.ext
-ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
 
 # update sbtopts for scala
 echo '-J-XX:+CMSClassUnloadingEnabled\n-J-Xmx2G\n' >> /usr/local/etc/sbtopts
@@ -245,6 +239,9 @@ chmod +x ~/.dev_utilities/z/z.sh
 
 
 echo "******************** EXPORTS"
+echo 'export PATH="$PATH:/usr/local/bin"' >> ~/.bashrc
+echo 'export PATH="$PATH:/usr/local/bin"' >> ~/.zshrc
+
 echo 'export ANDROID_HOME=/usr/local/opt/android-sdk' >> ~/.bashrc
 echo 'export ANDROID_HOME=/usr/local/opt/android-sdk' >> ~/.zshrc
 
