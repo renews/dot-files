@@ -1,6 +1,3 @@
-if has("win32")
-  let &runtimepath = substitute(&runtimepath,'\(Documents and Settings\|Users\)[\\/][^\\/,]*[\\/]\zsvimfiles\>','.vim','g')
-endif
 " ==============================
 " Start plugin management
 " ===============================
