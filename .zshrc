@@ -67,7 +67,7 @@ plugins=(git bower aws brew bundler common-aliases encode64 gem jump meteor node
 export PATH="$HOME:/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 export MANPATH="/usr/local/man:$MANPATH"
 
-source $ZSH/.oh-my-zsh.sh
+source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
