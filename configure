@@ -87,6 +87,7 @@ brew install gnuplot
 brew install gnu-sed --with-default-names
 brew install gpg
 brew install graphviz
+brew install grc
 brew install gzip
 echo "*********************** H"
 brew install htop
@@ -157,8 +158,9 @@ echo "*********************** installing quicklook plugins"
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook
 
 echo "***********************installing basic apps"
-brew cask install appcleaner 
+brew cask install all2mp3
 brew cask install android-studio 
+brew cask install appcleaner 
 brew cask install backblaze
 brew cask install balsamiq-mockups
 brew cask install bartender
@@ -187,8 +189,12 @@ brew cask install psequel
 brew cask install rdm
 brew cask install sequel-pro 
 brew cask install skype 
+brew cask install slack
 brew cask install spectacle
+brew cask install spotify
+brew cask install spotify-notifications
 brew cask install sublime-text3
+brew cask install transmission
 brew cask install vagrant
 brew cask install vagrant-manager
 brew cask install valentina-studio 
@@ -273,8 +279,12 @@ if [[ $resp_ror =~ ^([yY]|[sS])$ ]]
 then
   rbenv install $(rbenv install -l | grep -v - | tail -1)
   rbenv global $(rbenv install -l | grep -v - | tail -1)  
-  gem install bundle bundler sinatra jekyll rails 
   rbenv rehash
+  gem install bundle
+  gem install bundler
+  gem install sinatra
+  gem install jekyll
+  gem install rails 
 fi
 
 #MYSQL
@@ -365,20 +375,20 @@ then
   read -r -p "Name to be used on GIT:" resp_git_n
   if [[ $resp_git_n =~ ^([a-z]{2,})$ ]]
   then
-    git config --global user.name "$resp_git_n"
+    git config --global user.name $resp_git_n
   fi
   
   read -r -p "E-mail to be used on GIT:" resp_git_e
   if [[ $resp_git_e =~ ^([a-z]{2,})$ ]]
   then
   echo "Email: $resp_git_e"
-    git config --global user.email "$resp_git_e"
+    git config --global user.email $resp_git_e
   fi
   
   read -r -p "Generate SSH key?:" resp_git_ssh
   if [[ $resp_git_ssh =~ ^([yY]|[sS])$ ]]
   then
-    ssh-keygen -t rsa -C "$resp_git_e"
+    ssh-keygen -t rsa -C $resp_git_e
     echo "=================================="
     echo "Copy this to your github account:"
     cat ~/.ssh/id_rsa.pub
