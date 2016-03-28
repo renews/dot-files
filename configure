@@ -56,6 +56,7 @@ brew install aget
 brew install android-sdk
 brew install ant 
 echo "*********************** B"
+brew install bdw-gc
 brew install binutils
 brew install brew-cask
 echo "*********************** C"
@@ -81,6 +82,7 @@ brew install git
 brew install git-lfs
 brew install git-flow
 brew install git-extras
+brew install gmp
 brew install gnuplot
 brew install gnu-sed --with-default-names
 brew install gpg
@@ -95,6 +97,12 @@ echo "*********************** J"
 brew install jq
 echo "*********************** K"
 echo "*********************** L"
+brew install libevent
+brew install libpcl
+brew install libxml2
+brew install libyaml
+brew install llvm
+brew link llvm --force
 brew install lua
 echo "*********************** M"
 brew install maven 
