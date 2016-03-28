@@ -213,7 +213,8 @@ mv /usr/local/bin/plugin /usr/local/bin/elasticsearch-plugin
 elasticsearch-plugin --install mobz/elasticsearch-head
 
 #NODE
-npm install -g cordova ionic
+npm install -g cordova
+npm install -g ionic
 npm install -g coffee-script 
 npm install -g yo 
 npm install -g gulp 
@@ -224,6 +225,8 @@ npm install -g generator-webapp
 npm install -g less 
 npm install -g sass 
 npm install -g typescript
+npm install -g ios-sim
+npm install -g ios-deploy
 echo "** Finished HOMEBREW process **"
 echo "==============================="
 
