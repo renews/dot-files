@@ -6,10 +6,6 @@ export PACKAGE_DIRS="$HOME/.meteor/packages"
 export PATH="/usr/local/heroku/bin:$PATH"
 export ZSH=/Users/"$(whoami)"/.oh-my-zsh
 
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-export PATH="$HOME/.rbenv/bin:$PATH"
-
-
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -61,7 +57,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git bower aws brew bundler common-aliases encode64 gem jump meteor node npm pip rails redis-cli ruby tmux temuxnator web-search)
+plugins=(git bower aws brew bundler common-aliases encode64 gem jump meteor rbenv node npm pip rails redis-cli ruby tmux temuxnator web-search)
 
 # User configuration
 export PATH="$HOME:/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
@@ -140,3 +136,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 echo '-J-XX:+CMSClassUnloadingEnabled\n-J-Xmx2G\n' >> /usr/local/etc/sbtopts
 
 GIT_SSL_NO_VERIFY=true
+
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+export PATH="$HOME/.rbenv/bin:$PATH"
