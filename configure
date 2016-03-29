@@ -285,12 +285,12 @@ then
     rbenv install $(rbenv install -l | grep -v - | tail -1)
     rbenv global $(rbenv install -l | grep -v - | tail -1)  
     rbenv rehash
+    which ruby
     gem install bundle
-    gem install bundler
     gem install sinatra
     gem install jekyll
     gem install rails 
-    which ruby
+ 
   fi
 fi
   
