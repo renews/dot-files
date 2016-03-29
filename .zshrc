@@ -1,3 +1,16 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Customize to your needs...
 # Path to your oh-my-zsh installation.
 export PATH=/usr/local/bin:$PATH
 
@@ -6,13 +19,13 @@ export PACKAGE_DIRS="$HOME/.meteor/packages"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
-export ZSH=/Users/"$(whoami)"/.oh-my-zsh
-source $ZSH/oh-my-zsh.sh
+# export ZSH=/Users/"$(whoami)"/.oh-my-zsh
+# source $ZSH/oh-my-zsh.sh
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="agnoster"
+# ZSH_THEME="agnoster"
 
 DEFAULT_USER="$(whoami)"
 
@@ -121,10 +134,12 @@ alias lusers="dscl . list /Users | grep -v '^_'"
 alias ion="ionic serve"
 alias cppcompile='c++ -std=c++11 -stdlib=libc++'
 alias zshrc="vim ~/.zshrc"
+alias zshrcr='source ~/.zshrc'
 alias bashrc="vim ~/.bashrc"
 alias love="/Applications/love.app/Contents/MacOS/love"
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+alias themes='prompt -l'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
