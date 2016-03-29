@@ -273,24 +273,28 @@ echo "================================"
 read -r -p "Do you wanna install RBENV? [y/N] " resp_rbenv
 if [[ $resp_rbenv =~ ^([yY]|[sS])$ ]]
 then
+  gem update --system
+  gem uninstall --all
   brew install rbenv
   brew install ruby-build 
+  
+    # RAILS
+  read -r -p "Do you wanna install Ruby, Rails and Sinatra? [y/N] " resp_ror
+  if [[ $resp_ror =~ ^([yY]|[sS])$ ]]
+  then
+    rbenv install $(rbenv install -l | grep -v - | tail -1)
+    rbenv global $(rbenv install -l | grep -v - | tail -1)  
+    rbenv rehash
+    gem install bundle
+    gem install bundler
+    gem install sinatra
+    gem install jekyll
+    gem install rails 
+    which ruby
+  fi
 fi
   
-# RAILS
-read -r -p "Do you wanna install Ruby, Rails and Sinatra? [y/N] " resp_ror
-if [[ $resp_ror =~ ^([yY]|[sS])$ ]]
-then
-  rbenv install $(rbenv install -l | grep -v - | tail -1)
-  rbenv global $(rbenv install -l | grep -v - | tail -1)  
-  rbenv rehash
-  gem install bundle
-  gem install bundler
-  gem install sinatra
-  gem install jekyll
-  gem install rails 
-  which ruby
-fi
+
 
 #MYSQL
 read -r -p "Do you wanna install MySQL? [y/N]" resp_mysql
