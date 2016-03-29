@@ -156,7 +156,7 @@ echo "*********************** clean"
 brew doctor
 brew cleanup
 
-
+$SHELL # reload shell
 echo "*********************** installing quicklook plugins"
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook
 
@@ -205,13 +205,13 @@ brew cask install virtualbox
 brew cask install vlc 
 brew cask install xmind 
 
-
+$SHELL # reload shell
 echo "***********************installing HEROKU"
 # HEROKU
 brew install heroku-toolbelt
 heroku update
 heroku login
-
+$SHELL # reload shell
 echo "***********************installing GIT PROMPT"  
 if [ ! -e ~/.git-prompt.sh ]; then
   wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O ~/.git-prompt.sh
@@ -220,7 +220,7 @@ fi
 # Elasticsearch config
 mv /usr/local/bin/plugin /usr/local/bin/elasticsearch-plugin
 elasticsearch-plugin --install mobz/elasticsearch-head
-
+$SHELL # reload shell
 #NODE
 npm install -g cordova
 npm install -g ionic
@@ -249,20 +249,24 @@ echo "******************** STARTs NOW"
 # launchctl load ~/Library/LaunchAgents/homebrew.mxcl.elasticsearch.plist
 # launchctl load ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist
 # launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
-
+$SHELL # reload shell
 echo "================================"
 echo "** Started Oh-MY-ZSH process **"
 #set default terminal to zsh
 brew install zsh 
 brew install zsh-completions
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
+#sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+$SHELL # reload shell
 # echo "fpath=(/usr/local/share/zsh-completions $fpath)" >> ~/.zshrc
+
+git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+etopt EXTENDED_GLOB
+for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+done
 
 rm -f ~/.zcompdump
 mv -f ~/dot-files/.vimrc ~/.vimrc 
-mv -f ~/dot-files/.bash_profile ~/.bash_profile 
-mv -f ~/dot-files/.bashrc ~/.bashrc 
 mv -f ~/dot-files/.gemrc ~/.gemrc 
 mv -f ~/dot-files/.zshrc ~/.zshrc 
 echo "** Finished Oh-MY-ZSH process **"
@@ -276,7 +280,7 @@ then
   gem uninstall --all
   brew install rbenv
   brew install ruby-build 
-  
+  $SHELL # reload shell
     # RAILS
   read -r -p "Do you wanna install Ruby, Rails and Sinatra? [y/N] " resp_ror
   if [[ $resp_ror =~ ^([yY]|[sS])$ ]]
@@ -285,6 +289,7 @@ then
     rbenv global $(rbenv install -l | grep -v - | tail -1)  
     rbenv rehash
     which ruby
+    $SHELL # reload shell
     gem install bundle
     gem install sinatra
     gem install jekyll
@@ -408,11 +413,13 @@ vim +:PlugInstall +qall
 
 echo "+++++++++++++++++++++++++++++++++++++++++++++"
 echo 'reloading terminal and removing leftovers'
+$SHELL # reload shell
 chsh -s $(which zsh)
+$SHELL # reload shell
 source ~/.vimrc
 source ~/.bash_profile
 source ~/.zshrc
-
+$SHELL # reload shell
 rm -f ~/configure
 rm -rf ~/dot-files
 rm -rf ~/.git
