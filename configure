@@ -106,6 +106,7 @@ brew install llvm
 brew link llvm --force
 brew install lua
 echo "*********************** M"
+brew install argon/mas/mas
 brew install maven 
 brew install memcached 
 brew install moreutils
