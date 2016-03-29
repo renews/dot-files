@@ -94,6 +94,7 @@ echo "*********************** H"
 brew install htop
 brew install hub
 echo "*********************** I"
+brew install ifstat
 brew install imagemagick
 echo "*********************** J"
 brew install jq
