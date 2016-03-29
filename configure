@@ -6,7 +6,7 @@ BASE=$(pwd)
 
 echo "===================================="
 echo "**  Making backup of your files!  **"
-for rc in .vimrc .bashrc .bash_profile .tmux.conf .agignore .vim .gemrc; do
+for rc in .vimrc .bashrc .bash_profile .tmux.conf .agignore .vim .gemrc .gem; do
   mkdir -p ~/./backup/; mv ~/$rc $_
 done
 echo "** Finished backing up your files **"
@@ -259,7 +259,6 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 
 # echo "fpath=(/usr/local/share/zsh-completions $fpath)" >> ~/.zshrc
 
-chsh -s $(which zsh)
 rm -f ~/.zcompdump
 mv -f ~/dot-files/.vimrc ~/.vimrc 
 mv -f ~/dot-files/.bash_profile ~/.bash_profile 
@@ -409,6 +408,7 @@ vim +:PlugInstall +qall
 
 echo "+++++++++++++++++++++++++++++++++++++++++++++"
 echo 'reloading terminal and removing leftovers'
+chsh -s $(which zsh)
 source ~/.vimrc
 source ~/.bash_profile
 source ~/.zshrc
