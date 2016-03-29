@@ -314,9 +314,8 @@ nnoremap <leader>d :read !date<cr>
 " repeat last shell command 
 nnoremap <leader>r :!!<cr>
 
-" select paragraph in visual mode
-nnoremap <leader>j vipj
-
+" yank paragraph to clipboard
+nnoremap <leader>yp "+yvipj
 " yank line to clipboard
 nnoremap <leader>yl "+yy<cr>
 " yank full file to clipboard
@@ -601,5 +600,3 @@ augroup END
 " fix spelling
 iab widht width
 iab heigth heigth
-iab avassalador dig dim dig dim
-iab cl console.log('');
