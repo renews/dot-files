@@ -47,6 +47,7 @@ brew tap caskroom/versions
 brew tap caskroom/fonts 
 brew tap homebrew/dupes
 brew tap caskroom/cask
+brew tap argon/mas
 
 brew tap --repair
 
@@ -106,7 +107,7 @@ brew install llvm
 brew link llvm --force
 brew install lua
 echo "*********************** M"
-brew install argon/mas/mas
+brew install mas
 brew install maven 
 brew install memcached 
 brew install moreutils
