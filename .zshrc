@@ -1,11 +1,13 @@
 # Path to your oh-my-zsh installation.
 export PATH=/usr/local/bin:$PATH
+
 #METEOR
 export PACKAGE_DIRS="$HOME/.meteor/packages"
+
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 export ZSH=/Users/"$(whoami)"/.oh-my-zsh
-
+source $ZSH/oh-my-zsh.sh
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -14,7 +16,7 @@ ZSH_THEME="agnoster"
 
 DEFAULT_USER="$(whoami)"
 
-export ANDROID_HOME=/usr/local/opt/android-sdk
+# export ANDROID_HOME=/usr/local/opt/android-sdk
 # export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
 # export PATH=/usr/local/opt/findutils/libexec/gnubin:$PATH
 # export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
@@ -62,8 +64,6 @@ plugins=(git bower aws brew bundler common-aliases encode64 gem jump meteor rben
 # User configuration
 export PATH="$HOME:/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 export MANPATH="/usr/local/man:$MANPATH"
-
-source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
