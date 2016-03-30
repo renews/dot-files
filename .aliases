@@ -35,3 +35,6 @@ alias love="/Applications/love.app/Contents/MacOS/love"
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
 alias themes='prompt -l'
+alias sshec2='ssh -i ~/.ssh/tecnologia-dev.pem ec2-user@'
+alias gst='git status'
+alias today='date +"%A, %d, %B, %Y"'
