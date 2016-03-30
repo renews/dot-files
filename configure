@@ -164,6 +164,7 @@ echo "***********************installing basic apps"
 brew cask install all2mp3
 brew cask install android-studio 
 brew cask install appcleaner 
+brew cask install atom
 brew cask install backblaze
 brew cask install balsamiq-mockups
 brew cask install bartender
@@ -205,6 +206,8 @@ brew cask install virtualbox
 brew cask install vlc 
 brew cask install xmind 
 
+# atom dependecy
+apm install nuclide
 $SHELL # reload shell
 echo "***********************installing HEROKU"
 # HEROKU
@@ -237,6 +240,7 @@ npm install -g sass
 npm install -g typescript
 npm install -g ios-sim
 npm install -g ios-deploy
+npm install -g electron-prebuilt
 echo "** Finished HOMEBREW process **"
 echo "==============================="
 
