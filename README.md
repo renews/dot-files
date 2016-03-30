@@ -27,6 +27,9 @@ Restart iTerm2 for all changes to take effect.
 [brew](http://brewformulas.org)  
 [cask](https://github.com/caskroom/homebrew-cask/find/master)  
 
+### Cheatsheets for Prezto plugins
+[git](https://github.com/sorin-ionescu/prezto/tree/master/modules/git)  
+
 ### References
 - https://danielmiessler.com/study/vim/
 - http://stevelosh.com/blog/2010/09/coming-home-to-vim/#why-i-came-back-to-vim
