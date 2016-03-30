@@ -204,7 +204,9 @@ brew cask install vagrant-manager
 brew cask install valentina-studio 
 brew cask install virtualbox
 brew cask install vlc 
+brew cask install whatsdesktop
 brew cask install xmind 
+
 
 # atom dependecy
 apm install nuclide
