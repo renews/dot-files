@@ -6,7 +6,7 @@ BASE=$(pwd)
 
 echo "===================================="
 echo "**  Making backup of your files!  **"
-for rc in .vimrc .bashrc .bash_profile .tmux.conf .agignore .vim .gemrc .gem; do
+for rc in .vimrc .bashrc .bash_profile .tmux.conf .agignore .vim .gemrc .gem .aliases; do
   mkdir -p ~/./backup/; mv ~/$rc $_
 done
 echo "** Finished backing up your files **"
@@ -269,6 +269,7 @@ rm -f ~/.zcompdump
 mv -f ~/dot-files/.vimrc ~/.vimrc 
 mv -f ~/dot-files/.gemrc ~/.gemrc 
 mv -f ~/dot-files/.zshrc ~/.zshrc 
+mv -f ~/dot-files/.aliases ~/.aliases
 echo "** Finished Oh-MY-ZSH process **"
 echo "================================"
 
