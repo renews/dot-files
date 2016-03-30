@@ -72,7 +72,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git bower aws brew bundler common-aliases encode64 gem jump meteor rbenv node npm pip rails redis-cli ruby tmux temuxnator web-search)
+# plugins=(git bower aws brew bundler common-aliases encode64 gem jump meteor rbenv node npm pip rails redis-cli ruby tmux temuxnator web-search)
 
 # User configuration
 export PATH="$HOME:/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
@@ -103,43 +103,7 @@ export SSH_KEY_PATH="$HOME:/.ssh/id_rsa"
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
-alias ......='cd ../../../../..'
-alias cd.='cd ..'
-alias cd..='cd ..'
-alias k9='kill -9 %%'
-alias egrep='grep -E'
-alias fgrep='grep -F'
-alias ls='ls -FG'
-alias m='less'
-alias md='mkdir'
-alias p='pstree -p'
-alias sl='ls'
-alias tmp='cd /tmp'
-alias l='ls -la'
-alias dh='df -h'
-alias ds="du -hs * | sort s"
-alias rs='bundle exec rails s'
-alias rc='bundle exec rails c'
-alias v='vim'
-alias vi='vim'
-alias speed400='wget http://cachefly.cachefly.net/400mb.test > /dev/null'
-alias speedtest='speedtest-cli'
-alias filetree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/ /' -e 's/-/|/'"
-alias gcempty="git commit --allow-empty -m 'empty -- forcing deploy' && ggpush"
-alias lusers="dscl . list /Users | grep -v '^_'"
-alias ion="ionic serve"
-alias cppcompile='c++ -std=c++11 -stdlib=libc++'
-alias zshrc="vim ~/.zshrc"
-alias zshrcr='source ~/.zshrc'
-alias bashrc="vim ~/.bashrc"
-alias love="/Applications/love.app/Contents/MacOS/love"
-alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
-alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
-alias themes='prompt -l'
+[ -f ~/.aliases ] && source ~/.aliases]
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
