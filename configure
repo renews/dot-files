@@ -284,7 +284,7 @@ brew install zsh-completions
 touch ~/.zshrc 
 # zsh
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-zsh setopt EXTENDED_GLOB
+
 ln -s ~/.zprezto/runcoms/zlogin ~/.zlogin
 ln -s ~/.zprezto/runcoms/zlogout ~/.zlogout
 ln -s ~/.zprezto/runcoms/zpreztorc ~/.zpreztorc
