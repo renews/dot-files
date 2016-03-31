@@ -80,6 +80,7 @@ echo "*********************** F"
 brew install fish
 brew install findutils
 echo "*********************** G"
+brew install ghostscript #to generate files
 brew install git 
 brew install git-lfs
 brew install git-flow
