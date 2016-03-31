@@ -33,6 +33,7 @@ zstyle ':prezto:load' pmodule \
   'spectrum' \
   'completion' \
   'osx' \
+  'git' \
   'ruby' \
   'rails' \
   'node' \
