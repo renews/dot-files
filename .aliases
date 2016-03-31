@@ -119,4 +119,4 @@ alias gunwip='git log -n 1'
 alias gup='git pull --rebase'
 alias gvt='git verify-tag'
 alias gwch='git whatchanged -p --abbrev-commit --pretty = medium'
-alias gwip='git add -A; git ls-files --deleted -zalias
+alias gwip='git add -A; git ls-files --deleted -zalias'
