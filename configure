@@ -186,6 +186,7 @@ echo "***********************installing basic apps"
   brew cask install google-drive 
   brew cask install google-hangouts 
   brew cask install go2shell 
+  brew cask install growlnotify
   brew cask install iterm2-beta
   brew cask install itsycal
   brew cask install java
