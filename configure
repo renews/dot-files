@@ -281,7 +281,7 @@ brew install zsh
 brew install zsh-completions
 #sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 # echo "fpath=(/usr/local/share/zsh-completions $fpath)" >> ~/.zshrc
-
+touch ~/.zshrc 
 zsh
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 setopt EXTENDED_GLOB
