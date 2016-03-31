@@ -272,7 +272,6 @@ echo "** Started ZSH process **"
 brew install zsh 
 brew install zsh-completions
 #sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-$SHELL # reload shell
 # echo "fpath=(/usr/local/share/zsh-completions $fpath)" >> ~/.zshrc
 
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
