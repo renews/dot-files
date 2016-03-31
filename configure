@@ -32,13 +32,12 @@ echo "** Started HOMEBREW process **"
 [ -z "$(which brew)" ] &&
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-$SHELL
 brew cleanup
 brew update
 # Upgrade any already-installed formulae.
 brew upgrade --all
 brew prune
-$SHELL
+
 # Install GNU core utilities (those that come with OS X are outdated).
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
 sudo ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
@@ -158,7 +157,7 @@ echo "*********************** clean"
 brew doctor
 brew cleanup
 
-$SHELL # reload shell
+
 echo "*********************** installing quicklook plugins"
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook
 
@@ -192,6 +191,7 @@ echo "***********************installing basic apps"
   brew cask install limechat 
   brew cask install mongodb 
   brew cask install mongohub 
+  apm install nuclide # atom as dependecy
   brew cask install opera
   # brew cask install octave
   brew cask install polymail 
@@ -217,15 +217,13 @@ echo "***********************installing basic apps"
   brew cask install xmind 
 fi
 
-# atom dependecy
-apm install nuclide
-$SHELL # reload shell
+
 echo "***********************installing HEROKU"
 # HEROKU
 brew install heroku-toolbelt
 heroku update
 heroku login
-$SHELL # reload shell
+
 echo "***********************installing GIT PROMPT"  
 if [ ! -e ~/.git-prompt.sh ]; then
   wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O ~/.git-prompt.sh
@@ -234,7 +232,7 @@ fi
 # Elasticsearch config
 [ -e /usr/local/bin/plugin ] && mv /usr/local/bin/plugin /usr/local/bin/elasticsearch-plugin
 elasticsearch-plugin --install mobz/elasticsearch-head
-$SHELL # reload shell
+
 #NODE
 echo "******************** node packages"
 npm install -g cordova
@@ -265,7 +263,7 @@ echo "******************** STARTs NOW"
 # launchctl load ~/Library/LaunchAgents/homebrew.mxcl.elasticsearch.plist
 # launchctl load ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist
 # launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
-$SHELL # reload shell
+
 echo "================================"
 echo "** Started ZSH process **"
 #set default terminal to zsh
@@ -280,7 +278,7 @@ etopt EXTENDED_GLOB
 for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
   ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
 done
-$SHELL # reload shell
+
 rm -f ~/.zcompdump
 mv -f ~/dot-files/.vimrc ~/.vimrc 
 mv -f ~/dot-files/.gemrc ~/.gemrc 
@@ -288,7 +286,8 @@ mv -f ~/dot-files/.zshrc ~/.zshrc
 mv -f ~/dot-files/.aliases ~/.aliases
 mv -f ~/dot-files/.zpreztorc ~/.zpreztorc
 mv -f ~/dot-files/.zprofile ~/.zprofile
-echo "** Finished Oh-MY-ZSH process **"
+$SHELL # reload shell
+echo "** Finished ZSH process **"
 echo "================================"
 
 # RBENV
