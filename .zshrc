@@ -81,6 +81,7 @@ export MANPATH="/usr/local/man:$MANPATH"
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
+setopt EXTENDED_GLOB
 # keybinding
 #bindkey -v
 #bindkey -M viins ‘jj’ vi-cmd-mode
