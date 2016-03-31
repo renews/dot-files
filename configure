@@ -240,23 +240,27 @@ fi
 elasticsearch-plugin --install mobz/elasticsearch-head
 
 #NODE
-echo "******************** node packages"
-npm install -g cordova
-npm install -g ionic
-npm install -g bower
-npm install -g coffee-script
-npm install -g yo
-npm install -g gulp
-npm install -g grunt-cli
-npm install -g jshint
-npm install -g browserify
-npm install -g generator-webapp
-npm install -g less
-npm install -g sass
-npm install -g typescript
-npm install -g ios-sim
-npm install -g ios-deploy
-npm install -g electron-prebuilt
+read -r -p "Install NODE MODULES? [y/N]" resp_node
+if [[ "$resp_node" =~ ^([yY]|[sS])$ ]]
+then
+  echo "******************** node packages"
+  npm install -g cordova
+  npm install -g ionic
+  npm install -g bower
+  npm install -g coffee-script
+  npm install -g yo
+  npm install -g gulp
+  npm install -g grunt-cli
+  npm install -g jshint
+  npm install -g browserify
+  npm install -g generator-webapp
+  npm install -g less
+  npm install -g sass
+  npm install -g typescript
+  npm install -g ios-sim
+  npm install -g ios-deploy
+  npm install -g electron-prebuilt
+fi
 echo "** Finished HOMEBREW process **"
 echo "==============================="
 
