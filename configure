@@ -293,13 +293,13 @@ ln -s ~/.zprezto/runcoms/zshenv ~/.zshenv
 ln -s ~/.zprezto/runcoms/zshrc ~/.zshrc
 # bash
 rm -f ~/.zcompdump
+rm -f ~/.zshrc
 mv -f ~/dot-files/.vimrc ~/.vimrc
 mv -f ~/dot-files/.gemrc ~/.gemrc
 mv -f ~/dot-files/.zshrc ~/.zshrc
 mv -f ~/dot-files/.aliases ~/.aliases
 mv -f ~/dot-files/.zpreztorc ~/.zpreztorc
 mv -f ~/dot-files/.zprofile ~/.zprofile
-$SHELL # reload shell
 echo "** Finished ZSH process **"
 echo "================================"
 
@@ -311,7 +311,7 @@ then
   gem uninstall --all
   brew install rbenv
   brew install ruby-build
-  $SHELL # reload shell
+  
     # RAILS
   read -r -p "Do you wanna install Ruby, Rails and Sinatra? [y/N] " resp_ror
   if [[ $resp_ror =~ ^([yY]|[sS])$ ]]
@@ -320,7 +320,7 @@ then
     rbenv global $(rbenv install -l | grep -v - | tail -1)
     rbenv rehash
     which ruby
-    $SHELL # reload shell
+
     gem install bundle
     gem install sinatra
     gem install jekyll
@@ -437,7 +437,6 @@ then
     cat ~/.ssh/id_rsa.pub
   fi
   git config --global credential.helper osxkeychain
-  $SHELL # reload shell
 fi
 
 vim +:PlugInstall +qall
@@ -445,13 +444,14 @@ vim +:PlugInstall +qall
 echo "+++++++++++++++++++++++++++++++++++++++++++++"
 echo 'reloading terminal and removing leftovers'
 chsh -s $(which zsh)
-$SHELL # reload shell
+
 source ~/.vimrc
 source ~/.bash_profile
 source ~/.zshrc
+source ~/.gemrc
 source ~/.zprofile
 source ~/.zpreztorc
-$SHELL # reload shell
+
 rm -f ~/configure
 rm -rf ~/dot-files
 rm -rf ~/.git
