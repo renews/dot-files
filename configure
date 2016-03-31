@@ -6,8 +6,9 @@ BASE=$(pwd)
 
 echo "===================================="
 echo "**  Making backup of your files!  **"
-for rc in .vimrc .bashrc .bash_profile .tmux.conf .agignore .vim .gemrc .gem .aliases; do
-  mkdir -p ~/./backup/; mv ~/$rc $_
+for rc in .vimrc .bashrc .bash_profile .tmux.conf .agignore .vim .gemrc .gem .aliases .oh-my-zsh .zprofile .zpreztorc; do
+  [ -d ~/$rc ] && mkdir -p ~/.backup$(date +%d%m%Y)/
+  mv -f ~/$rc $_
 done
 echo "** Finished backing up your files **"
 echo "===================================="
@@ -31,12 +32,13 @@ echo "** Started HOMEBREW process **"
 [ -z "$(which brew)" ] &&
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+$SHELL
 brew cleanup
 brew update
 # Upgrade any already-installed formulae.
 brew upgrade --all
 brew prune
-
+$SHELL
 # Install GNU core utilities (those that come with OS X are outdated).
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
 sudo ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
@@ -160,53 +162,59 @@ $SHELL # reload shell
 echo "*********************** installing quicklook plugins"
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook
 
+read -r -p "Install APPS? [y/N]" resp_apps
+if [[ $resp_apps =~ ^([yY]|[sS])$ ]]
+then
 echo "***********************installing basic apps"
-brew cask install all2mp3
-brew cask install android-studio 
-brew cask install appcleaner 
-brew cask install atom
-brew cask install backblaze
-brew cask install balsamiq-mockups
-brew cask install bartender
-brew cask install cloud
-brew cask install dash
-brew cask install dashlane 
-brew cask install dropbox
-brew cask install dockertoolbox 
-brew cask install evernote
-brew cask install flux 
-brew cask install flycut 
-brew cask install franz
-brew cask install google-chrome
-brew cask install google-drive 
-brew cask install go2shell 
-brew cask install iterm2-beta
-brew cask install itsycal
-brew cask install java
-brew cask install limechat 
-brew cask install mongodb 
-brew cask install mongohub 
-brew cask install octave
-brew cask install polymail 
-brew cask install postgres
-brew cask install psequel 
-brew cask install rdm
-brew cask install sequel-pro 
-brew cask install skype 
-brew cask install slack
-brew cask install spectacle
-brew cask install spotify
-brew cask install spotify-notifications
-brew cask install sublime-text3
-brew cask install transmission
-brew cask install vagrant
-brew cask install vagrant-manager
-brew cask install valentina-studio 
-brew cask install virtualbox
-brew cask install vlc 
-brew cask install whatsdesktop
-brew cask install xmind 
-
+  brew cask install all2mp3
+  brew cask install android-studio 
+  brew cask install appcleaner 
+  brew cask install atom
+  brew cask install backblaze
+  brew cask install balsamiq-mockups
+  brew cask install bartender
+  brew cask install cloud
+  brew cask install dash
+  brew cask install dashlane 
+  brew cask install dropbox
+  brew cask install dockertoolbox 
+  brew cask install evernote
+  brew cask install flux 
+  brew cask install flycut 
+  #brew cask install franz
+  brew cask install google-chrome
+  brew cask install google-drive 
+  brew cask install go2shell 
+  brew cask install iterm2-beta
+  brew cask install itsycal
+  brew cask install java
+  brew cask install limechat 
+  brew cask install mongodb 
+  brew cask install mongohub 
+  brew cask install opera
+  # brew cask install octave
+  brew cask install polymail 
+  # brew cask install postgres
+  # brew cask install psequel 
+  brew cask install rdm
+  brew cask install sequel-pro 
+  brew cask install skype 
+  brew cask install slack
+  brew cask install spectacle
+  brew cask install spotify
+  brew cask install spotify-notifications
+  brew cask install sublime-text3
+  brew cask install telegram
+  brew cask install transmission
+  brew cask install twitter
+  brew cask install vagrant
+  brew cask install vagrant-manager
+  brew cask install valentina-studio 
+  brew cask install virtualbox
+  brew cask install vlc 
+  brew cask install whatsdesktop
+  brew cask install xmind 
+fi
 
 # atom dependecy
 apm install nuclide
@@ -223,10 +231,11 @@ if [ ! -e ~/.git-prompt.sh ]; then
 fi
 
 # Elasticsearch config
-mv /usr/local/bin/plugin /usr/local/bin/elasticsearch-plugin
+[ -e /usr/local/bin/plugin ] && mv /usr/local/bin/plugin /usr/local/bin/elasticsearch-plugin
 elasticsearch-plugin --install mobz/elasticsearch-head
 $SHELL # reload shell
 #NODE
+echo "******************** node packages"
 npm install -g cordova
 npm install -g ionic
 npm install -g bower
@@ -257,7 +266,7 @@ echo "******************** STARTs NOW"
 # launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
 $SHELL # reload shell
 echo "================================"
-echo "** Started Oh-MY-ZSH process **"
+echo "** Started ZSH process **"
 #set default terminal to zsh
 brew install zsh 
 brew install zsh-completions
@@ -270,12 +279,14 @@ etopt EXTENDED_GLOB
 for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
   ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
 done
-
+$SHELL # reload shell
 rm -f ~/.zcompdump
 mv -f ~/dot-files/.vimrc ~/.vimrc 
 mv -f ~/dot-files/.gemrc ~/.gemrc 
 mv -f ~/dot-files/.zshrc ~/.zshrc 
 mv -f ~/dot-files/.aliases ~/.aliases
+mv -f ~/dot-files/.zpreztorc ~/.zpreztorc
+mv -f ~/dot-files/.zprofile ~/.zprofile
 echo "** Finished Oh-MY-ZSH process **"
 echo "================================"
 
@@ -303,6 +314,7 @@ then
     gem install rails 
  
   fi
+  $SHELL # reload shell
 fi
   
 
@@ -326,6 +338,7 @@ then
   then
     launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
   fi
+  $SHELL # reload shell
 fi
 
 #POSTGRESQL
@@ -344,6 +357,7 @@ then
   then
     launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
   fi
+  $SHELL # reload shell
 fi
 
 #METEOR
@@ -351,6 +365,7 @@ read -r -p "Wanna install the latest Meteor version?" resp_meteor
 if [[ $resp_meteor =~ ^([yY]|[sS])$ ]]
 then
   curl https://install.meteor.com/ | sh
+  $SHELL # reload shell
 fi
 
 #ELIXIR
@@ -377,6 +392,7 @@ then
   brew install zeromq 
   brew install pyqt
   pip install pyzmq pygments jinja2 tornado ipython
+  $SHELL # reload shell
 fi
 
 #FZF
@@ -395,25 +411,26 @@ then
   read -r -p "Name to be used on GIT:" resp_git_n
   if [[ $resp_git_n =~ ^([a-z]{2,})$ ]]
   then
-    git config --global user.name $resp_git_n
+    git config --global user.name "$resp_git_n"
   fi
   
   read -r -p "E-mail to be used on GIT:" resp_git_e
   if [[ $resp_git_e =~ ^([a-z]{2,})$ ]]
   then
   echo "Email: $resp_git_e"
-    git config --global user.email $resp_git_e
+    git config --global user.email "$resp_git_e"
   fi
   
   read -r -p "Generate SSH key?:" resp_git_ssh
   if [[ $resp_git_ssh =~ ^([yY]|[sS])$ ]]
   then
-    ssh-keygen -t rsa -C $resp_git_e
+    ssh-keygen -t rsa -C "$resp_git_e"
     echo "=================================="
     echo "Copy this to your github account:"
     cat ~/.ssh/id_rsa.pub
   fi
   git config --global credential.helper osxkeychain
+  $SHELL # reload shell
 fi
 
 vim +:PlugInstall +qall
@@ -426,6 +443,8 @@ $SHELL # reload shell
 source ~/.vimrc
 source ~/.bash_profile
 source ~/.zshrc
+source ~/.zprofile
+source ~/.zpreztorc
 $SHELL # reload shell
 rm -f ~/configure
 rm -rf ~/dot-files
