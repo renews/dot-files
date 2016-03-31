@@ -1,4 +1,4 @@
-#!/bin/bash   
+#!/bin/bash
 
 # RC files
 cd $(dirname $BASH_SOURCE)
@@ -6,7 +6,7 @@ BASE=$(pwd)
 
 echo "===================================="
 echo "**  Making backup of your files!  **"
-for rc in .vimrc .bashrc .bash_profile .tmux.conf .agignore .vim .gemrc .gem .aliases .oh-my-zsh .zprofile .zpreztorc; do
+for rc in .vimrc .bashrc .bash_profile .tmux.conf .agignore .vim .gemrc .gem .aliases .oh-my-zsh .zprofile .zpreztorc .zshrc; do
   [ -d ~/$rc ] && mkdir -p ~/.backup$(date +%d%m%Y)/
   mv -f ~/$rc $_
 done
@@ -25,6 +25,7 @@ curl --insecure -fLo ~/.vim/plugin/Rename.vim  http://www.vim.org/scripts/downlo
 
 
 xcode-select --install
+sudo chown -R $(whoami) /usr/local
 
 echo "==============================="
 echo "** Started HOMEBREW process **"
@@ -45,7 +46,7 @@ sudo ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
 echo "*********************** TAPS"
 brew tap bramstein/webfonttools
 brew tap caskroom/versions
-brew tap caskroom/fonts 
+brew tap caskroom/fonts
 brew tap homebrew/dupes
 brew tap caskroom/cask
 brew tap argon/mas
@@ -54,9 +55,9 @@ brew tap --repair
 
 echo "*********************** A"
 brew install ag
-brew install aget 
+brew install aget
 brew install android-sdk
-brew install ant 
+brew install ant
 echo "*********************** B"
 brew install bdw-gc
 brew install binutils
@@ -81,7 +82,7 @@ brew install fish
 brew install findutils
 echo "*********************** G"
 brew install ghostscript #to generate files
-brew install git 
+brew install git
 brew install git-lfs
 brew install git-flow
 brew install git-extras
@@ -111,8 +112,8 @@ brew link llvm --force
 brew install lua
 echo "*********************** M"
 brew install mas
-brew install maven 
-brew install memcached 
+brew install maven
+brew install memcached
 brew install moreutils
 echo "*********************** N"
 brew install nmap
@@ -145,7 +146,7 @@ echo "*********************** V"
 brew install vim
 echo "*********************** W"
 brew install watch
-brew install webkit2png 
+brew install webkit2png
 brew install wget
 brew install woff2
 echo "*********************** X"
@@ -167,41 +168,41 @@ if [[ $resp_apps =~ ^([yY]|[sS])$ ]]
 then
 echo "***********************installing basic apps"
   brew cask install all2mp3
-  brew cask install android-studio 
-  brew cask install appcleaner 
+  brew cask install android-studio
+  brew cask install appcleaner
   brew cask install atom
   brew cask install backblaze
   brew cask install balsamiq-mockups
   brew cask install bartender
   brew cask install cloud
   brew cask install dash
-  brew cask install dashlane 
+  brew cask install dashlane
   brew cask install dropbox
-  brew cask install dockertoolbox 
+  brew cask install dockertoolbox
   brew cask install evernote
-  brew cask install flux 
-  brew cask install flycut 
+  brew cask install flux
+  brew cask install flycut
   #brew cask install franz
   brew cask install google-chrome
-  brew cask install google-drive 
-  brew cask install google-hangouts 
-  brew cask install go2shell 
+  brew cask install google-drive
+  brew cask install google-hangouts
+  brew cask install go2shell
   brew cask install growlnotify
   brew cask install iterm2-beta
   brew cask install itsycal
   brew cask install java
-  brew cask install limechat 
-  brew cask install mongodb 
-  brew cask install mongohub 
+  brew cask install limechat
+  brew cask install mongodb
+  brew cask install mongohub
   apm install nuclide # atom as dependecy
   brew cask install opera
   # brew cask install octave
-  brew cask install polymail 
+  brew cask install polymail
   # brew cask install postgres
-  # brew cask install psequel 
+  # brew cask install psequel
   brew cask install rdm
-  brew cask install sequel-pro 
-  brew cask install skype 
+  brew cask install sequel-pro
+  brew cask install skype
   brew cask install slack
   brew cask install spectacle
   brew cask install spotify
@@ -212,11 +213,11 @@ echo "***********************installing basic apps"
   brew cask install twitter
   brew cask install vagrant
   brew cask install vagrant-manager
-  brew cask install valentina-studio 
+  brew cask install valentina-studio
   brew cask install virtualbox
-  brew cask install vlc 
+  brew cask install vlc
   brew cask install whatsdesktop
-  brew cask install xmind 
+  brew cask install xmind
 fi
 
 read -r -p "Using Heroku? [y/N]" resp_heroku
@@ -229,7 +230,7 @@ then
   heroku login
 fi
 
-echo "***********************installing GIT PROMPT"  
+echo "***********************installing GIT PROMPT"
 if [ ! -e ~/.git-prompt.sh ]; then
   wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O ~/.git-prompt.sh
 fi
@@ -243,15 +244,15 @@ echo "******************** node packages"
 npm install -g cordova
 npm install -g ionic
 npm install -g bower
-npm install -g coffee-script 
-npm install -g yo 
-npm install -g gulp 
-npm install -g grunt-cli 
-npm install -g jshint 
-npm install -g browserify 
-npm install -g generator-webapp 
-npm install -g less 
-npm install -g sass 
+npm install -g coffee-script
+npm install -g yo
+npm install -g gulp
+npm install -g grunt-cli
+npm install -g jshint
+npm install -g browserify
+npm install -g generator-webapp
+npm install -g less
+npm install -g sass
 npm install -g typescript
 npm install -g ios-sim
 npm install -g ios-deploy
@@ -272,7 +273,7 @@ echo "******************** STARTs NOW"
 echo "================================"
 echo "** Started ZSH process **"
 #set default terminal to zsh
-brew install zsh 
+brew install zsh
 brew install zsh-completions
 #sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 # echo "fpath=(/usr/local/share/zsh-completions $fpath)" >> ~/.zshrc
@@ -280,14 +281,17 @@ brew install zsh-completions
 zsh
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 setopt EXTENDED_GLOB
-for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-done
+ln -s ~/.zprezto/runcoms/zlogin ~/.zlogin
+ln -s ~/.zprezto/runcoms/zlogout ~/.zlogout
+ln -s ~/.zprezto/runcoms/zpreztorc ~/.zpreztorc
+ln -s ~/.zprezto/runcoms/zprofile ~/.zprofile
+ln -s ~/.zprezto/runcoms/zshenv ~/.zshenv
+ln -s ~/.zprezto/runcoms/zshrc ~/.zshrc
 bash
 rm -f ~/.zcompdump
-mv -f ~/dot-files/.vimrc ~/.vimrc 
-mv -f ~/dot-files/.gemrc ~/.gemrc 
-mv -f ~/dot-files/.zshrc ~/.zshrc 
+mv -f ~/dot-files/.vimrc ~/.vimrc
+mv -f ~/dot-files/.gemrc ~/.gemrc
+mv -f ~/dot-files/.zshrc ~/.zshrc
 mv -f ~/dot-files/.aliases ~/.aliases
 mv -f ~/dot-files/.zpreztorc ~/.zpreztorc
 mv -f ~/dot-files/.zprofile ~/.zprofile
@@ -302,26 +306,25 @@ then
   gem update --system
   gem uninstall --all
   brew install rbenv
-  brew install ruby-build 
+  brew install ruby-build
   $SHELL # reload shell
     # RAILS
   read -r -p "Do you wanna install Ruby, Rails and Sinatra? [y/N] " resp_ror
   if [[ $resp_ror =~ ^([yY]|[sS])$ ]]
   then
     rbenv install $(rbenv install -l | grep -v - | tail -1)
-    rbenv global $(rbenv install -l | grep -v - | tail -1)  
+    rbenv global $(rbenv install -l | grep -v - | tail -1)
     rbenv rehash
     which ruby
     $SHELL # reload shell
     gem install bundle
     gem install sinatra
     gem install jekyll
-    gem install rails 
- 
+    gem install rails
+
   fi
-  $SHELL # reload shell
 fi
-  
+
 
 
 #MYSQL
@@ -330,39 +333,37 @@ if [[ $resp_mysql =~ ^([yY]|[sS])$ ]]
 then
   brew install mysql
   # Fix MySQL installatyion for OS X El Capitan
-  ln -s /usr/local/mysql/lib/libmysqlclient.18.dylib /usr/local/lib/libmysqlclient.18.dylib   
-  
+  ln -s /usr/local/mysql/lib/libmysqlclient.18.dylib /usr/local/lib/libmysqlclient.18.dylib
+
   read -r -p "Make MySQL start with system? [y/N] " resp_mysql_s
   if [[ $resp_mysql_s =~ ^([yY]|[sS])$ ]]
   then
     ln -sfv /usr/local/opt/mysql/*plist ~/Library/LaunchAgents
   fi
-  
+
   read -r -p "Make MySQL start right NOW? [y/N] " resp_mysql_n
   if [[ $resp_mysql_n =~ ^([yY]|[sS])$ ]]
   then
     launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
   fi
-  $SHELL # reload shell
 fi
 
 #POSTGRESQL
 read -r -p "Do you wanna install PostgreSQL? [y/N] " resp_postg
 if [[ $resp_postg =~ ^([yY]|[sS])$ ]]
 then
-  brew install postgresql  
+  brew install postgresql
   read -r -p "Make PostgreSQL start with system? [y/N] " resp_postg_s
   if [[ $resp_postg_s =~ ^([yY]|[sS])$ ]]
   then
     ln -sfv /usr/local/opt/postgresql/*plist ~/Library/LaunchAgents
   fi
-  
+
   read -r -p "Make PostgreSQL start right NOW? [y/N] " resp_postg_n
   if [[ $resp_postg_n =~ ^([yY]|[sS])$ ]]
   then
     launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
   fi
-  $SHELL # reload shell
 fi
 
 #METEOR
@@ -370,7 +371,6 @@ read -r -p "Wanna install the latest Meteor version?" resp_meteor
 if [[ $resp_meteor =~ ^([yY]|[sS])$ ]]
 then
   curl https://install.meteor.com/ | sh
-  $SHELL # reload shell
 fi
 
 #ELIXIR
@@ -392,12 +392,11 @@ then
   brew install gcc
   pip install nose pyparsing python-dateutil pep8
   brew install samueljohn/python/numpy
-  brew install scipy 
-  brew install matplotlib 
-  brew install zeromq 
+  brew install scipy
+  brew install matplotlib
+  brew install zeromq
   brew install pyqt
   pip install pyzmq pygments jinja2 tornado ipython
-  $SHELL # reload shell
 fi
 
 #FZF
@@ -414,18 +413,17 @@ if [[ $resp_git =~ ^([yY]|[sS])$ ]]
 then
   git config --global color.ui true
   read -r -p "Name to be used on GIT:" resp_git_n
-  if [[ $resp_git_n =~ ^([a-z]{2,})$ ]]
+  if [[ "$resp_git_n" =~ ^([a-z]{2,})$ ]]
   then
     git config --global user.name "$resp_git_n"
   fi
-  
+
   read -r -p "E-mail to be used on GIT:" resp_git_e
-  if [[ $resp_git_e =~ ^([a-z]{2,})$ ]]
+  if [[ "$resp_git_e" =~ ^([a-z]{2,})$ ]]
   then
-  echo "Email: $resp_git_e"
     git config --global user.email "$resp_git_e"
   fi
-  
+
   read -r -p "Generate SSH key?:" resp_git_ssh
   if [[ $resp_git_ssh =~ ^([yY]|[sS])$ ]]
   then
@@ -442,7 +440,6 @@ vim +:PlugInstall +qall
 
 echo "+++++++++++++++++++++++++++++++++++++++++++++"
 echo 'reloading terminal and removing leftovers'
-$SHELL # reload shell
 chsh -s $(which zsh)
 $SHELL # reload shell
 source ~/.vimrc
