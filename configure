@@ -6,7 +6,7 @@ BASE=$(pwd)
 
 echo "===================================="
 echo "**  Making backup of your files!  **"
-for rc in .vimrc .bashrc .bash_profile .tmux.conf .agignore .vim .gemrc .gem .aliases .oh-my-zsh .zprofile .zpreztorc .zshrc; do
+for rc in .vimrc .bashrc .bash_profile .tmux.conf .agignore .vim .gemrc .gem .aliases .oh-my-zsh .zprofile .zpreztorc .zshrc .zlogin .zshenv .zlogout; do
   [ -d ~/$rc ] && mkdir -p ~/.backup$(date +%d%m%Y)/
   mv -f ~/$rc $_
 done
@@ -284,7 +284,7 @@ brew install zsh-completions
 touch ~/.zshrc 
 # zsh
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-setopt EXTENDED_GLOB
+zsh setopt EXTENDED_GLOB
 ln -s ~/.zprezto/runcoms/zlogin ~/.zlogin
 ln -s ~/.zprezto/runcoms/zlogout ~/.zlogout
 ln -s ~/.zprezto/runcoms/zpreztorc ~/.zpreztorc
