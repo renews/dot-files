@@ -260,6 +260,7 @@ then
   npm install -g ios-sim
   npm install -g ios-deploy
   npm install -g electron-prebuilt
+  npm install -g azure-cli
 fi
 echo "** Finished HOMEBREW process **"
 echo "==============================="
