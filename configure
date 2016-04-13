@@ -158,7 +158,7 @@ echo "***********************"
 echo "*********************** clean"
 brew doctor
 brew cleanup
-
+brew link openssl --force
 
 echo "*********************** installing quicklook plugins"
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook
