@@ -261,6 +261,8 @@ then
   npm install -g ios-deploy
   npm install -g electron-prebuilt
   npm install -g azure-cli
+  npm install -g tslint 
+  npm install -g eslint 
 fi
 echo "** Finished HOMEBREW process **"
 echo "==============================="
