@@ -118,6 +118,7 @@ brew install moreutils
 echo "*********************** N"
 brew install nmap
 brew install node
+brew install neovim/neovim/neovim
 echo "*********************** O"
 echo "*********************** P"
 brew install phantomjs
@@ -455,6 +456,10 @@ source ~/.gemrc
 source ~/.zprofile
 source ~/.zpreztorc
 
+# for those who use neovim
+ln -s ~/.vim ~/.config/nvim
+ln -s ~/.vimrc ~/.config/nvim/init.vim
+ 
 rm -f ~/configure
 rm -rf ~/dot-files
 rm -rf ~/.git
