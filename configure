@@ -171,15 +171,17 @@ if [[ $resp_apps =~ ^([yY]|[sS])$ ]]
 then
 echo "***********************installing basic apps"
   brew cask install all2mp3
+  brew cask install amethyst
   brew cask install android-studio
   brew cask install appcleaner
-  brew cask install atom
+  # brew cask install atom
   brew cask install backblaze
   brew cask install balsamiq-mockups
   brew cask install bartender
   brew cask install cloud
   brew cask install dash
   brew cask install dashlane
+  brew cask install deezer
   brew cask install dropbox
   brew cask install dockertoolbox
   brew cask install evernote
@@ -208,9 +210,9 @@ echo "***********************installing basic apps"
   brew cask install skype
   brew cask install slack
   brew cask install spectacle
-  brew cask install spotify
-  brew cask install spotify-notifications
-  brew cask install sublime-text3
+  # brew cask install spotify
+  # brew cask install spotify-notifications
+  # brew cask install sublime-text3
   brew cask install telegram
   brew cask install transmission
   brew cask install twitter
@@ -218,8 +220,10 @@ echo "***********************installing basic apps"
   brew cask install vagrant-manager
   brew cask install valentina-studio
   brew cask install virtualbox
+  brew cask install visual-studio-code
   brew cask install vlc
   brew cask install whatsdesktop
+  brew cask install xamarin-studio
   brew cask install xmind
 fi
 
