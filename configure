@@ -97,6 +97,7 @@ echo "*********************** H"
 brew install htop
 brew install hub
 echo "*********************** I"
+brew install homebrew/x11/i3
 brew install ifstat
 brew install imagemagick
 echo "*********************** J"
@@ -151,6 +152,7 @@ brew install webkit2png
 brew install wget
 brew install woff2
 echo "*********************** X"
+brew install Caskroom/cask/xquartz
 echo "*********************** Y"
 echo "*********************** Z"
 
