@@ -79,6 +79,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'rhysd/vim-crystal'
 Plug 'pearofducks/ansible-vim' "This is a vim syntax plugin for Ansible 2.0, it supports YAML playbooks, Jinja2 templates, and Ansible's hosts files.
 Plug 'hwartig/vim-seeing-is-believing'
+Plug 'elixir-lang/vim-elixir'
 
 " Group dependencies, vim-snippets depends on ultisnips
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
