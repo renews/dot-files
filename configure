@@ -50,6 +50,7 @@ brew tap caskroom/fonts
 brew tap homebrew/dupes
 brew tap caskroom/cask
 brew tap argon/mas
+brew tap d12frosted/emacs-plus
 
 brew tap --repair
 
@@ -77,6 +78,7 @@ brew install docker
 brew install boot2docker
 echo "*********************** E"
 brew install elasticsearch
+brew install emacs-plus --with-cocoa --with-gnutls --with-librsvg --with-imagemagick --with-spacemacs-icon
 echo "*********************** F"
 brew install fish
 brew install findutils
@@ -132,6 +134,7 @@ brew install reattach-to-user-namespace
 brew install rename
 brew install rhino
 echo "*********************** S"
+git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 brew install sbt
 brew install scala
 brew install sfnt2woff
@@ -158,6 +161,7 @@ echo "*********************** Z"
 
 echo "***********************"
 echo "***********************"
+brew linkapps
 echo "*********************** clean"
 brew doctor
 brew cleanup
