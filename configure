@@ -6,7 +6,7 @@ BASE=$(pwd)
 
 echo "===================================="
 echo "**  Making backup of your files!  **"
-for rc in .vimrc .bashrc .bash_profile .tmux.conf .agignore .vim .gemrc .gem .aliases .oh-my-zsh .zprofile .zpreztorc .zshrc .zlogin .zshenv .zlogout; do
+for rc in .vimrc .bashrc .bash_profile .spacemacs .emacs.d .tmux.conf .agignore .vim .gemrc .gem .aliases .oh-my-zsh .zprofile .zpreztorc .zshrc .zlogin .zshenv .zlogout; do
   [ -d ~/$rc ] && mkdir -p ~/.backup$(date +%d%m%Y)/
   mv -f ~/$rc $_
 done
@@ -118,6 +118,7 @@ brew install mas
 brew install maven
 brew install memcached
 brew install moreutils
+brew install mongodb
 echo "*********************** N"
 brew install nmap
 brew install node
