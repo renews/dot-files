@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Load configuration files.
+for file in /config/*
+do
+    . $file
+done
+
 # RC files
 cd $(dirname $BASH_SOURCE)
 BASE=$(pwd)
