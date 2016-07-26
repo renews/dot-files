@@ -34,6 +34,7 @@ for rc in .vimrc .bashrc .bash_profile .spacemacs .emacs.d .tmux.conf .agignore 
     echo "${BRed} ${rc}${BWhite}, not found. No need to backup."
   fi
 done
+echo "${BYellow} Your backuped filed are at: ${White} ~/.backups"
 echo "${BBlue}${SPACERLINE}"
 echo "${BBlue}** Finished backing up your files "
 echo "${BBlue}${SPACER}"
