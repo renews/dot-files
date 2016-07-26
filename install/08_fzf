@@ -1,0 +1,24 @@
+#!/usr/local/bin/bash
+
+echo $BREAKLINE
+echo "${BBlue}${SPACER}"
+echo "${BBlue}** Installing and configuring FZF "
+echo "${BBlue}${SPACERLINE}"
+
+echo "${BGreen}"
+read -r -p "Wanna install FZF (imagine spotlight search on command line)?" resp_fzf
+resp_fzf=${resp_fzf:-y}
+if [[ "$resp_fzf" =~ ^([yY]|[sS])$ ]]
+then
+    
+    echo "${BGreen} +++ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf"  
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  
+    
+    echo "${BGreen} +++ ~/.fzf/install"
+    ~/.fzf/install    
+fi
+
+echo "${BBlue}${SPACERLINE}"
+echo "${BBlue}** Finished Installing and configuring FZF "
+echo "${BBlue}${SPACER}"

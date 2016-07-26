@@ -1,0 +1,34 @@
+#!/usr/local/bin/bash
+
+echo $BREAKLINE
+echo "${BBlue}${SPACER}"
+echo "${BBlue}** DESKTOP app's with brew cask "
+echo "${BBlue}${SPACERLINE}"
+
+echo "${BGreen}"
+read -r -p "Install any APP at all? [y/N]  (default to yes)" resp_apps
+resp_apps=${resp_apps:-y}
+if [[ $resp_apps =~ ^([yY]|[sS])$ ]]
+then
+    bcaskArray=( all2mp3 android-studio atom backblaze balsamiq-mockups bartender cloud deezer dropbox dockertoolbox flux franz growlnotify
+    itsycalgoogle-chrome java mongodb mongohub spotify opera spectacle psequel postgres rdm transmission vagrant virtualbox
+    visual-studio-code vlc whatsdesktop google-drive google-hangouts iterm2-beta spotify-notifications sublime-text3 
+    sequel-pro vagrant-manager visual-studio-code xamarin-studio xmind)
+
+    for i in "${bcaskArray[@]}"
+    do
+        echo "${BGreen}"
+        read -e -p "Install ${i}? [y/N]  (default to yes)" resp_bac_${i/'-'/'_'}
+        current_resp=resp_bac_${i/'-'/'_'}    
+        current_resp=${!current_resp:-y}
+        if [[ $current_resp =~ ^([yY]|[sS])$ ]]
+        then            
+            echo "${BGreen} +++ brew cask install ${i}"      
+            brew cask install $i  
+        fi
+    done
+fi
+
+echo "${BBlue}${SPACERLINE}"
+echo "${BBlue}** Finished DESKTOP app's with brew cask "
+echo "${BBlue}${SPACER}"

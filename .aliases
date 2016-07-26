@@ -55,6 +55,7 @@ alias themes='prompt -l'
 alias sshec2='ssh -i ~/.ssh/tecnologia-dev.pem ec2-user@'
 alias today='date +"%A, %d, %B, %Y"'
 alias update_prezto='cd ~/.zprezto && git pull && git submodule update --init --recursive'
+alias em='emacs -nw'
 
 # ZSH GIT ALIASES
 alias g='git'

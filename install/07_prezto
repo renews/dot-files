@@ -1,0 +1,44 @@
+#!/usr/local/bin/bash
+
+echo $BREAKLINE
+echo "${BBlue}${SPACER}"
+echo "${BBlue}** Installing and configuring PREZTO "
+echo "${BBlue}${SPACERLINE}"
+
+
+echo "${BGreen} +++ brew install zshinstall"
+brew install zsh
+
+echo "${BGreen} +++ brew install zsh-completions"
+brew install zsh-completions
+#sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+# echo "fpath=(/usr/local/share/zsh-completions $fpath)" >> ~/.zshrc
+
+echo "${BGreen} +++ touch ~/.zshrc "
+touch ~/.zshrc 
+# zsh
+
+echo "${BGreen} +++ git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto""
+git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+
+echo "${BGreen} +++ ln -s ~/.zprezto/runcoms/zlogin ~/.zlogin"
+ln -s ~/.zprezto/runcoms/zlogin ~/.zlogin
+
+echo "${BGreen} +++ ln -s ~/.zprezto/runcoms/zlogout ~/.zlogout"
+ln -s ~/.zprezto/runcoms/zlogout ~/.zlogout
+
+echo "${BGreen} +++ ln -s ~/.zprezto/runcoms/zpreztorc ~/.zpreztorc"
+ln -s ~/.zprezto/runcoms/zpreztorc ~/.zpreztorc
+
+echo "${BGreen} +++ ln -s ~/.zprezto/runcoms/zprofile ~/.zprofile"
+ln -s ~/.zprezto/runcoms/zprofile ~/.zprofile
+
+echo "${BGreen} +++ ln -s ~/.zprezto/runcoms/zshenv ~/.zshenv"
+ln -s ~/.zprezto/runcoms/zshenv ~/.zshenv
+
+echo "${BGreen} +++ ln -s ~/.zprezto/runcoms/zshrc ~/.zshrc"
+ln -s ~/.zprezto/runcoms/zshrc ~/.zshrc
+
+echo "${BBlue}${SPACERLINE}"
+echo "${BBlue}** Finished Installing and configuring PREZTO "
+echo "${BBlue}${SPACER}"

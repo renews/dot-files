@@ -1,0 +1,231 @@
+#!/usr/local/bin/bash
+
+echo $BREAKLINE
+echo "${BBlue}${SPACER}"
+echo "${BBlue}** Installing DEV formulaes "
+echo "${BBlue}${SPACERLINE}"
+
+essentialsDev=( android-sdk diffutils docker boot2docker fish hub imagemagick jq maven memcached 
+mongodb phantomjs redis rhino scala sbt tmux lua scala neovim/neovim/neovim sfnt2woff sfnt2woff-zopfli python node vim)
+
+for i in "${essentialsDev[@]}"
+do
+    echo "${BGreen}"
+    read -e -p "Install ${i}? [y/N]  (default to yes)" resp_ba_${i/'-'/'_'}
+    current_resp=resp_ba_${i/'-'/'_'}
+    current_resp=${!current_resp:-y}
+    if [[ $current_resp =~ ^([yY]|[sS])$ ]]
+    then         
+        echo "${BGreen} +++ INSTALLING ${i}"      
+        brew install $i  
+    fi    
+done
+
+read -e -p "Install Spacemacs(Emacs+Vim awesome!)? [y/N]  (default to yes)" resp_ba_emacs
+resp_ba_emacs=${resp_ba_emacs:-y}
+if [[ $resp_ba_emacs =~ ^([yY]|[sS])$ ]]
+then
+     
+    echo "${BGreen} +++ INSTALLING Spacemacs" 
+    brew install emacs-plus --with-cocoa --with-gnutls --with-librsvg --with-imagemagick --with-spacemacs-icon
+    git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+fi
+
+read -e -p "Install Elasticsearch? [y/N]  (default to yes)" resp_ba_elasticsearch
+resp_ba_elasticsearch=${resp_ba_elasticsearch:-y}
+if [[ $resp_ba_elasticsearch =~ ^([yY]|[sS])$ ]]
+then
+     
+    echo "${BGreen} +++ INSTALLING Elasticsearch" 
+    brew install elasticsearch
+    [ -e /usr/local/bin/plugin ] && mv /usr/local/bin/plugin /usr/local/bin/elasticsearch-plugin
+    elasticsearch-plugin --install mobz/elasticsearch-head
+fi
+
+# RBENV
+echo "${BGreen}"
+read -r -p "Do you wanna install RBENV? [y/N] " resp_rbenv
+resp_rbenv=${resp_rbenv:-y}
+if [[ $resp_rbenv =~ ^([yY]|[sS])$ ]]
+then
+   
+  echo "${BGreen} +++ gem update --system"
+  gem update --system
+   
+  echo "${BGreen} +++ gem uninstall --all"
+  gem uninstall --all
+   
+  echo "${BGreen} +++ brew install rbenv"
+  brew install rbenv
+   
+  echo "${BGreen} +++ brew install ruby-build"
+  brew install ruby-build
+  
+  echo "${BGreen}"
+  read -r -p "Do you wanna install Ruby, Rails, Sinatra and Jekyll? [y/N] " resp_ror
+  resp_ror=${resp_ror:-y}
+  if [[ $resp_ror =~ ^([yY]|[sS])$ ]]
+  then
+     
+    echo "${BGreen} +++ rbenv install $(rbenv install -l | grep -v - | tail -1)"
+    rbenv install $(rbenv install -l | grep -v - | tail -1)
+     
+    echo "${BGreen} +++ rbenv global $(rbenv install -l | grep -v - | tail -1)"
+    rbenv global $(rbenv install -l | grep -v - | tail -1)
+     
+    echo "${BGreen} +++ rbenv rehash"
+    rbenv rehash
+     
+    echo "${BGreen} +++ which ruby"
+    which ruby
+     
+    echo "${BGreen} +++ gem install bundle"
+    gem install bundle
+     
+    echo "${BGreen} +++ gem install sinatra"
+    gem install sinatra
+     
+    echo "${BGreen} +++ gem install jekyll"
+    gem install jekyll
+     
+    echo "${BGreen} +++ gem install rails"
+    gem install rails
+  fi
+fi
+
+#MYSQL
+echo "${BGreen}"
+read -r -p "Do you wanna install MySQL? [y/N]" resp_mysql
+resp_mysql=${resp_mysql:-y}
+if [[ $resp_mysql =~ ^([yY]|[sS])$ ]]
+then
+   
+  echo "${BGreen} +++ brew isntall mysql"
+  brew install mysql
+  # Fix MySQL installatyion for OS X El Capitan
+   
+  echo "${BGreen} +++ ln -s /usr/local/mysql/lib/libmysqlclient.18.dylib /usr/local/lib/libmysqlclient.18.dylib"
+  ln -s /usr/local/mysql/lib/libmysqlclient.18.dylib /usr/local/lib/libmysqlclient.18.dylib
+
+  echo "${BGreen}"
+  read -r -p "Make MySQL start with system? [y/N] " resp_mysql_s
+  resp_mysql_s=${resp_mysql_s:-y}
+  if [[ $resp_mysql_s =~ ^([yY]|[sS])$ ]]
+  then
+     
+    echo "${BGreen} +++ ln -sfv /usr/local/opt/mysql/*plist ~/Library/LaunchAgents"
+    ln -sfv /usr/local/opt/mysql/*plist ~/Library/LaunchAgents
+  fi
+  
+  echo "${BGreen}"
+  read -r -p "Make MySQL start right NOW? [y/N] " resp_mysql_n
+  resp_mysql_n=${resp_mysql_n:-y}
+  if [[ $resp_mysql_n =~ ^([yY]|[sS])$ ]]
+  then
+     
+    echo "${BGreen} +++ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"
+    launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+  fi
+fi
+
+#POSTGRESQL
+echo "${BGreen}"
+read -r -p "Do you wanna install PostgreSQL? [y/N] " resp_postg
+resp_postg=${resp_postg:-y}
+if [[ $resp_postg =~ ^([yY]|[sS])$ ]]
+then
+   
+  echo "${BGreen} +++   brew install postgresql"
+  brew install postgresql
+  echo "${BGreen}"
+  read -r -p "Make PostgreSQL start with system? [y/N] " resp_postg_s
+  resp_postg_s=${resp_postg_s:-y}
+  if [[ $resp_postg_s =~ ^([yY]|[sS])$ ]]
+  then
+     
+    echo "${BGreen} +++  ln -sfv /usr/local/opt/postgresql/*plist ~/Library/LaunchAgents"
+    ln -sfv /usr/local/opt/postgresql/*plist ~/Library/LaunchAgents
+  fi
+  echo "${BGreen}"
+  read -r -p "Make PostgreSQL start right NOW? [y/N] " resp_postg_n
+  resp_postg_n=${resp_postg_n:-y}
+  if [[ $resp_postg_n =~ ^([yY]|[sS])$ ]]
+  then
+     
+    echo "${BGreen} +++ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
+    launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+  fi
+fi
+
+#METEOR
+echo "${BGreen}"
+read -r -p "Wanna install the latest Meteor version?" resp_meteor
+resp_meteor=${resp_meteor:-y}
+if [[ $resp_meteor =~ ^([yY]|[sS])$ ]]
+then
+   
+  echo "${BGreen} +++ curl https://install.meteor.com/ | sh"
+  curl https://install.meteor.com/ | sh
+fi
+
+#ELIXIR
+echo "${BGreen}"
+read -r -p "Wanna install Elixir?" resp_elixir
+resp_elixir=${resp_elixir:-y}
+if [[ $resp_elixr =~ ^([yY]|[sS])$ ]]
+then
+   
+  echo "${BGreen} +++ brew install elixir"
+  brew install elixir
+fi
+
+#PYTHON
+echo "${BGreen}"
+read -r -p "Wanna install Python?" resp_python
+resp_python=${resp_python:-y}
+if [[ $resp_python =~ ^([yY]|[sS])$ ]]
+then
+   
+  echo "${BGreen} +++ brew install python"
+  brew install python
+   
+  echo "${BGreen} +++ pip install --upgrade setuptools"
+  pip install --upgrade setuptools
+   
+  echo "${BGreen} +++ pip install --upgrade pip"
+  pip install --upgrade pip
+   
+  echo "${BGreen} +++ pip install virtualenv"
+  pip install virtualenv
+   
+  echo "${BGreen} +++ brew tap samueljohn/python"
+  brew tap samueljohn/python
+   
+  echo "${BGreen} +++ brew install gcc"
+  brew install gcc
+   
+  echo "${BGreen} +++ pip install nose pyparsing python-dateutil pep8"
+  pip install nose pyparsing python-dateutil pep8
+   
+  echo "${BGreen} +++ brew install samueljohn/python/numpy"
+  brew install samueljohn/python/numpy
+   
+  echo "${BGreen} +++ brew install scipy"
+  brew install scipy
+   
+  echo "${BGreen} +++ brew install matplotlib"
+  brew install matplotlib
+   
+  echo "${BGreen} +++ brew install zeromq"
+  brew install zeromq
+   
+  echo "${BGreen} +++ brew install pyqt"
+  brew install pyqt
+   
+  echo "${BGreen} +++pip install pyzmq pygments jinja2 tornado ipython"
+  pip install pyzmq pygments jinja2 tornado ipython  
+fi
+
+echo "${BBlue}${SPACERLINE}"
+echo "${BBlue}** Finished Installing DEV formulaes  "
+echo "${BBlue}${SPACER}"

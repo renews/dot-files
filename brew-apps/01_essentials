@@ -1,0 +1,68 @@
+#!/usr/local/bin/bash
+
+echo $BREAKLINE
+echo "${BBlue}${SPACER}"
+echo "${BBlue}** Installing essentials formulaes "
+echo "${BBlue}${SPACERLINE}"
+
+
+essentialsArray=( ag aget ant bash bdw-gc binutils brew-cask coreutils cmake cmus cscope ctags curl dark-mode findutils fish
+ ghostscript git git-lfs git-flow git-extras gmp gnuplot 'gnu-sed --with-default-names' gpg graphviz grc gzip
+ htop homebrew/x11/i3 ifstat libevent libpcl libxml2 libyaml llvm mas moreutils nmap pigz pv reattach-to-user-namespace
+rename sl ssh-copy-id tree unrar webkit2png wget woff2 Caskroom/cask/xquartz linkapps ) 
+
+for i in "${essentialsArray[@]}"
+do    
+    echo "${BGreen} +++ brew install ${i}"
+    brew install $i
+done
+
+
+#GIT
+echo "${BGreen}"
+read -r -p "Wanna setup GIT?" resp_git
+resp_git=${resp_git:-y}
+if [[ $resp_git =~ ^([yY]|[sS])$ ]]
+then  
+  echo "${BGreen} +++ git config --global color.ui true"
+  git config --global color.ui true
+  echo "${BGreen}"
+  read -r -p "Name to be used on GIT:" resp_git_n
+  if [[ "$resp_git_n" =~ ^([a-z]{2,})$ ]]
+  then    
+    echo "${BGreen} +++  git config --global user.name ${resp_git_n}"
+    git config --global user.name "$resp_git_n"
+  fi
+
+  echo "${BGreen}"
+  read -r -p "E-mail to be used on GIT:" resp_git_e
+  if [[ "$resp_git_e" =~ ^([a-z]{2,})$ ]]
+  then    
+    echo "${BGreen} +++ git config --global user.email ${resp_git_e}" 
+    git config --global user.email "$resp_git_e"
+  fi
+
+ echo "${BGreen}"
+  read -r -p "Generate SSH key?:" resp_git_ssh
+  resp_git_ssh=${resp_git_ssh:-y}
+  if [[ $resp_git_ssh =~ ^([yY]|[sS])$ ]]
+  then    
+    echo "${BGreen} +++ ssh-keygen -t rsa -C ${resp_git_e}"
+    ssh-keygen -t rsa -C "$resp_git_e"
+    echo "${BYellow}=================================="
+    echo "${BYellow}Copy this to your github account:"
+    cat ~/.ssh/id_rsa.pub
+  fi
+  
+  echo "${BGreen} +++ git config --global credential.helper osxkeychain"
+  git config --global credential.helper osxkeychain
+fi
+
+
+echo "${BGreen} +++ bash -c 'echo /usr/local/bin/bash >> /etc/shells'"
+# Add the new shell to the list of allowed shells
+bash -c 'echo /usr/local/bin/bash >> /etc/shells'
+
+echo "${BBlue}${SPACERLINE}"
+echo "${BBlue}** Finished Installing essentials formulaes "
+echo "${BBlue}${SPACER}"

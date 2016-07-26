@@ -1,0 +1,16 @@
+#!/usr/local/bin/bash
+
+echo $BREAKLINE
+echo "${BBlue}${SPACER}"
+echo "${BBlue}** Installing Git Prompt to enable git autocompletion "
+echo "${BBlue}${SPACERLINE}"
+
+if [ ! -e ~/.git-prompt.sh ]; then
+  
+  echo "${BGreen} wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O ~/.git-prompt.sh"
+  wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O ~/.git-prompt.sh
+fi
+
+echo "${BBlue}${SPACERLINE}"
+echo "${BBlue}** Finished Installing Git Prompt "
+echo "${BBlue}${SPACER}"

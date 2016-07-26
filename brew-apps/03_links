@@ -1,0 +1,18 @@
+#!/usr/local/bin/bash
+
+echo $BREAKLINE
+echo "${BBlue}${SPACER}"
+echo "${BBlue}** Fix linking for formulaes "
+echo "${BBlue}${SPACERLINE}"
+
+linksArray=( llvm openssl )
+
+for i in "${linksArray[@]}"
+do    
+    echo "${BGreen} +++ brew link ${i} --force"
+    brew link $i --force
+done
+
+echo "${BBlue}${SPACERLINE}"
+echo "${BBlue}** Finished Fix linking for formulaes  "
+echo "${BBlue}${SPACER}"

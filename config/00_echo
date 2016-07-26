@@ -1,0 +1,3 @@
+#!/bin/bash
+
+function echo(){ builtin echo -e $@ ; } 

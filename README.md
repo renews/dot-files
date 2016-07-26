@@ -1,9 +1,9 @@
 ## Instalation
 1. cd ~/
 2. git clone https://github.com/renews/dot-files.git
-3. cd dot-files && bash configure
+3. cd dot-files && sudo bash configure
 
-ONE LINER:  ```cd ~/ && git clone https://github.com/renews/dot-files.git && bash ~/dot-files/configure```
+ONE LINER:  ```cd ~/ && git clone https://github.com/renews/dot-files.git && sudo bash ~/dot-files/configure```
 
 
 ### Install font

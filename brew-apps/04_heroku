@@ -1,0 +1,23 @@
+#!/usr/local/bin/bash
+
+echo $BREAKLINE
+echo "${BBlue}${SPACER}"
+echo "${BBlue}** Installing and configuring heroku "
+echo "${BBlue}${SPACERLINE}"
+
+echo "${BGreen}"
+read -r -p "Using Heroku? [y/N]  (default to yes)" resp_ba_heroku
+resp_ba_heroku=${resp_ba_heroku:-y}
+if [[ "$resp_ba_heroku" =~ ^([yY]|[sS])$ ]]
+then    
+    echo "${BGreen} +++  brew install heroku-toolbelt"  
+    brew install heroku-toolbelt    
+    echo "${BGreen} +++  heroku update"
+    heroku update    
+    echo "${BGreen} +++ heroku login"
+    heroku login
+fi
+
+echo "${BBlue}${SPACERLINE}"
+echo "${BBlue}** Finished Installing  and configuring heroku "
+echo "${BBlue}${SPACER}"

@@ -1,0 +1,89 @@
+#!/usr/local/bin/bash
+
+echo $BREAKLINE
+echo "${BBlue}${SPACER}"
+echo "${BBlue}** Installing MAS packages from App Store "
+echo "${BBlue}${SPACERLINE}"
+
+
+echo "${BYellow} First we need to login on the App Store"
+read -e -p "Whats your APP STORE email?  " app_store_mail
+
+
+read -s -p "Whats your APP STORE password?  " app_store_pass
+
+
+echo "${BGreen} Trying to login."
+mas signin "${app_store_mail}" "${app_store_pass}"
+
+
+declare -A masAr
+
+masAr=( ["1013897218"]="App Cleaner" 
+        ["449589707"]="Dash 3 - API Docs & Snippets"
+        ["552383089"]="Dashlane - Password Manager App & Secure Digital Wallet." 
+        ["642220194"]="DeskConnect" 
+        ["417602904"]="CloudApp" 
+        ["572716744"]="Reditr" 
+        ["672206759"]="Disk Diag" 
+        ["921458519"]="DrCleaner" 
+        ["1094748271"]="FullContact" 
+        ["497799835"]="Xcode" 
+        ["418534796"]="Diagrammix" 
+        ["707059884"]="Dragshare for Dropbox" 
+        ["406056744"]="Evernote - capture notes and sync across all devices. Stay organized." 
+        ["442160987"]="Flycut (Clipboard manager)" 
+        ["445770608"]="Go2Shell" 
+        ["407963104"]="Pixelmator" 
+        ["414030210"]="LimeChat" 
+        ["803453959"]="Slack" 
+        ["409789998"]="Twitter" 
+        ["604825918"]="Valentina Studio" 
+        ["747648890"]="Telegram" 
+        ["1131580917"]="OneHighlighter" 
+        ["961632517"]="Be Focused Pro" 
+        ["981765152"]="SSH Shell" 
+        ["1099475282"]="SnailGitFree" 
+        ["507257563"]="Sip" 
+        ["404010395"]="TextWrangler" 
+        ["937984704"]="Amphetamine" 
+        ["1102004240"]="iHosts" 
+        ["490152466"]="iBooks Author" 
+        ["1061524108"]="Music Tube" 
+        ["425424353"]="The Unarchiver" 
+        ["707059884"]="Dragshare" 
+        ["476533227"]="Prepo" 
+        ["568494494"]="Pocket" 
+        ["989175722"]="SimpleRecorder" 
+        ["715768417"]="Microsoft Remote Desktop" 
+        ["823766827"]="OneDrive" 
+        ["736584830"]="Folx GO" 
+        ["409201541"]="Pages" 
+        ["784801555"]="Microsoft OneNote" 
+        ["639968404"]="Parcel" 
+        ["439822515"]="ShareMate" 
+        ["926162815"]="Microsoft Band Sync" 
+        ["405399194"]="Kindle" 
+        ["408981434"]="iMovie" 
+        ["669475285"]="PG Commander" 
+        ["425955336"]="Skitch" 
+        ["1114363220"]="TermHere"
+        )
+
+for i in "${!masAr[@]}"
+do
+    echo "${BGreen}"
+    read -e -p "Install ${masAr["$i"]}? [y/N]  (default to yes)" resp_mas_${i/'-'/'_'}
+    current_resp=resp_mas_${i/'-'/'_'}    
+    current_resp=${!current_resp:-y}
+    if [[ $current_resp =~ ^([yY]|[sS])$ ]]
+    then
+        
+        echo "${BGreen} +++ mas install ${i} (${masAr["$i"]})"      
+        mas install $i  
+    fi
+done
+
+echo "${BBlue}${SPACERLINE}"
+echo "${BBlue}** Finished MAS packages from App Store  "
+echo "${BBlue}${SPACER}"

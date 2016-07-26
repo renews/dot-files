@@ -1,0 +1,19 @@
+#!/usr/local/bin/bash
+
+echo $BREAKLINE
+echo "${BBlue}${SPACER}"
+echo "${BBlue}** Installing quicklook plugins "
+echo "${BBlue}${SPACERLINE}"
+
+quickLookArray=( qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch 
+quicklook-csv betterzipql qlimagesize webpquicklook )
+
+for i in "${quickLookArray[@]}"
+do    
+    echo "${BGreen} +++ brew cask install ${i}"
+    brew cask install $i
+done
+
+echo "${BBlue}${SPACERLINE}"
+echo "${BBlue}** Finished Installing quicklook plugins  "
+echo "${BBlue}${SPACER}"

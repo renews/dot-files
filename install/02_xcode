@@ -1,0 +1,12 @@
+#!/usr/local/bin/bash
+
+echo $BREAKLINE
+echo "${BBlue}${SPACER}"
+echo "${BBlue}** Installing xCode command line tools "
+echo "${BBlue}${SPACERLINE}"
+
+echo "${BGreen} xcode-select --install"
+xcode-select --install
+echo "${BBlue}${SPACERLINE}"
+echo "${BBlue}** Finished installing xCode command line tools "
+echo "${BBlue}${SPACER}"
