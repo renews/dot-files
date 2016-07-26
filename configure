@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/usr/local/bin/bash
 
 # Load configuration files.
-for file in config/*
+for file in ~/dot-files/config/*
 do
     . $file    
 done
@@ -51,7 +51,7 @@ echo "${BBlue}** Finished setting user permissions "
 echo "${BBlue}${SPACER}"
 
 # Load installation files
-for file in install/*
+for file in ~/dot-files/install/*
 do
     . $file    
 done
@@ -69,13 +69,13 @@ echo "${BBlue}** Finished install GNU core utilities "
 echo "${BBlue}${SPACER}"
 
 #Brew apps
-for bapps in brew-apps/*
+for bapps in ~/dot-files/brew-apps/*
 do
     . $bapps    
 done
 
 #Desktop Apps
-for dapps in desktop-apps/*
+for dapps in ~/dot-files/desktop-apps/*
 do
     . $dapps    
 done
