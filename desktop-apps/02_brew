@@ -11,8 +11,8 @@ resp_apps=${resp_apps:-y}
 if [[ $resp_apps =~ ^([yY]|[sS])$ ]]
 then
     bcaskArray=( all2mp3 android-studio atom backblaze balsamiq-mockups bartender cloud deezer dropbox dockertoolbox flux franz growlnotify
-    itsycalgoogle-chrome java mongodb mongohub spotify opera spectacle psequel postgres rdm transmission vagrant virtualbox
-    visual-studio-code vlc whatsdesktop google-drive google-hangouts iterm2-beta spotify-notifications sublime-text3 
+    itsycal google-chrome java mongodb mongohub spotify opera spectacle psequel postgres rdm transmission vagrant virtualbox
+    visual-studio-code vlc whatsdesktop google-drive google-hangouts iterm2 spotify-notifications sublime-text3 
     sequel-pro vagrant-manager visual-studio-code xamarin-studio xmind)
 
     for i in "${bcaskArray[@]}"
