@@ -7,14 +7,14 @@ do
 done
 
 # Make sure only root can run our script
-if [ "$(id -u)" != "0" ]; then
-  echo "${BRed}${STARS}"
-  echo "${BRed}${STARS}"
-  echo "${BIYellow}PLEASE RUN THIS SCRIPT AS ROOT, K THX BYE :)" 1>&2
-  echo "${BRed}${STARS}"
-  echo "${BRed}${STARS}"
-  exit 1
-fi
+# if [ "$(id -u)" != "0" ]; then
+#   echo "${BRed}${STARS}"
+#   echo "${BRed}${STARS}"
+#   echo "${BIYellow}PLEASE RUN THIS SCRIPT AS ROOT, K THX BYE :)" 1>&2
+#   echo "${BRed}${STARS}"
+#   echo "${BRed}${STARS}"
+#   exit 1
+# fi
 
 # RC files
 cd $(dirname $BASH_SOURCE)
