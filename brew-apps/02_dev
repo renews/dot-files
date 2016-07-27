@@ -5,7 +5,7 @@ echo "${BBlue}${SPACER}"
 echo "${BBlue}** Installing DEV formulaes "
 echo "${BBlue}${SPACERLINE}"
 
-essentialsDev=( android-sdk diffutils docker boot2docker fish hub imagemagick jq maven memcached 
+essentialsDev=( android-sdk diffutils docker boot2docker hub imagemagick jq maven memcached 
 mongodb phantomjs redis rhino scala sbt tmux lua scala neovim/neovim/neovim sfnt2woff sfnt2woff-zopfli python node vim)
 
 for i in "${essentialsDev[@]}"
