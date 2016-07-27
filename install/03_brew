@@ -4,7 +4,7 @@ echo $BREAKLINE
 echo "${BBlue}${SPACER}"
 echo "${BBlue}** Downloading and configuring BREW "
 echo "${BBlue}${SPACERLINE}"
-echo "${BGreen} /usr/bin/ruby -e $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)
+echo "${BGreen} /usr/bin/ruby -e $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 echo "${BGreen} brew cleanup; brew update; brew upgrade --all; brew prune;" 
 brew cleanup; brew update; brew upgrade --all; brew prune;
