@@ -30,6 +30,15 @@ Restart iTerm2 for all changes to take effect.
 ### Cheatsheets for Prezto plugins
 [git](https://github.com/sorin-ionescu/prezto/tree/master/modules/git)  
 
+
+### Emacas Org Mode
+http://emacslife.com/baby-steps-org.html
+https://lepisma.github.io/articles/2016/03/17/org-mode/
+http://orgmode.org/worg/org-tutorials/org4beginners.html
+http://emacs.stackexchange.com/questions/19386/configuring-org-mode-within-spacemacs
+https://www.reddit.com/r/spacemacs/comments/4p4h8m/how_to_start_to_learning_basics_for_spacemacs_and/
+http://emacs.stackexchange.com/questions/19386/configuring-org-mode-within-spacemacs
+http://orgmode.org/worg/org-tutorials/orgtutorial_dto.html
 ### References
 - https://danielmiessler.com/study/vim/
 - http://stevelosh.com/blog/2010/09/coming-home-to-vim/#why-i-came-back-to-vim
