@@ -24,6 +24,9 @@ export PAGER='less'
 #
 # Language
 #
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+. $(brew --prefix)/etc/bash_completion
+fi
 
 if [[ -z "$LANG" ]]; then
   export LANG='en_US.UTF-8'
