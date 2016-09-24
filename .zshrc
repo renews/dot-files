@@ -34,6 +34,8 @@ DEFAULT_USER="$(whoami)"
 # export PATH=/usr/local/opt/findutils/libexec/gnubin:$PATH
 # export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
 # export MANPATH=/usr/local/opt/findutils/libexec/gnuman:$MANPATH
+
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -77,6 +79,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # User configuration
 export PATH="$HOME:/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 export MANPATH="/usr/local/man:$MANPATH"
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
