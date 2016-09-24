@@ -1,12 +1,12 @@
 #!/usr/local/bin/bash
 
-echo $BREAKLINE
-echo "${BBlue}${SPACER}"
-echo "${BBlue}** Installing MAC CLI "
-echo "${BBlue}${SPACERLINE}"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/guarinogabriel/mac-cli/master/mac-cli/tools/install)"
-echo "${BGreen} Run ${Cyan}mac help ${BGreen}for more information about this tool!" 
-echo "${BBlue}${SPACERLINE}"
-echo "${BBlue}** Finished MAC CLI "
-echo "${BBlue}${SPACER}"
+# echo $BREAKLINE
+# echo "${BBlue}${SPACER}"
+# echo "${BBlue}** Installing MAC CLI "
+# echo "${BBlue}${SPACERLINE}"
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/guarinogabriel/mac-cli/master/mac-cli/tools/install)"
+# echo "${BGreen} Run ${Cyan}mac help ${BGreen}for more information about this tool!" 
+# echo "${BBlue}${SPACERLINE}"
+# echo "${BBlue}** Finished MAC CLI "
+# echo "${BBlue}${SPACER}"
 
