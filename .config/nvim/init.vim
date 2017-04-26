@@ -1,5 +1,3 @@
-
-" Setup ----------------------------------------------------------{{{
 " If DEIN is not installed, do it first
 if (!isdirectory(expand("$HOME/.vim/bundles/repos/github.com/Shougo/dein.vim")))
 	call system(expand("mkdir -p $HOME/.vim/bundles/repos/github.com"))
@@ -25,12 +23,14 @@ if dein#load_state('~/.vim/bundles')
   " Add or remove your plugins here:
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/neosnippet-snippets')
-  
+
+  "--------------------------------------- 
+  "--------------------------------------- 
   " Custom Plugins
   call dein#add('vim-airline/vim-airline')
 
-  " You can specify revision/branch/tag.
-  call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
+  "--------------------------------------- 
+  "--------------------------------------- 
 
   " Required:
   call dein#end()
@@ -48,3 +48,31 @@ endif
 
 "End dein Scripts-------------------------
 
+" ++++++++++++++++++++++++++++++++++++++++
+" ++++++ Keybinding configuration ++++++++
+" ++++++++++++++++++++++++++++++++++++++++
+
+" Map the leader key to SPACE
+let g:mapleader = "\<SPACE>"
+
+" " Copy to clipboard
+vnoremap  <leader>y  "+y
+nnoremap  <leader>Y  "+yg_
+nnoremap  <leader>y  "+y
+nnoremap  <leader>yy  "+yy
+
+" " Paste from clipboard
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
+
+
+" ++++++++++++++++++++++++++++++++++++++++
+" +++++++++ General Config +++++++++++++++
+" ++++++++++++++++++++++++++++++++++++++++
+set ruler               " Show the line and column numbers of the cursor.
+set number              " Show the line numbers on the left side.
+set expandtab           " Insert spaces when TAB is pressed.
+set tabstop=2           " Render TABs using this many spaces.
+set shiftwidth=2        " Indentation amount for < and > commands
