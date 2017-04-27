@@ -141,3 +141,26 @@ alias phoenix='iex -S mix phoenix.server'
 alias update_phoenix='mix archive.install --force https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez; mix local.hex'
 alias update_mac='brew update; brew upgrade; brew cleanup; brew prune; brew cask cleanup;'
 alias nvimrc='nvim ~/.config/nvim/init.vim'
+
+# File size
+alias fs="stat -f \"%z bytes\""
+
+# Empty the Trash on all mounted volumes and the main HDD. then clear the useless sleepimage
+alias emptytrash=" \
+    sudo rm -rfv /Volumes/*/.Trashes; \
+    rm -rfv ~/.Trash/*; \
+    sudo rm -v /private/var/vm/sleepimage; \
+    rm -rv \"/Users/paulirish/Library/Application Support/stremio/Cache\";  \
+    rm -rv \"/Users/paulirish/Library/Application Support/stremio/stremio-cache\" \
+"
+# Recursively delete `.DS_Store` files
+alias cleanup_dsstore="find . -name '*.DS_Store' -type f -ls -delete"
+
+alias diskspace_report="df -P -kHl"
+
+# Networking. IP address, dig, DNS
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+
+
+# Undo a `git push`
+alias undopush="git push -f origin HEAD^:master"
