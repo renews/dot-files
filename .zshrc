@@ -92,9 +92,9 @@ setopt EXTENDED_GLOB
 
 # Preferred editor for local and remote sessions
  if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='emacs -nw'
+   export EDITOR='nvim'
  else
-   export EDITOR='emacs -nw'
+   export EDITOR='nvim'
  fi
 
 # Compilation flags

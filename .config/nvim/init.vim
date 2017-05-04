@@ -56,6 +56,15 @@ if dein#load_state(s:bundle_dir)
   call dein#add('junegunn/goyo.vim')
   call dein#add('diepm/vim-rest-console') " <C-j> execute the .rest file 
 
+  call dein#add('junegunn/seoul256.vim')
+  call dein#add('altercation/vim-colors-solarized')
+  call dein#add('chriskempson/base16-vim')
+  call dein#add('tomasr/molokai')
+  call dein#add('jpo/vim-railscasts-theme')
+  call dein#add('KabbAmine/yowish.vim')
+  call dein#add('marcopaganini/termschool-vim-theme')
+  call dein#add('joshdick/onedark.vim')
+  call dein#add('morhetz/gruvbox')
   "--------------------------------------- 
   "--------------------------------------- 
 
@@ -349,6 +358,17 @@ set gcr=a:blinkon500-blinkwait500-blinkoff500                                   
 set cursorline                                                                  "Highlight current line
 set list                " Show problematic characters.
 set rnu                 " Set relative number
+
+
+" ================ Theme ================
+" colo seoul256
+" colo solarized
+" colo molokai
+colo railscasts
+" colo onedark
+" colo gruvbox
+" colo yowish
+" colo termschool
 
 " More natural splits
 set splitbelow          " Horizontal split below current.
