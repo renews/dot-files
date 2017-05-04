@@ -45,9 +45,9 @@ alias gcempty="git commit --allow-empty -m 'empty -- forcing deploy' && ggpush"
 alias lusers="dscl . list /Users | grep -v '^_'"
 alias ion="ionic serve"
 alias cppcompile='c++ -std=c++11 -stdlib=libc++'
-alias zshrc="vim ~/.zshrc"
+alias zshrc="nvim ~/.zshrc"
 alias zshrcr='source ~/.zshrc'
-alias bashrc="vim ~/.bashrc"
+alias bashrc="nvim ~/.bashrc"
 alias love="/Applications/love.app/Contents/MacOS/love"
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
