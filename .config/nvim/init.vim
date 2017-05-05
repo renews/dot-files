@@ -350,7 +350,7 @@ set t_Co=256            " Set 256 colors
 set title               " change the terminal's title
 set noerrorbells        " No beeps.
 set modeline            " Enable modeline.
-set esckeys             " Cursor keys in insert mode.
+"set esckeys             " Cursor keys in insert mode.
 set linespace=0         " Set line-spacing to minimum.
 set nojoinspaces        " Prevents inserting two spaces after punctuation on a join (J)
 set history=500                                                                 "Store lots of :cmdline history
