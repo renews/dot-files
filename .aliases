@@ -138,7 +138,7 @@ alias gwch='git whatchanged -p --abbrev-commit --pretty = medium'
 alias gwip='git add -A; git ls-files --deleted -zalias'
 alias dc='docker-composer'
 alias phx='iex -S mix phx.server'
-alias update_phoenix='mix archive.install --force https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez; mix local.hex'
+alias update_phoenix='mix archive.install https://github.com/phoenixframework/archives/raw/master/phx_new.ez; mix local.hex; mix local.rebar
 alias update_mac='brew update; brew upgrade; brew cleanup; brew prune; brew cask cleanup; \
          sh -c "$(curl -fsSL https://raw.githubusercontent.com/guarinogabriel/mac-cli/master/mac-cli/tools/update)"'
 alias nvimrc='nvim ~/.config/nvim/init.vim'
