@@ -9,11 +9,11 @@ echo "${BGreen}"
 read -r -p "Using Heroku? [y/N]  (default to yes)" resp_ba_heroku
 resp_ba_heroku=${resp_ba_heroku:-y}
 if [[ "$resp_ba_heroku" =~ ^([yY]|[sS])$ ]]
-then    
-    echo "${BGreen} +++  brew install heroku-toolbelt"  
-    brew install heroku-toolbelt    
+then
+    echo "${BGreen} +++  brew install heroku-toolbelt"
+    brew install heroku-toolbelt
     echo "${BGreen} +++  heroku update"
-    heroku update    
+    heroku update
     echo "${BGreen} +++ heroku login"
     heroku login
 fi

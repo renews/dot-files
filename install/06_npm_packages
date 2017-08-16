@@ -6,7 +6,7 @@ echo "${BBlue}** NPM Packages "
 echo "${BBlue}${SPACERLINE}"
 
 
-npmArray=( cordova ionic bower coffee-script yo gulp grunt-cli jshint browserify generator-webapp less sass 
+npmArray=( cordova ionic bower coffee-script yo gulp grunt-cli jshint browserify generator-webapp less sass
 typescript ios-sim ios-deploy electron-prebuilt azure-cli tslint  eslint )
 
 for i in "${npmArray[@]}"
@@ -16,9 +16,9 @@ do
     current_resp=resp_node_${i/'-'/'_'}
     current_resp=${!current_resp:-y}
     if [[ $current_resp =~ ^([yY]|[sS])$ ]]
-    then        
-        echo "${BGreen} +++ npm install -g ${i}"      
-        npm install -g $i  
+    then
+        echo "${BGreen} +++ npm install -g ${i}"
+        npm install -g $i
     fi
 done
 

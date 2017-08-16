@@ -7,35 +7,35 @@ echo "${BBlue}${SPACERLINE}"
 echo "${BGreen} /usr/bin/ruby -e curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install"
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-echo "${BGreen} brew cleanup; brew update; brew upgrade --all; brew prune;" 
+echo "${BGreen} brew cleanup; brew update; brew upgrade --all; brew prune;"
 brew cleanup; brew update; brew upgrade --all; brew prune;
 echo "${BGreen} BREW TAPS"
 
 echo "${BGreen}brew tap bramstein/webfonttools"
 brew tap bramstein/webfonttools
 
-echo "${BGreen}brew tap caskroom/versions" 
+echo "${BGreen}brew tap caskroom/versions"
 brew tap caskroom/versions
 
-echo "${BGreen}brew tap caskroom/fonts" 
+echo "${BGreen}brew tap caskroom/fonts"
 brew tap caskroom/fonts
 
-echo "${BGreen}brew tap homebrew/dupes" 
+echo "${BGreen}brew tap homebrew/dupes"
 brew tap homebrew/dupes
 
-echo "${BGreen}brew tap caskroom/cask" 
+echo "${BGreen}brew tap caskroom/cask"
 brew tap caskroom/cask
 
-echo "${BGreen}brew tap argon/mas" 
+echo "${BGreen}brew tap argon/mas"
 brew tap argon/mas
 
-echo "${BGreen}brew tap d12frosted/emacs-plus" 
+echo "${BGreen}brew tap d12frosted/emacs-plus"
 brew tap d12frosted/emacs-plus
 
-echo "${BGreen}brew tap --repair" 
+echo "${BGreen}brew tap --repair"
 brew tap --repair
 
-echo "${BGreen} brew cleanup; brew update; brew upgrade --all; brew prune;" 
+echo "${BGreen} brew cleanup; brew update; brew upgrade --all; brew prune;"
 brew cleanup; brew update; brew upgrade --all; brew prune;
 
 echo "${BBlue}${SPACERLINE}"

@@ -58,3 +58,6 @@ bower.json
 # Ignore pow environment settings
 .powenv
 .vscode
+.vim/.netrwhist
+npm-debug.log
+.vim/backups/.vimrc~

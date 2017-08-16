@@ -3,7 +3,7 @@
 # Load configuration files.
 for file in ~/dot-files/config/*
 do
-    . $file    
+    . $file
 done
 
 # Make sure only root can run our script
@@ -26,7 +26,7 @@ echo "${BBlue}**  Making backup of your files! "
 echo "${BBlue}${SPACERLINE}"
 
 for rc in .vimrc .bashrc .bash_profile .spacemacs .emacs.d .tmux.conf .agignore .vim .gemrc .gem .aliases .oh-my-zsh .zprofile .zpreztorc .zshrc .zlogin .zshenv .zlogout; do
-  [ -d ~/$rc ] && mkdir -p ~/.backup$(date +%d%m%Y)/    
+  [ -d ~/$rc ] && mkdir -p ~/.backup$(date +%d%m%Y)/
   if [ -f ~/$rc ]; then
     mv -f ~/$rc $_
     echo "${BGreen} Backup for ${BWhite}${rc}${BGreen}, done."
@@ -53,7 +53,7 @@ echo "${BBlue}${SPACER}"
 # Load installation files
 for file in ~/dot-files/install/*
 do
-    . $file    
+    . $file
 done
 echo $BREAKLINE
 
@@ -71,13 +71,13 @@ echo "${BBlue}${SPACER}"
 #Brew apps
 for bapps in ~/dot-files/brew-apps/*
 do
-    . $bapps    
+    . $bapps
 done
 
 #Desktop Apps
 for dapps in ~/dot-files/desktop-apps/*
 do
-    . $dapps    
+    . $dapps
 done
 
 echo $BREAKLINE

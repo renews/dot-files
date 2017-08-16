@@ -137,9 +137,10 @@ alias gvt='git verify-tag'
 alias gwch='git whatchanged -p --abbrev-commit --pretty = medium'
 alias gwip='git add -A; git ls-files --deleted -zalias'
 alias dc='docker-composer'
-alias phoenix='iex -S mix phoenix.server'
+alias phx='iex -S mix phx.server'
 alias update_phoenix='mix archive.install --force https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez; mix local.hex'
-alias update_mac='brew update; brew upgrade; brew cleanup; brew prune; brew cask cleanup;'
+alias update_mac='brew update; brew upgrade; brew cleanup; brew prune; brew cask cleanup; \
+         sh -c "$(curl -fsSL https://raw.githubusercontent.com/guarinogabriel/mac-cli/master/mac-cli/tools/update)"'
 alias nvimrc='nvim ~/.config/nvim/init.vim'
 
 # File size
@@ -150,8 +151,8 @@ alias emptytrash=" \
     sudo rm -rfv /Volumes/*/.Trashes; \
     rm -rfv ~/.Trash/*; \
     sudo rm -v /private/var/vm/sleepimage; \
-    rm -rv \"/Users/paulirish/Library/Application Support/stremio/Cache\";  \
-    rm -rv \"/Users/paulirish/Library/Application Support/stremio/stremio-cache\" \
+    rm -rv \"/Users/$(whoami)/Library/Application\ Support/stremio/Cache\";  \
+    rm -rv \"/Users/$(whoami)/Library/Application\ Support/stremio/stremio-cache\" \
 "
 # Recursively delete `.DS_Store` files
 alias cleanup_dsstore="find . -name '*.DS_Store' -type f -ls -delete"
@@ -160,7 +161,6 @@ alias diskspace_report="df -P -kHl"
 
 # Networking. IP address, dig, DNS
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-
 
 # Undo a `git push`
 alias undopush="git push -f origin HEAD^:master"

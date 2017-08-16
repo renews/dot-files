@@ -15,7 +15,7 @@ brew install zsh-completions
 # echo "fpath=(/usr/local/share/zsh-completions $fpath)" >> ~/.zshrc
 
 echo "${BGreen} +++ touch ~/.zshrc "
-touch ~/.zshrc 
+touch ~/.zshrc
 # zsh
 
 echo "${BGreen} +++ git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto""

@@ -12,19 +12,19 @@ if [[ $resp_apps =~ ^([yY]|[sS])$ ]]
 then
     bcaskArray=( all2mp3 android-studio atom backblaze balsamiq-mockups bartender cloud deezer dropbox dockertoolbox flux franz growlnotify
     itsycal google-chrome java mongodb mongohub spotify opera spectacle psequel postgres rdm transmission vagrant virtualbox
-    visual-studio-code vlc whatsdesktop google-drive google-hangouts iterm2 spotify-notifications sublime-text3 
+    visual-studio-code vlc whatsdesktop google-drive google-hangouts iterm2 spotify-notifications sublime-text3
     sequel-pro vagrant-manager visual-studio-code xamarin-studio xmind)
 
     for i in "${bcaskArray[@]}"
     do
         echo "${BGreen}"
         read -e -p "Install ${i}? [y/N]  (default to yes)" resp_bac_${i/'-'/'_'}
-        current_resp=resp_bac_${i/'-'/'_'}    
+        current_resp=resp_bac_${i/'-'/'_'}
         current_resp=${!current_resp:-y}
         if [[ $current_resp =~ ^([yY]|[sS])$ ]]
-        then            
-            echo "${BGreen} +++ brew cask install ${i}"      
-            brew cask install $i  
+        then
+            echo "${BGreen} +++ brew cask install ${i}"
+            brew cask install $i
         fi
     done
 fi

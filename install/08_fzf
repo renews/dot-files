@@ -10,13 +10,12 @@ read -r -p "Wanna install FZF (imagine spotlight search on command line)?" resp_
 resp_fzf=${resp_fzf:-y}
 if [[ "$resp_fzf" =~ ^([yY]|[sS])$ ]]
 then
-    
-    echo "${BGreen} +++ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf"  
+
+    echo "${BGreen} +++ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf"
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-  
-    
+
     echo "${BGreen} +++ ~/.fzf/install"
-    ~/.fzf/install    
+    ~/.fzf/install
 fi
 
 echo "${BBlue}${SPACERLINE}"

@@ -1,0 +1,14 @@
+#!/usr/local/bin/bash
+
+echo $BREAKLINE
+echo "${BBlue}${SPACER}"
+echo "${BBlue}** Installing and configuring PIP things "
+echo "${BBlue}${SPACERLINE}"
+
+echo "${BGreen} +++ pip install http-prompt"
+pip install http-prompt
+
+
+echo "${BBlue}${SPACERLINE}"
+echo "${BBlue}** Finished Installing and configuring PIP things "
+echo "${BBlue}${SPACER}"

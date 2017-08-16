@@ -5,11 +5,11 @@ echo "${BBlue}${SPACER}"
 echo "${BBlue}** Installing quicklook plugins "
 echo "${BBlue}${SPACERLINE}"
 
-quickLookArray=( qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch 
+quickLookArray=( qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch
 quicklook-csv betterzipql qlimagesize webpquicklook )
 
 for i in "${quickLookArray[@]}"
-do    
+do
     echo "${BGreen} +++ brew cask install ${i}"
     brew cask install $i
 done

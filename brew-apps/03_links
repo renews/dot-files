@@ -8,7 +8,7 @@ echo "${BBlue}${SPACERLINE}"
 linksArray=( llvm openssl )
 
 for i in "${linksArray[@]}"
-do    
+do
     echo "${BGreen} +++ brew link ${i} --force"
     brew link $i --force
 done
