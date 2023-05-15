@@ -29,8 +29,6 @@ cdf() {  # short for cdfinder
   cd "`osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)'`"
 }
 
-
-
 # git commit browser. needs fzf
 log() {
   git log --graph --color=always \
@@ -169,10 +167,6 @@ webmify(){
 function nullify() {
   "$@" >/dev/null 2>&1
 }
-
-
-# visual studio code. a la `subl`
-function code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCodeInsiders" --args $*; }
 
 # `shellswitch [bash |zsh]`
 #   Must be in /etc/shells
