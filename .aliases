@@ -13,6 +13,20 @@ function current_branch() {
   echo ${ref#refs/heads/}
 }
 
+alias zshconfig="nvim ~/.zshrc"
+alias ohmyzsh="nvim ~/.oh-my-zsh"
+alias rm="rip"
+alias top="bpytop"
+alias ls="exa"
+alias l="exa -l"
+alias grep="rg"
+alias ping="gping"
+alias dig="dog"
+alias bc="better-commits"
+alias update_pilot="npm install -g @githubnext/github-copilot-cli"
+alias lzd="lazydocker"
+alias lg="lazygit"
+
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -47,13 +61,14 @@ alias ion="ionic serve"
 alias cppcompile='c++ -std=c++11 -stdlib=libc++'
 alias zshrc="nvim ~/.zshrc"
 alias zshrcr='source ~/.zshrc'
+alias reload='source ~/.zshrc'
 alias bashrc="nvim ~/.bashrc"
 alias love="/Applications/love.app/Contents/MacOS/love"
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
 alias themes='prompt -l'
 alias sshec2='ssh -i ~/.ssh/tecnologia-dev.pem ec2-user@'
-alias today='date +"%A, %d, %B, %Y"'
+alias today='date +"%A, %d of %B %Y"'
 alias update_prezto='cd ~/.zprezto && git pull && git submodule update --init --recursive'
 alias em='emacs -nw'
 
@@ -138,10 +153,12 @@ alias gwch='git whatchanged -p --abbrev-commit --pretty = medium'
 alias gwip='git add -A; git ls-files --deleted -zalias'
 alias dc='docker-composer'
 alias phx='iex -S mix phx.server'
-alias update_phoenix='mix archive.install https://github.com/phoenixframework/archives/raw/master/phx_new.ez; mix local.hex; mix local.rebar'
-alias update_mac='brew update; brew upgrade; brew cleanup; brew prune; brew cask cleanup; \
+alias update_phoenix='mix archive.install hex phx_new; mix local.hex; mix local.rebar'
+alias update_mac='brew update; brew upgrade; brew cleanup; brew prune; brew cleanup --cask; \
+         pip3 install --upgrade pip \
          sh -c "$(curl -fsSL https://raw.githubusercontent.com/guarinogabriel/mac-cli/master/mac-cli/tools/update)"'
 alias nvimrc='nvim ~/.config/nvim/init.vim'
+alias backup_configs="mackup backup -f -r"
 
 # File size
 alias fs="stat -f \"%z bytes\""
